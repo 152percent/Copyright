@@ -1,0 +1,19 @@
+PODS:
+  - InkKit (1.0)
+  - SwiftLayout (1.3.1)
+
+DEPENDENCIES:
+  - InkKit (from `../InkKit`)
+  - SwiftLayout (from `../SwiftLayout`)
+
+EXTERNAL SOURCES:
+  InkKit:
+    :path: ../InkKit
+  SwiftLayout:
+    :path: ../SwiftLayout
+
+SPEC CHECKSUMS:
+  InkKit: e1edf926273407e4e852bb6197d91521a99747c2
+  SwiftLayout: 39dfa30a5edcc25e912e33826dce45b0731a7f34
+
+COCOAPODS: 0.39.0

@@ -24,6 +24,8 @@ You can also delete previews from the app, to exclude them from your update.
 
 Copyright provides multiple licenses by default, but you can easily add your own custom licenses too. Just select `Choose License...`
 
+Even with your custom licenses, you can use the 2 included placeholders `#Date#` and `#CompanyName#` to have Copyright automatically replace them based on the Company Name you set. Check out the screenshot for an example ;)
+
 # Updates
 
 If the app doens't quite fit your needs, you'll need to modify the code yourself. I built this as a side project to make it easier for me to maintain my Open Source projects, so I don't any specific plans to maintain it.

@@ -68,7 +68,7 @@
                                                 <action selector="importFiles:" target="Ady-hI-5gd" id="2OM-Zo-e9M"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Update Copyright" keyEquivalent="s" id="Jd3-ez-woD">
+                                        <menuItem title="Update Copyright" keyEquivalent="r" id="Jd3-ez-woD">
                                             <connections>
                                                 <action selector="save:" target="Ady-hI-5gd" id="CNg-FW-fKo"/>
                                             </connections>

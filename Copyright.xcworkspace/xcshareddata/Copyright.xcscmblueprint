@@ -1,15 +1,18 @@
 {
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E3C6F827208F0F62FB4B26D332047086349A6015",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "4914F2DFBF442D6FC6A933BFA86398EE987968E0" : 0,
-    "10325F4CC09DC790A56B4117CF90B360F7FDA689" : 0
+    "10325F4CC09DC790A56B4117CF90B360F7FDA689" : 0,
+    "E3C6F827208F0F62FB4B26D332047086349A6015" : 0,
+    "4914F2DFBF442D6FC6A933BFA86398EE987968E0" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "33DBF59F-A96C-4252-A393-79EA46E31CE7",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "4914F2DFBF442D6FC6A933BFA86398EE987968E0" : "SwiftLayout\/",
-    "10325F4CC09DC790A56B4117CF90B360F7FDA689" : "InkKit\/"
+    "10325F4CC09DC790A56B4117CF90B360F7FDA689" : "InkKit\/",
+    "E3C6F827208F0F62FB4B26D332047086349A6015" : "Copyright\/",
+    "4914F2DFBF442D6FC6A933BFA86398EE987968E0" : "SwiftLayout\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Copyright",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -24,6 +27,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:shaps80\/SwiftLayout.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4914F2DFBF442D6FC6A933BFA86398EE987968E0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:shaps80\/Copyright.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E3C6F827208F0F62FB4B26D332047086349A6015"
     }
   ]
 }

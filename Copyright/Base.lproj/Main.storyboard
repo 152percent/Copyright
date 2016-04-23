@@ -70,7 +70,7 @@
                                         </menuItem>
                                         <menuItem title="Update Copyright" keyEquivalent="r" id="Jd3-ez-woD">
                                             <connections>
-                                                <action selector="save:" target="Ady-hI-5gd" id="CNg-FW-fKo"/>
+                                                <action selector="run:" target="Ady-hI-5gd" id="skc-NJ-yIJ"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="E56-F0-QPU"/>
@@ -850,12 +850,12 @@ CA
                         <string>image</string>
                     </declaredKeys>
                     <connections>
-                        <binding destination="qJ6-KJ-dyl" name="contentArrayForMultipleSelection" keyPath="self.files" previousBinding="U3j-Kx-44L" id="E9N-Tr-nhh">
+                        <binding destination="qJ6-KJ-dyl" name="contentArray" keyPath="tree" id="xzc-OF-cNa">
                             <dictionary key="options">
                                 <bool key="NSConditionallySetsEditable" value="NO"/>
                             </dictionary>
                         </binding>
-                        <binding destination="qJ6-KJ-dyl" name="contentArray" keyPath="self.files" id="U3j-Kx-44L">
+                        <binding destination="qJ6-KJ-dyl" name="contentArrayForMultipleSelection" keyPath="tree" previousBinding="xzc-OF-cNa" id="puY-lf-Tw7">
                             <dictionary key="options">
                                 <bool key="NSConditionallySetsEditable" value="NO"/>
                             </dictionary>

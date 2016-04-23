@@ -1,23 +1,38 @@
-//
-//  Parser.swift
-//  Copyright
-//
-//  Created by Shaps Mohsenin on 11/04/2016.
-//  Copyright © 2016 Shaps Mohsenin. All rights reserved.
-//
+/*
+  Copyright © 23/04/2016 Snippex
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
+ */
 
 import AppKit
 
 final class Parser: NSObject {
   
-  func parseDirectory(startingAt URL: NSURL, progressBlock: (NSProgress) -> Void, completion: ([File]) -> Void) {
+  func parseDirectory(startingAt URL: NSURL, progressBlock: (NSProgress) -> Void, completion: (tree: [File], flattened: [File]) -> Void) {
     let enumerator = NSFileManager.defaultManager().enumeratorAtURL(URL, includingPropertiesForKeys: [ NSURLIsDirectoryKey ], options: [.SkipsPackageDescendants, .SkipsHiddenFiles]) { (url, error) -> Bool in
       print("Failed for: \(url) -- \(error)")
       return true
     }
     
     var URLs = [NSURL]()
-    var files = [File]()
+    var tree = [File]()
+    var flattened = [File]()
     
     while let url = enumerator?.nextObject() as? NSURL {
       let folder = url
@@ -25,14 +40,14 @@ final class Parser: NSObject {
     }
   
     if URLs.count == 0 {
-      completion(files)
+      completion(tree: tree, flattened: tree)
       return
     }
     
     let progress = NSProgress(totalUnitCount: Int64(URLs.count ?? 0))
     progress.becomeCurrentWithPendingUnitCount(0)
     
-    progress.cancellable = true
+    progress.cancellable = false
     progress.pausable = false
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { [unowned self] in
@@ -75,15 +90,17 @@ final class Parser: NSObject {
 
         if parent != nil {
           parent?.addFile(file)
+          flattened.append(file)
         } else {
-          files.append(file)
+          tree.append(file)
+          flattened.append(file)
         }
 
         updateProgress()
       }
       
       dispatch_async(dispatch_get_main_queue()) {
-        completion(files)
+        completion(tree: tree, flattened: flattened)
       }
     }
     

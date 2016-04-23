@@ -365,7 +365,7 @@ CA
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" emptySelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="5" autoresizesOutlineColumn="YES" outlineTableColumn="BAf-oH-25Z" id="pqZ-Ib-GGx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="226" height="559"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="226" height="0.0"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -583,14 +583,14 @@ CA
                                                             <rect key="frame" x="0.0" y="0.0" width="560" height="560"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <size key="minSize" width="560" height="560"/>
+                                                            <size key="minSize" width="573" height="560"/>
                                                             <size key="maxSize" width="573" height="10000000"/>
                                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                            <size key="minSize" width="560" height="560"/>
+                                                            <size key="minSize" width="573" height="560"/>
                                                             <size key="maxSize" width="573" height="10000000"/>
                                                             <connections>
-                                                                <binding destination="Kbw-4w-ueL" name="attributedString" keyPath="selection.attributedCopyright" id="l3b-47-m64"/>
-                                                                <outlet property="delegate" destination="YMT-pP-eEE" id="jyl-J6-EK8"/>
+                                                                <binding destination="Kbw-4w-ueL" name="value" keyPath="selection.copyright" id="YGg-rB-npg"/>
+                                                                <outlet property="delegate" destination="YMT-pP-eEE" id="ejR-MM-4zQ"/>
                                                             </connections>
                                                         </textView>
                                                     </subviews>
@@ -660,8 +660,8 @@ CA
                         <string>copyright</string>
                     </declaredKeys>
                     <connections>
-                        <binding destination="YMT-pP-eEE" name="contentArray" keyPath="self.licenses" id="Cre-jr-2GJ"/>
                         <binding destination="YMT-pP-eEE" name="contentArrayForMultipleSelection" keyPath="licenses" previousBinding="Cre-jr-2GJ" id="pWe-tL-ZcT"/>
+                        <binding destination="YMT-pP-eEE" name="contentArray" keyPath="self.licenses" id="Cre-jr-2GJ"/>
                         <binding destination="YMT-pP-eEE" name="sortDescriptors" keyPath="sortDescriptors" id="rfj-FZ-jAO"/>
                     </connections>
                 </treeController>
@@ -684,7 +684,7 @@ CA
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="22" rowSizeStyle="systemDefault" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="14" autosaveExpandedItems="YES" autoresizesOutlineColumn="YES" outlineTableColumn="mOU-h4-qkI" id="wYo-4u-G6D">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -850,12 +850,12 @@ CA
                         <string>image</string>
                     </declaredKeys>
                     <connections>
-                        <binding destination="qJ6-KJ-dyl" name="contentArray" keyPath="tree" id="xzc-OF-cNa">
+                        <binding destination="qJ6-KJ-dyl" name="contentArrayForMultipleSelection" keyPath="tree" previousBinding="xzc-OF-cNa" id="puY-lf-Tw7">
                             <dictionary key="options">
                                 <bool key="NSConditionallySetsEditable" value="NO"/>
                             </dictionary>
                         </binding>
-                        <binding destination="qJ6-KJ-dyl" name="contentArrayForMultipleSelection" keyPath="tree" previousBinding="xzc-OF-cNa" id="puY-lf-Tw7">
+                        <binding destination="qJ6-KJ-dyl" name="contentArray" keyPath="tree" id="xzc-OF-cNa">
                             <dictionary key="options">
                                 <bool key="NSConditionallySetsEditable" value="NO"/>
                             </dictionary>

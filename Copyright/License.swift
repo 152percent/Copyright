@@ -30,10 +30,11 @@ final class License: NSObject, NSCopying, NSCoding {
   dynamic var name: String
   dynamic var copyright: String
   
-  dynamic var attributedCopyright: NSAttributedString {
-    let attributes: [String: AnyObject] = [ NSFontAttributeName: NSFont(name: "Menlo", size: 12)!, NSForegroundColorAttributeName: NSColor.labelColor() ]
-    return NSAttributedString(string: copyright, attributes: attributes)
-  }
+//  dynamic var attributedCopyright: NSAttributedString? {
+//    didSet {
+//      copyright = attributedCopyright?.string ?? ""
+//    }
+//  }
   
   init?(coder aDecoder: NSCoder) {
     identifier = aDecoder.decodeObjectForKey("identifier") as! String
@@ -45,12 +46,18 @@ final class License: NSObject, NSCopying, NSCoding {
     aCoder.encodeObject(identifier, forKey: "identifier")
     aCoder.encodeObject(name, forKey: "name")
     aCoder.encodeObject(copyright, forKey: "copyright")
+    
+//    let attributes: [String: AnyObject] = [ NSFontAttributeName: NSFont(name: "Menlo", size: 12)!, NSForegroundColorAttributeName: NSColor.labelColor() ]
+//    attributedCopyright = NSAttributedString(string: copyright, attributes: attributes)
   }
   
   init(name: String, copyright: String, identifier: String = NSUUID().UUIDString) {
     self.identifier = identifier
     self.name = name
     self.copyright = copyright
+    
+//    let attributes: [String: AnyObject] = [ NSFontAttributeName: NSFont(name: "Menlo", size: 12)!, NSForegroundColorAttributeName: NSColor.labelColor() ]
+//    attributedCopyright = NSAttributedString(string: copyright, attributes: attributes)
   }
   
   func copyWithZone(zone: NSZone) -> AnyObject {

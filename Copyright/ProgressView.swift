@@ -21,8 +21,6 @@
  */
 
 import Cocoa
-import InkKit
-import SwiftLayout
 
 @IBDesignable
 class ProgressView: NSView {

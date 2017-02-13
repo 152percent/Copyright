@@ -1,5 +1,7 @@
-source 'https://github.com/CocoaPods/Specs.git'
-use_frameworks!
+target 'Copyright' do
+  use_frameworks!
+  
+  
+  
+end
 
-pod 'SwiftLayout', :path => '../SwiftLayout' 
-pod 'InkKit', :path => '../InkKit'

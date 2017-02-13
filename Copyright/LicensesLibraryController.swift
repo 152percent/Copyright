@@ -52,7 +52,7 @@ struct Licenses {
 
 final class LicensesLibraryController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate {
   
-  static var LicensesPath: String = "Copyright/Copyright.licenses"
+  static var LicensesPath: String = "Copyright"
   
   @IBOutlet var horizontalLine: NSBox!
   @IBOutlet var textView: NSTextView!
@@ -117,7 +117,9 @@ final class LicensesLibraryController: NSViewController, NSTextFieldDelegate, NS
       fatalError("Cannot access caches directory!")
     }
     
-    let path = caches.stringByAppendingPathComponent(LicensesLibraryController.LicensesPath)
+    var path = caches.stringByAppendingPathComponent(LicensesLibraryController.LicensesPath)
+    path = (path as NSString).stringByAppendingPathComponent("Copyright.licenses")
+    
     if let licenses = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [License] {
       self.licenses = licenses
     }
@@ -206,7 +208,35 @@ final class LicensesLibraryController: NSViewController, NSTextFieldDelegate, NS
     }
     
     let path = caches.stringByAppendingPathComponent(LicensesLibraryController.LicensesPath)
-    NSKeyedArchiver.archiveRootObject(licenses, toFile: path)
+    
+    if !NSFileManager.defaultManager().fileExistsAtPath(path) {
+      do {
+        try NSFileManager.defaultManager().createDirectoryAtPath(path, withIntermediateDirectories: true, attributes: [:])
+      } catch {
+        let alert = NSAlert()
+        
+        alert.messageText = "Unable to create caches path."
+        alert.informativeText = (error as NSError).localizedDescription
+        
+        alert.addButtonWithTitle("OK")
+        alert.runModal()
+      }
+    }
+    
+    do {
+      let data = NSKeyedArchiver.archivedDataWithRootObject(licenses)
+      try data.writeToFile((path as NSString).stringByAppendingPathComponent("Copyright.licenses"), options: .DataWritingAtomic)
+    } catch {
+      licenses = []
+      
+      let alert = NSAlert()
+      
+      alert.messageText = "Unable to save licenses."
+      alert.informativeText = (error as NSError).localizedDescription
+      
+      alert.addButtonWithTitle("OK")
+      alert.runModal()
+    }
   }
   
 }

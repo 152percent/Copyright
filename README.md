@@ -6,7 +6,7 @@ Copyright is a simple application for updating all the copyright info in your iO
 
 # Installation
 
-There is an initial beta available here [Copyright v0.1](https://github.com/shaps80/Copyright/releases/download/0.1/Copyright.zip)
+There is an initial beta available here [Copyright v0.2](https://github.com/shaps80/Copyright/releases/download/0.2/Copyright.zip)
 
 Alternatively, uou can just download the repo, build and run!
 

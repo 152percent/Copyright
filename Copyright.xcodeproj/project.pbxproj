@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		548FBC7220B6276100672206 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC7120B6276100672206 /* SplitViewController.swift */; };
+		548FBC7520B6320A00672206 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC7320B6320A00672206 /* PreferencesViewController.swift */; };
 		54E9768520B60AE900E94AC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9768420B60AE900E94AC5 /* AppDelegate.swift */; };
 		54E9768720B60AE900E94AC5 /* DirectoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9768620B60AE900E94AC5 /* DirectoryViewController.swift */; };
 		54E9768920B60AEA00E94AC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54E9768820B60AEA00E94AC5 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		548FBC7120B6276100672206 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		548FBC7320B6320A00672206 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		54E9768120B60AE900E94AC5 /* Copyright.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Copyright.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E9768420B60AE900E94AC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54E9768620B60AE900E94AC5 /* DirectoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				54E9769420B60B4100E94AC5 /* WindowController.swift */,
 				548FBC7120B6276100672206 /* SplitViewController.swift */,
 				54E9768620B60AE900E94AC5 /* DirectoryViewController.swift */,
+				548FBC7320B6320A00672206 /* PreferencesViewController.swift */,
 				54E9768820B60AEA00E94AC5 /* Assets.xcassets */,
 				54E9768A20B60AEA00E94AC5 /* Main.storyboard */,
 				54E9768D20B60AEA00E94AC5 /* Info.plist */,
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548FBC7520B6320A00672206 /* PreferencesViewController.swift in Sources */,
 				54E9768720B60AE900E94AC5 /* DirectoryViewController.swift in Sources */,
 				54E9769520B60B4100E94AC5 /* WindowController.swift in Sources */,
 				54E9768520B60AE900E94AC5 /* AppDelegate.swift in Sources */,

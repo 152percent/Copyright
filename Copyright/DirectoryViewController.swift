@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+final class DirectoryViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,4 @@ class ViewController: NSViewController {
         }
     }
 
-
 }
-

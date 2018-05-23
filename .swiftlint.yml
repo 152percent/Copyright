@@ -1,0 +1,30 @@
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+- Pods
+- SwiftSVG
+
+disabled_rules:
+  - class_delegate_protocol
+  - redundant_string_enum_value
+  - type_name
+  - redundant_optional_initialization
+  - operator_whitespace
+  - trailing_whitespace
+  - line_length
+  - todo
+  - nesting
+  - cyclomatic_complexity
+  - function_body_length
+  - identifier_name
+  - trailing_comma
+  - force_cast
+
+file_length:
+  warning: 500
+  error: 700
+
+function_parameter_count:
+  warning: 6
+
+large_tuple:
+  warning: 4
+

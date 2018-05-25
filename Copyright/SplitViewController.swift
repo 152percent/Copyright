@@ -12,8 +12,7 @@ final class SplitViewController: NSSplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        minimumThicknessForInlineSidebars = 700
+        minimumThicknessForInlineSidebars = 800
     }
 
 }

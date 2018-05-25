@@ -10,14 +10,10 @@ import AppKit
 
 final class WindowController: NSWindowController, NSWindowDelegate {
 
-    @IBOutlet weak var toolbarAccessoryView: NSView!
-    @IBOutlet weak var pathControl: NSPathControl!
-
     override func windowDidLoad() {
         super.windowDidLoad()
 
         window?.titleVisibility = .hidden
-        window?.styleMask.insert(.fullSizeContentView)
         window?.contentView?.wantsLayer = true
         window?.delegate = self
     }

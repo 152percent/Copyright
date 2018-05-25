@@ -7,9 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5425C1D120B7709C00617B58 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1D020B7709C00617B58 /* PreferenceButton.swift */; };
+		5433471620B6E331007090BD /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433471520B6E331007090BD /* SeparatorView.swift */; };
+		543C1C2420B6FB1A00F17EA9 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2320B6FB1A00F17EA9 /* Button.swift */; };
+		543C1C2620B708B500F17EA9 /* NSImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2520B708B500F17EA9 /* NSImage+Tint.swift */; };
+		543C1C2820B70CB700F17EA9 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2720B70CB700F17EA9 /* PreviewViewController.swift */; };
+		543C1C2A20B70E9800F17EA9 /* SynchronizedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */; };
+		543C1C2E20B7130800F17EA9 /* CGContext+Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2D20B7130800F17EA9 /* CGContext+Current.swift */; };
+		543C1C3020B7151A00F17EA9 /* SourceEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */; };
+		543C1C3420B72BAB00F17EA9 /* LineNumberRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */; };
+		543C1C3620B731E000F17EA9 /* SFMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 543C1C3520B731E000F17EA9 /* SFMono-Regular.otf */; };
 		548FBC7220B6276100672206 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC7120B6276100672206 /* SplitViewController.swift */; };
 		548FBC7520B6320A00672206 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC7320B6320A00672206 /* PreferencesViewController.swift */; };
 		548FBC7920B633B300672206 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548FBC7820B633B300672206 /* Preferences.storyboard */; };
+		548FBC7B20B635A300672206 /* LicensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC7A20B635A300672206 /* LicensesViewController.swift */; };
+		548FBC7D20B6361100672206 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC7C20B6361100672206 /* License.swift */; };
+		548FBC7F20B63B4800672206 /* Licenses in Resources */ = {isa = PBXBuildFile; fileRef = 548FBC7E20B63B4800672206 /* Licenses */; };
+		548FBC8120B63B9500672206 /* LicenseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC8020B63B9500672206 /* LicenseManager.swift */; };
+		548FBC8320B6BA5B00672206 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC8220B6BA5B00672206 /* UserDefaults.swift */; };
+		548FBC8520B6C5B200672206 /* UserDefaults+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC8420B6C5B200672206 /* UserDefaults+App.swift */; };
+		548FBC8720B6C8AF00672206 /* LicenseManager+Restore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC8620B6C8AF00672206 /* LicenseManager+Restore.swift */; };
 		54E9768520B60AE900E94AC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9768420B60AE900E94AC5 /* AppDelegate.swift */; };
 		54E9768720B60AE900E94AC5 /* DirectoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9768620B60AE900E94AC5 /* DirectoryViewController.swift */; };
 		54E9768920B60AEA00E94AC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54E9768820B60AEA00E94AC5 /* Assets.xcassets */; };
@@ -46,9 +63,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5425C1D020B7709C00617B58 /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
+		5433471520B6E331007090BD /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		543C1C2320B6FB1A00F17EA9 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		543C1C2520B708B500F17EA9 /* NSImage+Tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Tint.swift"; sourceTree = "<group>"; };
+		543C1C2720B70CB700F17EA9 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedScrollView.swift; sourceTree = "<group>"; };
+		543C1C2D20B7130800F17EA9 /* CGContext+Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGContext+Current.swift"; sourceTree = "<group>"; };
+		543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorView.swift; sourceTree = "<group>"; };
+		543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNumberRulerView.swift; sourceTree = "<group>"; };
+		543C1C3520B731E000F17EA9 /* SFMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Regular.otf"; sourceTree = "<group>"; };
 		548FBC7120B6276100672206 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		548FBC7320B6320A00672206 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		548FBC7820B633B300672206 /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
+		548FBC7A20B635A300672206 /* LicensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesViewController.swift; sourceTree = "<group>"; };
+		548FBC7C20B6361100672206 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		548FBC7E20B63B4800672206 /* Licenses */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Licenses; sourceTree = "<group>"; };
+		548FBC8020B63B9500672206 /* LicenseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseManager.swift; sourceTree = "<group>"; };
+		548FBC8220B6BA5B00672206 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		548FBC8420B6C5B200672206 /* UserDefaults+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+App.swift"; sourceTree = "<group>"; };
+		548FBC8620B6C8AF00672206 /* LicenseManager+Restore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LicenseManager+Restore.swift"; sourceTree = "<group>"; };
 		54E9768120B60AE900E94AC5 /* Copyright.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Copyright.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E9768420B60AE900E94AC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54E9768620B60AE900E94AC5 /* DirectoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +119,11 @@
 		548FBC7720B6334300672206 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				54E9768A20B60AEA00E94AC5 /* Main.storyboard */,
+				548FBC7820B633B300672206 /* Preferences.storyboard */,
 				54E9768620B60AE900E94AC5 /* DirectoryViewController.swift */,
+				548FBC7A20B635A300672206 /* LicensesViewController.swift */,
+				543C1C2720B70CB700F17EA9 /* PreviewViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -93,6 +131,7 @@
 		54E9767820B60AE900E94AC5 = {
 			isa = PBXGroup;
 			children = (
+				548FBC7E20B63B4800672206 /* Licenses */,
 				548FBC7720B6334300672206 /* Main */,
 				54E9768320B60AE900E94AC5 /* Copyright */,
 				54E9769C20B60C4400E94AC5 /* CopyLib */,
@@ -116,11 +155,19 @@
 				54E9769420B60B4100E94AC5 /* WindowController.swift */,
 				548FBC7120B6276100672206 /* SplitViewController.swift */,
 				548FBC7320B6320A00672206 /* PreferencesViewController.swift */,
-				54E9768A20B60AEA00E94AC5 /* Main.storyboard */,
-				548FBC7820B633B300672206 /* Preferences.storyboard */,
+				5433471520B6E331007090BD /* SeparatorView.swift */,
+				543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */,
+				543C1C2D20B7130800F17EA9 /* CGContext+Current.swift */,
+				543C1C2320B6FB1A00F17EA9 /* Button.swift */,
+				5425C1D020B7709C00617B58 /* PreferenceButton.swift */,
+				543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */,
+				543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */,
+				543C1C3520B731E000F17EA9 /* SFMono-Regular.otf */,
 				54E9768820B60AEA00E94AC5 /* Assets.xcassets */,
 				54E9768D20B60AEA00E94AC5 /* Info.plist */,
 				54E9768E20B60AEA00E94AC5 /* Copyright.entitlements */,
+				548FBC8620B6C8AF00672206 /* LicenseManager+Restore.swift */,
+				543C1C2520B708B500F17EA9 /* NSImage+Tint.swift */,
 			);
 			path = Copyright;
 			sourceTree = "<group>";
@@ -128,9 +175,13 @@
 		54E9769C20B60C4400E94AC5 /* CopyLib */ = {
 			isa = PBXGroup;
 			children = (
-				54E9769D20B60C4400E94AC5 /* CopyLib.h */,
 				54E9769E20B60C4400E94AC5 /* Info.plist */,
+				54E9769D20B60C4400E94AC5 /* CopyLib.h */,
 				54E976AB20B60CFF00E94AC5 /* SourceFile.swift */,
+				548FBC7C20B6361100672206 /* License.swift */,
+				548FBC8020B63B9500672206 /* LicenseManager.swift */,
+				548FBC8220B6BA5B00672206 /* UserDefaults.swift */,
+				548FBC8420B6C5B200672206 /* UserDefaults+App.swift */,
 			);
 			path = CopyLib;
 			sourceTree = "<group>";
@@ -199,6 +250,14 @@
 				TargetAttributes = {
 					54E9768020B60AE900E94AC5 = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					54E9769A20B60C4400E94AC5 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -230,8 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				543C1C3620B731E000F17EA9 /* SFMono-Regular.otf in Resources */,
 				548FBC7920B633B300672206 /* Preferences.storyboard in Resources */,
 				54E9768920B60AEA00E94AC5 /* Assets.xcassets in Resources */,
+				548FBC7F20B63B4800672206 /* Licenses in Resources */,
 				54E9768C20B60AEA00E94AC5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,8 +328,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548FBC7B20B635A300672206 /* LicensesViewController.swift in Sources */,
 				548FBC7520B6320A00672206 /* PreferencesViewController.swift in Sources */,
+				543C1C3020B7151A00F17EA9 /* SourceEditorView.swift in Sources */,
+				5433471620B6E331007090BD /* SeparatorView.swift in Sources */,
+				543C1C2E20B7130800F17EA9 /* CGContext+Current.swift in Sources */,
+				543C1C2620B708B500F17EA9 /* NSImage+Tint.swift in Sources */,
+				543C1C2820B70CB700F17EA9 /* PreviewViewController.swift in Sources */,
+				543C1C2A20B70E9800F17EA9 /* SynchronizedScrollView.swift in Sources */,
+				548FBC8720B6C8AF00672206 /* LicenseManager+Restore.swift in Sources */,
+				543C1C3420B72BAB00F17EA9 /* LineNumberRulerView.swift in Sources */,
 				54E9768720B60AE900E94AC5 /* DirectoryViewController.swift in Sources */,
+				543C1C2420B6FB1A00F17EA9 /* Button.swift in Sources */,
+				5425C1D120B7709C00617B58 /* PreferenceButton.swift in Sources */,
 				54E9769520B60B4100E94AC5 /* WindowController.swift in Sources */,
 				54E9768520B60AE900E94AC5 /* AppDelegate.swift in Sources */,
 				548FBC7220B6276100672206 /* SplitViewController.swift in Sources */,
@@ -279,7 +351,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548FBC8320B6BA5B00672206 /* UserDefaults.swift in Sources */,
 				54E976AC20B60CFF00E94AC5 /* SourceFile.swift in Sources */,
+				548FBC8520B6C5B200672206 /* UserDefaults+App.swift in Sources */,
+				548FBC7D20B6361100672206 /* License.swift in Sources */,
+				548FBC8120B63B9500672206 /* LicenseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.152percent.CopyLib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.1;
 				VERSIONING_SYSTEM = "apple-generic";

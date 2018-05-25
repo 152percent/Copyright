@@ -19,10 +19,7 @@ public final class PreviewViewController: NSViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-
-        let text = LicenseManager.shared.licenses.first?.content ?? ""
-        sourceTextView.string = text + text
-        destinationTextView.string = sourceTextView.string
+        view.layer?.backgroundColor = NSColor.white.cgColor
     }
 
     @IBAction private func toggleScrolling(_ sender: Any?) {

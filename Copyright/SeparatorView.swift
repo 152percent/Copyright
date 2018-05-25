@@ -11,7 +11,7 @@ import AppKit
 @IBDesignable
 public final class SeparatorView: NSView {
 
-    @IBOutlet private weak var scrollView: SynchronizedScrollView!
+    @IBOutlet private weak var scrollView: SynchronizedScrollView?
 
     @IBInspectable
     public var fillColor: NSColor? {
@@ -35,7 +35,7 @@ public final class SeparatorView: NSView {
     }
 
     public override func scrollWheel(with event: NSEvent) {
-        scrollView.scrollWheel(with: event)
+        scrollView?.scrollWheel(with: event)
     }
 
 }

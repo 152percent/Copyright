@@ -37,7 +37,7 @@ import Foundation
         precondition(licenses.contains(license))
         guard let index = licenses.index(of: license) else { return }
         licenses.remove(at: index)
-
+        
         do {
             try FileManager.default.removeItem(at: license.url)
         } catch {
@@ -51,9 +51,7 @@ import Foundation
                 return
         }
 
-        existing.name = license.name
-        existing.content = license.content
-        commit(license)
+        commit(existing)
     }
 
     @objc private func restoreLicenses() {
@@ -71,7 +69,7 @@ import Foundation
         }
     }
 
-    @objc private func commit(_ license: License) {
+    @objc public func commit(_ license: License) {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(license)

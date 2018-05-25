@@ -26,12 +26,13 @@ public final class SourceEditorView: NSTextView {
         let size: CGFloat = UserDefaults.app[.fontSize]
         font = NSFont(name: "SFMono-Regular", size: size)
             ?? NSFont.userFixedPitchFont(ofSize: size)
+        textColor = NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1)
 
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 7
-        defaultParagraphStyle = style
 
-        textColor = NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1)
+        defaultParagraphStyle = style
+        typingAttributes = [.paragraphStyle: style, .font: font!, .foregroundColor: textColor!]
     }
 
     public override var font: NSFont? {

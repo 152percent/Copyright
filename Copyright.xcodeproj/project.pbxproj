@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5425C1D120B7709C00617B58 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1D020B7709C00617B58 /* PreferenceButton.swift */; };
+		5425C1DC20B8525100617B58 /* DirectoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1DB20B8525100617B58 /* DirectoryParser.swift */; };
+		5425C1DE20B854A800617B58 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1DD20B854A800617B58 /* ProgressView.swift */; };
 		5433471620B6E331007090BD /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433471520B6E331007090BD /* SeparatorView.swift */; };
+		5436764F20B86ADC006C3F67 /* DirectoryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5436764E20B86ADC006C3F67 /* DirectoryResult.swift */; };
 		543C1C2420B6FB1A00F17EA9 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2320B6FB1A00F17EA9 /* Button.swift */; };
 		543C1C2620B708B500F17EA9 /* NSImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2520B708B500F17EA9 /* NSImage+Tint.swift */; };
 		543C1C2820B70CB700F17EA9 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2720B70CB700F17EA9 /* PreviewViewController.swift */; };
 		543C1C2A20B70E9800F17EA9 /* SynchronizedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */; };
-		543C1C2E20B7130800F17EA9 /* CGContext+Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2D20B7130800F17EA9 /* CGContext+Current.swift */; };
 		543C1C3020B7151A00F17EA9 /* SourceEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */; };
 		543C1C3420B72BAB00F17EA9 /* LineNumberRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */; };
 		543C1C3620B731E000F17EA9 /* SFMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 543C1C3520B731E000F17EA9 /* SFMono-Regular.otf */; };
@@ -64,12 +66,15 @@
 
 /* Begin PBXFileReference section */
 		5425C1D020B7709C00617B58 /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
+		5425C1D720B82CDA00617B58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5425C1DB20B8525100617B58 /* DirectoryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryParser.swift; sourceTree = "<group>"; };
+		5425C1DD20B854A800617B58 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		5433471520B6E331007090BD /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		5436764E20B86ADC006C3F67 /* DirectoryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryResult.swift; sourceTree = "<group>"; };
 		543C1C2320B6FB1A00F17EA9 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		543C1C2520B708B500F17EA9 /* NSImage+Tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Tint.swift"; sourceTree = "<group>"; };
 		543C1C2720B70CB700F17EA9 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedScrollView.swift; sourceTree = "<group>"; };
-		543C1C2D20B7130800F17EA9 /* CGContext+Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGContext+Current.swift"; sourceTree = "<group>"; };
 		543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorView.swift; sourceTree = "<group>"; };
 		543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNumberRulerView.swift; sourceTree = "<group>"; };
 		543C1C3520B731E000F17EA9 /* SFMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Regular.otf"; sourceTree = "<group>"; };
@@ -131,6 +136,7 @@
 		54E9767820B60AE900E94AC5 = {
 			isa = PBXGroup;
 			children = (
+				5425C1D720B82CDA00617B58 /* README.md */,
 				548FBC7E20B63B4800672206 /* Licenses */,
 				548FBC7720B6334300672206 /* Main */,
 				54E9768320B60AE900E94AC5 /* Copyright */,
@@ -157,11 +163,11 @@
 				548FBC7320B6320A00672206 /* PreferencesViewController.swift */,
 				5433471520B6E331007090BD /* SeparatorView.swift */,
 				543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */,
-				543C1C2D20B7130800F17EA9 /* CGContext+Current.swift */,
 				543C1C2320B6FB1A00F17EA9 /* Button.swift */,
 				5425C1D020B7709C00617B58 /* PreferenceButton.swift */,
 				543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */,
 				543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */,
+				5425C1DD20B854A800617B58 /* ProgressView.swift */,
 				543C1C3520B731E000F17EA9 /* SFMono-Regular.otf */,
 				54E9768820B60AEA00E94AC5 /* Assets.xcassets */,
 				54E9768D20B60AEA00E94AC5 /* Info.plist */,
@@ -182,6 +188,8 @@
 				548FBC8020B63B9500672206 /* LicenseManager.swift */,
 				548FBC8220B6BA5B00672206 /* UserDefaults.swift */,
 				548FBC8420B6C5B200672206 /* UserDefaults+App.swift */,
+				5425C1DB20B8525100617B58 /* DirectoryParser.swift */,
+				5436764E20B86ADC006C3F67 /* DirectoryResult.swift */,
 			);
 			path = CopyLib;
 			sourceTree = "<group>";
@@ -332,8 +340,8 @@
 				548FBC7520B6320A00672206 /* PreferencesViewController.swift in Sources */,
 				543C1C3020B7151A00F17EA9 /* SourceEditorView.swift in Sources */,
 				5433471620B6E331007090BD /* SeparatorView.swift in Sources */,
-				543C1C2E20B7130800F17EA9 /* CGContext+Current.swift in Sources */,
 				543C1C2620B708B500F17EA9 /* NSImage+Tint.swift in Sources */,
+				5425C1DE20B854A800617B58 /* ProgressView.swift in Sources */,
 				543C1C2820B70CB700F17EA9 /* PreviewViewController.swift in Sources */,
 				543C1C2A20B70E9800F17EA9 /* SynchronizedScrollView.swift in Sources */,
 				548FBC8720B6C8AF00672206 /* LicenseManager+Restore.swift in Sources */,
@@ -353,6 +361,8 @@
 			files = (
 				548FBC8320B6BA5B00672206 /* UserDefaults.swift in Sources */,
 				54E976AC20B60CFF00E94AC5 /* SourceFile.swift in Sources */,
+				5425C1DC20B8525100617B58 /* DirectoryParser.swift in Sources */,
+				5436764F20B86ADC006C3F67 /* DirectoryResult.swift in Sources */,
 				548FBC8520B6C5B200672206 /* UserDefaults+App.swift in Sources */,
 				548FBC7D20B6361100672206 /* License.swift in Sources */,
 				548FBC8120B63B9500672206 /* LicenseManager.swift in Sources */,

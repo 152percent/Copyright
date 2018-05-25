@@ -10,6 +10,10 @@ import AppKit
 
 public final class SynchronizedScrollView: NSScrollView {
 
+    public override class var isCompatibleWithResponsiveScrolling: Bool {
+        return true
+    }
+
     @IBOutlet private(set) weak var synchronizedScrollView: NSScrollView! {
         didSet { start() }
     }
@@ -40,10 +44,6 @@ public final class SynchronizedScrollView: NSScrollView {
         }
 
         reflectScrolledClipView(contentView)
-    }
-
-    public override class var isCompatibleWithResponsiveScrolling: Bool {
-        return true
     }
 
     public override func scrollWheel(with event: NSEvent) {

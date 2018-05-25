@@ -15,18 +15,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         seedLicensesIfRequired()
     }
-    
-}
 
-// Tabbing Support
-extension AppDelegate {
-
-    @IBAction func newWindow(_ sender: Any?) {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let windowController = storyboard.instantiateInitialController() as! WindowController
-        windowController.window?.makeKeyAndOrderFront(sender)
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
     }
-
+    
 }
 
 // License Manager – Seeding

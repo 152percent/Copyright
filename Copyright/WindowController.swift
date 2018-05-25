@@ -18,6 +18,10 @@ final class WindowController: NSWindowController, NSWindowDelegate {
         window?.delegate = self
     }
 
+    func windowWillReturnUndoManager(_ window: NSWindow) -> UndoManager? {
+        return UndoManager()
+    }
+
     public func window(_ window: NSWindow, willUseFullScreenPresentationOptions proposedOptions: NSApplication.PresentationOptions = []) -> NSApplication.PresentationOptions {
         return [proposedOptions, .autoHideToolbar]
     }

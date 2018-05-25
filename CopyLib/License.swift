@@ -21,6 +21,13 @@ import Foundation
             .appendingPathComponent("\(identifier).license")
     }
 
+    @objc public override init() {
+        self.identifier = UUID().uuidString
+        self.name = "Untitled"
+        self.content = ""
+        super.init()
+    }
+
     @objc public init(name: String, content: String?) {
         self.identifier = UUID().uuidString
         self.name = name
@@ -31,6 +38,19 @@ import Foundation
         self.identifier = identifier
         self.name = name
         self.content = content
+    }
+
+}
+
+extension License: Comparable {
+
+    public override func isLessThan(_ object: Any?) -> Bool {
+        guard let other = object as? License else { return super.isLessThan(object) }
+        return other.name < name
+    }
+
+    public static func < (lhs: License, rhs: License) -> Bool {
+        return lhs.name < rhs.name
     }
 
 }

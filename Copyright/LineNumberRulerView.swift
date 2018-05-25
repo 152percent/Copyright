@@ -92,9 +92,14 @@ class LineNumberRulerView: NSRulerView {
     override func drawHashMarksAndLabels(in rect: NSRect) {
         // draw background
         NSColor.white.setFill()
-        CGContext.current?.fill(rect)
+        rect.fill()
 
         if let textView = self.clientView as? NSTextView {
+            // don't draw anything if we don't have any text
+            guard (textView.textStorage?.length ?? 0) > 0 else {
+                return
+            }
+
             if let layoutManager = textView.layoutManager {
                 
                 let relativePoint = self.convert(CGPoint.zero, from: textView)

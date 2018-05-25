@@ -12,15 +12,16 @@ import CopyLib
 extension LicenseManager {
 
     public func seedLicenses() {
-        let licenesUrl = Bundle.main.urls(forResourcesWithExtension: "txt", subdirectory: "Licenses")
+        let licenesUrl = Bundle.main.urls(forResourcesWithExtension: "license", subdirectory: "Licenses")
+        let decoder = JSONDecoder()
 
         for sourceUrl in licenesUrl ?? [] {
             do {
-                let name = sourceUrl.deletingPathExtension().lastPathComponent
-                let content = try String(contentsOf: sourceUrl)
-                let license = License(name: name, content: content)
+                let data = try Data(contentsOf: sourceUrl)
+                let license = try decoder.decode(License.self, from: data)
+                guard !licenses.contains(license) else { continue }
                 add(license)
-                debugPrint("Seeded License from: \(sourceUrl) to: \(license.url)")
+                debugPrint("Restored License from: \(sourceUrl) to: \(license.url)")
             } catch {
                 print("Failed to seed license: \(error)")
             }

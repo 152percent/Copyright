@@ -10,7 +10,7 @@
         <!--Window Controller-->
         <scene sceneID="hG5-US-Pa9">
             <objects>
-                <windowController id="eWj-ko-ODd" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="eWj-ko-ODd" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="0Rh-Oz-pKm">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenAuxiliary="YES"/>
@@ -125,13 +125,19 @@
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="4mu-aW-tVD">
                                                                     <rect key="frame" x="6" y="5" width="185" height="17"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="License Name" id="YIe-GF-D8d">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="License Name" placeholderString="Untitled" id="YIe-GF-D8d">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="CLn-5x-1Dh" name="value" keyPath="objectValue.name" id="asJ-Mj-YrG"/>
+                                                                        <binding destination="CLn-5x-1Dh" name="value" keyPath="objectValue.name" id="4OK-tF-Stq">
+                                                                            <dictionary key="options">
+                                                                                <string key="NSNullPlaceholder">Untitled</string>
+                                                                                <bool key="NSValidatesImmediately" value="YES"/>
+                                                                            </dictionary>
+                                                                        </binding>
+                                                                        <outlet property="delegate" destination="h9d-jp-puw" id="tPJ-Vg-pO3"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -189,12 +195,18 @@
                                                 <color key="value" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="add:" target="h9d-jp-puw" id="1kd-4Z-W7i"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="12w-U9-t5I" customClass="PreferenceButton" customModule="Copyright" customModuleProvider="target">
                                         <rect key="frame" x="46" y="-2" width="47" height="37"/>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KL6-Ln-ilV" customClass="PreferenceButtonCell" customModule="Copyright" customModuleProvider="target">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
                                         </buttonCell>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -204,6 +216,9 @@
                                                 <color key="value" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="remove:" target="h9d-jp-puw" id="lmy-Qo-I4q"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZYZ-3P-0Ke" customClass="PreferenceButton" customModule="Copyright" customModuleProvider="target">
                                         <rect key="frame" x="92" y="-2" width="111" height="37"/>
@@ -261,15 +276,22 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="arrayController" destination="I5f-nt-KY5" id="63G-CL-AAG"/>
                         <outlet property="textView" destination="vis-uD-eZp" id="9FV-Uy-cwO"/>
                     </connections>
                 </viewController>
                 <customObject id="zwM-y8-4r0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController objectClassName="License" id="I5f-nt-KY5" userLabel="Licenses Controller">
+                <arrayController objectClassName="CopyLib.License" automaticallyRearrangesObjects="YES" id="I5f-nt-KY5" userLabel="Licenses Controller" customClass="LicensesController" customModule="Copyright" customModuleProvider="target">
+                    <declaredKeys>
+                        <string>name</string>
+                        <string>content</string>
+                    </declaredKeys>
                     <connections>
                         <binding destination="h9d-jp-puw" name="contentArray" keyPath="licenseManager.licenses" id="U6v-xQ-kkD"/>
+                        <binding destination="h9d-jp-puw" name="sortDescriptors" keyPath="sortDescriptors" id="iEu-x0-acT"/>
                     </connections>
                 </arrayController>
+                <userDefaultsController representsSharedInstance="YES" id="mLP-1m-QaF"/>
             </objects>
             <point key="canvasLocation" x="2091" y="270"/>
         </scene>

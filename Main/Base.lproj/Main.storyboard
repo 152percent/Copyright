@@ -722,7 +722,12 @@
                                             <size key="maxSize" width="100000" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <binding destination="rLh-v8-d13" name="valueURL" keyPath="selection.url" id="rbO-4v-lk7"/>
+                                                <binding destination="rLh-v8-d13" name="valueURL" keyPath="selection.url" id="cOn-P6-er0">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSConditionallySetsEditable" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </textView>
                                     </subviews>

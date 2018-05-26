@@ -9,9 +9,10 @@
 import Foundation
 
 @objc public enum SourceFileResolution: Int {
+    case insert
     case update
-    case ignore
-    case clear
+    case leave
+    case remove
 }
 
 @objc public final class SourceFile: NSObject {
@@ -64,12 +65,12 @@ extension SourceFile {
 
     @objc dynamic var icon: NSImage {
         if isDirectory {
-            return NSWorkspace.shared.icon(forFileType: NSFileTypeForHFSTypeCode(OSType(kGenericFolderIcon)))
+            return NSImage(named: NSImage.Name(rawValue: "folder"))!
         }
 
         switch url.pathExtension {
         case nil:
-            return NSWorkspace.shared.icon(forFileType: NSFileTypeForHFSTypeCode(OSType(kGenericFolderIcon)))
+            return NSImage(named: NSImage.Name(rawValue: "header"))!
         case "h":
             return NSImage(named: NSImage.Name(rawValue: "header"))!
         case "m":

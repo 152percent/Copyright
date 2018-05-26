@@ -14,6 +14,7 @@ public final class PreviewViewController: NSViewController {
     @IBOutlet private weak var sourceTextView: SourceEditorView!
     @IBOutlet private weak var destinationTextView: SourceEditorView!
     @IBOutlet private weak var updateButton: NSButton!
+    @IBOutlet private(set) weak var treeController: NSTreeController!
 
     @IBAction private func toggleScrolling(_ sender: Any?) {
         sourceTextView.enclosingScrollView?.scrollsDynamically = false

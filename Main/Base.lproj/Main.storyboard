@@ -340,6 +340,38 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Resolve" id="rmf-sT-2UH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Resolve" id="E9f-QL-0cq">
+                                    <items>
+                                        <menuItem title="Insert" keyEquivalent="i" id="coW-Db-4Nm">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="insertComment:" target="Ady-hI-5gd" id="cWu-zJ-ZZj"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Update" state="on" tag="1" keyEquivalent="u" id="nqC-Lm-hMi">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="updateComment:" target="Ady-hI-5gd" id="aMR-1h-e22"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="2eH-F7-eaT"/>
+                                        <menuItem title="Leave" tag="2" keyEquivalent="l" id="4rz-6j-WXn">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="leaveComment:" target="Ady-hI-5gd" id="xmi-f4-fEX"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Remove" tag="3" keyEquivalent="r" id="kvd-YA-F90">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="removeComment:" target="Ady-hI-5gd" id="rFU-tI-Xgu"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="View" id="H8h-7b-M4v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
@@ -577,7 +609,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" autosaveName="directoryList" rowHeight="22" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="14" autosaveExpandedItems="YES" outlineTableColumn="hA5-CG-JVj" id="8wb-hs-ECb">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" typeSelect="NO" autosaveName="directoryList" rowHeight="22" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="14" autosaveExpandedItems="YES" outlineTableColumn="hA5-CG-JVj" id="8wb-hs-ECb">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
@@ -608,13 +640,13 @@
                                                                         <constraint firstAttribute="height" constant="18" id="EyW-Ty-OeC"/>
                                                                         <constraint firstAttribute="width" constant="18" id="RwH-iu-qqc"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="swift" id="mix-Wv-NlW"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="folder" id="mix-Wv-NlW"/>
                                                                     <connections>
                                                                         <binding destination="7x0-T7-Lhk" name="value" keyPath="objectValue.icon" id="tUa-yB-83b"/>
                                                                     </connections>
                                                                 </imageView>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="L7f-VH-ivE">
-                                                                    <rect key="frame" x="26" y="6" width="168" height="14"/>
+                                                                    <rect key="frame" x="29" y="6" width="165" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="url" id="9rs-zh-ojp">
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -632,7 +664,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="L7f-VH-ivE" secondAttribute="trailing" constant="5" id="EFb-My-t6y"/>
                                                                 <constraint firstItem="TuS-Wz-wV4" firstAttribute="leading" secondItem="7x0-T7-Lhk" secondAttribute="leading" constant="5" id="JIs-sj-qUd"/>
-                                                                <constraint firstItem="L7f-VH-ivE" firstAttribute="leading" secondItem="TuS-Wz-wV4" secondAttribute="trailing" constant="5" id="Rw8-QR-T1g"/>
+                                                                <constraint firstItem="L7f-VH-ivE" firstAttribute="leading" secondItem="TuS-Wz-wV4" secondAttribute="trailing" constant="8" id="Rw8-QR-T1g"/>
                                                                 <constraint firstItem="L7f-VH-ivE" firstAttribute="centerY" secondItem="7x0-T7-Lhk" secondAttribute="centerY" id="fkW-Lw-maM"/>
                                                                 <constraint firstItem="TuS-Wz-wV4" firstAttribute="centerY" secondItem="7x0-T7-Lhk" secondAttribute="centerY" id="sya-cl-4DG"/>
                                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="L7f-VH-ivE" secondAttribute="bottom" constant="4" id="v1g-Uv-9bh"/>
@@ -655,6 +687,7 @@
                                             <connections>
                                                 <binding destination="qhw-Ep-yIR" name="content" keyPath="arrangedObjects" id="O0E-2Q-Ocz"/>
                                                 <binding destination="qhw-Ep-yIR" name="selectionIndexPaths" keyPath="selectionIndexPaths" previousBinding="O0E-2Q-Ocz" id="pK7-5Y-fRJ"/>
+                                                <outlet property="delegate" destination="bjg-bB-7oz" id="YPd-gg-Hhu"/>
                                             </connections>
                                         </outlineView>
                                     </subviews>
@@ -824,6 +857,8 @@
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="disclosure" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kKo-Qr-8Ip" customClass="ButtonCell" customModule="Copyright" customModuleProvider="target">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system" size="14"/>
+                                            <string key="keyEquivalent">c</string>
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                         </buttonCell>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -844,7 +879,7 @@
                                                     <string key="NSValueTransformerName">NSIsNil</string>
                                                 </dictionary>
                                             </binding>
-                                            <outlet property="menu" destination="gQD-wC-pN3" id="36t-Nk-5Ph"/>
+                                            <outlet property="menu" destination="5eN-rQ-3AQ" id="lvj-Mo-Uw3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -940,6 +975,7 @@
                     <connections>
                         <outlet property="destinationTextView" destination="1gx-Kx-sy7" id="sva-oX-6jN"/>
                         <outlet property="sourceTextView" destination="533-ov-4lx" id="URQ-Av-yNG"/>
+                        <outlet property="treeController" destination="rLh-v8-d13" id="FdU-OP-5hJ"/>
                         <outlet property="updateButton" destination="Kpw-kG-zAc" id="siA-Hh-dZ3"/>
                     </connections>
                 </viewController>
@@ -955,30 +991,36 @@
                     </connections>
                 </treeController>
                 <customObject id="sZL-eP-xxt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <menu title="File Resolution" id="gQD-wC-pN3">
+                <userDefaultsController representsSharedInstance="YES" id="p42-jo-a0L"/>
+                <menu title="Resolve" id="5eN-rQ-3AQ">
                     <items>
-                        <menuItem title="Update" id="SPK-Eu-oMU">
+                        <menuItem title="Insert" keyEquivalent="i" id="2hJ-aa-BGO">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="updateSourceFile:" target="sZL-eP-xxt" id="lU5-BR-QNt"/>
+                                <action selector="insertComment:" target="sZL-eP-xxt" id="B1j-ab-I1g"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Ignore" tag="1" id="JLK-gE-sMP">
+                        <menuItem title="Update" state="on" tag="1" keyEquivalent="u" id="2SN-Cc-lXM">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="ignoreSourceFile:" target="sZL-eP-xxt" id="pZn-pe-Xei"/>
+                                <action selector="updateComment:" target="sZL-eP-xxt" id="obB-MJ-rQb"/>
                             </connections>
                         </menuItem>
-                        <menuItem isSeparatorItem="YES" id="ToJ-PE-3sT"/>
-                        <menuItem title="Clear" tag="2" id="6Jm-xb-tyy">
+                        <menuItem isSeparatorItem="YES" id="xZB-Ix-kyc"/>
+                        <menuItem title="Leave" tag="2" keyEquivalent="l" id="Chh-5A-b5G">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="clearSourceFile:" target="sZL-eP-xxt" id="i7J-vk-3F0"/>
+                                <action selector="leaveComment:" target="sZL-eP-xxt" id="KEx-ga-keb"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Remove" tag="3" keyEquivalent="r" id="sQP-Xx-Xav">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="removeComment:" target="sZL-eP-xxt" id="LT9-fl-JR0"/>
                             </connections>
                         </menuItem>
                     </items>
                 </menu>
-                <userDefaultsController representsSharedInstance="YES" id="p42-jo-a0L"/>
             </objects>
             <point key="canvasLocation" x="627.5" y="1093"/>
         </scene>
@@ -994,6 +1036,6 @@
     <resources>
         <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="disclosure" width="14" height="8"/>
-        <image name="swift" width="30" height="39"/>
+        <image name="folder" width="100" height="100"/>
     </resources>
 </document>

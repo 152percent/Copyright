@@ -2,12 +2,7 @@
   "images" : [
     {
       "idiom" : "mac",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "mac",
-      "filename" : "swift.png",
-      "scale" : "2x"
+      "filename" : "swift.pdf"
     }
   ],
   "info" : {

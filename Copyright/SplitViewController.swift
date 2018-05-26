@@ -74,25 +74,32 @@ extension SplitViewController {
 extension SplitViewController {
 
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        guard menuItem.menu?.title == "File Resolution" else { return true }
+        guard menuItem.menu?.title == "Resolve" else { return true }
+        if treeController.selectedObjects.isEmpty { return false }
+
         guard let file = treeController.selectedObjects.first as? SourceFile else { return true }
         menuItem.state = menuItem.tag == file.resolution.rawValue ? .on : .off
         return true
     }
 
-    @IBAction private func updateSourceFile(_ sender: Any?) {
+    @IBAction private func insertComment(_ sender: Any?) {
+        let sourceFiles = treeController.selectedObjects as? [SourceFile]
+        sourceFiles?.forEach { $0.resolution = .insert }
+    }
+
+    @IBAction private func updateComment(_ sender: Any?) {
         let sourceFiles = treeController.selectedObjects as? [SourceFile]
         sourceFiles?.forEach { $0.resolution = .update }
     }
 
-    @IBAction private func ignoreSourceFile(_ sender: Any?) {
+    @IBAction private func leaveComment(_ sender: Any?) {
         let sourceFiles = treeController.selectedObjects as? [SourceFile]
-        sourceFiles?.forEach { $0.resolution = .ignore }
+        sourceFiles?.forEach { $0.resolution = .leave }
     }
 
-    @IBAction private func clearSourceFile(_ sender: Any?) {
+    @IBAction private func removeComment(_ sender: Any?) {
         let sourceFiles = treeController.selectedObjects as? [SourceFile]
-        sourceFiles?.forEach { $0.resolution = .clear }
+        sourceFiles?.forEach { $0.resolution = .remove }
     }
 
 }

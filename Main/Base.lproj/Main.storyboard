@@ -4,6 +4,7 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -344,29 +345,32 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Resolve" id="E9f-QL-0cq">
                                     <items>
-                                        <menuItem title="Insert" keyEquivalent="i" id="coW-Db-4Nm">
+                                        <menuItem title="Add" keyEquivalent="a" id="coW-Db-4Nm">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="insertComment:" target="Ady-hI-5gd" id="cWu-zJ-ZZj"/>
+                                                <action selector="addComment:" target="Ady-hI-5gd" id="ODn-FA-xsv"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Update" state="on" tag="1" keyEquivalent="u" id="nqC-Lm-hMi">
+                                        <menuItem title="Modify" state="on" tag="1" keyEquivalent="m" id="nqC-Lm-hMi">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="updateComment:" target="Ady-hI-5gd" id="aMR-1h-e22"/>
+                                                <action selector="modifyComment:" target="Ady-hI-5gd" id="qcE-KD-nKQ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Delete" tag="2" keyEquivalent="d" id="kvd-YA-F90">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="deleteComment:" target="Ady-hI-5gd" id="NcH-Di-gUn"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="2eH-F7-eaT"/>
-                                        <menuItem title="Leave" tag="2" keyEquivalent="l" id="4rz-6j-WXn">
+                                        <menuItem title="Ignore" tag="3" id="4rz-6j-WXn">
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="leaveComment:" target="Ady-hI-5gd" id="xmi-f4-fEX"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Remove" tag="3" keyEquivalent="r" id="kvd-YA-F90">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="removeComment:" target="Ady-hI-5gd" id="rFU-tI-Xgu"/>
+                                                <action selector="ignoreComment:" target="Ady-hI-5gd" id="QDb-nd-gCd"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -634,7 +638,7 @@
                                                             <rect key="frame" x="1" y="0.0" width="197" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TuS-Wz-wV4">
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TuS-Wz-wV4" userLabel="Icon">
                                                                     <rect key="frame" x="5" y="4" width="18" height="18"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="18" id="EyW-Ty-OeC"/>
@@ -645,8 +649,8 @@
                                                                         <binding destination="7x0-T7-Lhk" name="value" keyPath="objectValue.icon" id="tUa-yB-83b"/>
                                                                     </connections>
                                                                 </imageView>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="L7f-VH-ivE">
-                                                                    <rect key="frame" x="29" y="6" width="165" height="14"/>
+                                                                <textField verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="L7f-VH-ivE" userLabel="Url">
+                                                                    <rect key="frame" x="29" y="6" width="150" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="url" id="9rs-zh-ojp">
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -660,17 +664,35 @@
                                                                         </binding>
                                                                     </connections>
                                                                 </textField>
+                                                                <textField horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-mf-yye" userLabel="Resolution">
+                                                                    <rect key="frame" x="187" y="6" width="4" height="14"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="LFM-TA-fEB">
+                                                                        <font key="font" metaFont="systemSemibold" size="11"/>
+                                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="7x0-T7-Lhk" name="value" keyPath="objectValue.resolutionChar" id="DqK-9o-KM1">
+                                                                            <dictionary key="options">
+                                                                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                                            </dictionary>
+                                                                        </binding>
+                                                                    </connections>
+                                                                </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="L7f-VH-ivE" secondAttribute="trailing" constant="5" id="EFb-My-t6y"/>
                                                                 <constraint firstItem="TuS-Wz-wV4" firstAttribute="leading" secondItem="7x0-T7-Lhk" secondAttribute="leading" constant="5" id="JIs-sj-qUd"/>
                                                                 <constraint firstItem="L7f-VH-ivE" firstAttribute="leading" secondItem="TuS-Wz-wV4" secondAttribute="trailing" constant="8" id="Rw8-QR-T1g"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Vaf-mf-yye" secondAttribute="trailing" constant="8" id="YJb-8w-Cay"/>
+                                                                <constraint firstItem="Vaf-mf-yye" firstAttribute="centerY" secondItem="7x0-T7-Lhk" secondAttribute="centerY" id="edF-sr-ow6"/>
+                                                                <constraint firstItem="Vaf-mf-yye" firstAttribute="leading" secondItem="L7f-VH-ivE" secondAttribute="trailing" constant="12" id="fDM-fq-aEE"/>
                                                                 <constraint firstItem="L7f-VH-ivE" firstAttribute="centerY" secondItem="7x0-T7-Lhk" secondAttribute="centerY" id="fkW-Lw-maM"/>
                                                                 <constraint firstItem="TuS-Wz-wV4" firstAttribute="centerY" secondItem="7x0-T7-Lhk" secondAttribute="centerY" id="sya-cl-4DG"/>
                                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="L7f-VH-ivE" secondAttribute="bottom" constant="4" id="v1g-Uv-9bh"/>
                                                                 <constraint firstItem="L7f-VH-ivE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7x0-T7-Lhk" secondAttribute="top" constant="4" id="zcQ-Bi-1yF"/>
                                                             </constraints>
                                                             <connections>
+                                                                <outlet property="imageView" destination="TuS-Wz-wV4" id="RjQ-ev-JvX"/>
                                                                 <outlet property="textField" destination="L7f-VH-ivE" id="tLF-xz-kqe"/>
                                                             </connections>
                                                         </tableCellView>
@@ -870,9 +892,9 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="showUpdateButtonMenu:" target="Pe2-W8-qxS" id="3e1-Ef-mle"/>
-                                            <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="UoU-id-8dJ">
+                                            <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="kIf-xC-tGz">
                                                 <dictionary key="options">
-                                                    <integer key="NSMultipleValuesPlaceholder" value="1"/>
+                                                    <integer key="NSMultipleValuesPlaceholder" value="0"/>
                                                     <integer key="NSNoSelectionPlaceholder" value="1"/>
                                                     <integer key="NSNotApplicablePlaceholder" value="1"/>
                                                     <integer key="NSNullPlaceholder" value="1"/>
@@ -908,6 +930,11 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
+                                    <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="lS0-8k-D7B">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSIsNotNil</string>
+                                        </dictionary>
+                                    </binding>
                                     <binding destination="rLh-v8-d13" name="value" keyPath="selection.self" id="ZtU-Mw-Oq0">
                                         <dictionary key="options">
                                             <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
@@ -915,11 +942,6 @@
                                             <string key="NSNoSelectionPlaceholder">No selection</string>
                                             <string key="NSNotApplicablePlaceholder">No selection</string>
                                             <string key="NSNullPlaceholder">No selection</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="g4h-u9-lae">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSIsNotNil</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
@@ -994,29 +1016,32 @@
                 <userDefaultsController representsSharedInstance="YES" id="p42-jo-a0L"/>
                 <menu title="Resolve" id="5eN-rQ-3AQ">
                     <items>
-                        <menuItem title="Insert" keyEquivalent="i" id="2hJ-aa-BGO">
+                        <menuItem title="Add" keyEquivalent="a" id="2hJ-aa-BGO">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="insertComment:" target="sZL-eP-xxt" id="B1j-ab-I1g"/>
+                                <action selector="addComment:" target="sZL-eP-xxt" id="mp7-GF-nL3"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Update" state="on" tag="1" keyEquivalent="u" id="2SN-Cc-lXM">
+                        <menuItem title="Modify" state="on" tag="1" keyEquivalent="m" id="2SN-Cc-lXM">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="updateComment:" target="sZL-eP-xxt" id="obB-MJ-rQb"/>
+                                <action selector="modifyComment:" target="sZL-eP-xxt" id="htM-hv-9kQ"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Delete" tag="2" keyEquivalent="d" id="sQP-Xx-Xav">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="deleteComment:" target="sZL-eP-xxt" id="VQq-sj-LHC"/>
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="xZB-Ix-kyc"/>
-                        <menuItem title="Leave" tag="2" keyEquivalent="l" id="Chh-5A-b5G">
+                        <menuItem title="Ignore" tag="3" id="Chh-5A-b5G">
+                            <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="leaveComment:" target="sZL-eP-xxt" id="KEx-ga-keb"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem title="Remove" tag="3" keyEquivalent="r" id="sQP-Xx-Xav">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="removeComment:" target="sZL-eP-xxt" id="LT9-fl-JR0"/>
+                                <action selector="ignoreComment:" target="sZL-eP-xxt" id="PFd-4L-dem"/>
                             </connections>
                         </menuItem>
                     </items>

@@ -8,11 +8,22 @@
 
 import Foundation
 
+extension NSURL {
+
+    // swiftlint:disable force_try
+    @objc dynamic public var isDirectory: Bool {
+        var isDirectory: AnyObject?
+        try! getResourceValue(&isDirectory, forKey: .isDirectoryKey)
+        return isDirectory as? Bool ?? false
+    }
+
+}
+
 @objc public enum SourceFileResolution: Int {
-    case insert
-    case update
-    case leave
-    case remove
+    case add
+    case modify
+    case delete
+    case ignore
 }
 
 @objc public final class SourceFile: NSObject {
@@ -20,16 +31,40 @@ import Foundation
     @objc dynamic public let url: NSURL
     @objc dynamic public fileprivate(set) var parent: SourceFile?
     @objc dynamic public fileprivate(set) var children: [SourceFile] = []
-    @objc dynamic public var resolution: SourceFileResolution = .update
+    @objc dynamic public var resolution: SourceFileResolution = .ignore {
+        didSet {
+            switch resolution {
+            case .add: resolutionChar = "A"
+            case .modify: resolutionChar = "M"
+            case .delete: resolutionChar = "D"
+            case .ignore: resolutionChar = ""
+            }
+        }
+    }
 
     @objc public init(url: NSURL) {
+        self.resolution = .modify
         self.url = url
+    }
+
+    private var _resolutionChar: String = ""
+    @objc dynamic public var resolutionChar: String {
+        get {
+            return _resolutionChar
+        } set {
+            guard !url.isDirectory else { return }
+
+            willChangeValue(forKey: "resolutionChar")
+            _resolutionChar = newValue
+            didChangeValue(forKey: "resolutionChar")
+        }
     }
 
 }
 
 extension Array where Element == SourceFile {
 
+    /// Removes empty directories from the tree
     public var cleaned: ([SourceFile], Int) {
         var fileCount: Int = 0
         var files: [SourceFile] = []

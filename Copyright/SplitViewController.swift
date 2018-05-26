@@ -77,29 +77,49 @@ extension SplitViewController {
         guard menuItem.menu?.title == "Resolve" else { return true }
         if treeController.selectedObjects.isEmpty { return false }
 
-        guard let file = treeController.selectedObjects.first as? SourceFile else { return true }
-        menuItem.state = menuItem.tag == file.resolution.rawValue ? .on : .off
+        let sourceFiles = treeController.selectedObjects as? [SourceFile] ?? []
+        let match = sourceFiles.first {
+            if $0.url.isDirectory {
+                return $0.children.first { $0.resolution.rawValue == menuItem.tag } != nil
+            } else {
+                return $0.resolution.rawValue == menuItem.tag
+            }
+        }
+
+        switch match {
+        case .some: menuItem.state = .on
+        case .none: menuItem.state = .off
+        }
+
         return true
     }
 
-    @IBAction private func insertComment(_ sender: Any?) {
-        let sourceFiles = treeController.selectedObjects as? [SourceFile]
-        sourceFiles?.forEach { $0.resolution = .insert }
+    @IBAction private func addComment(_ sender: Any?) {
+        resolveSelectedSourceFiles(with: .add)
     }
 
-    @IBAction private func updateComment(_ sender: Any?) {
-        let sourceFiles = treeController.selectedObjects as? [SourceFile]
-        sourceFiles?.forEach { $0.resolution = .update }
+    @IBAction private func modifyComment(_ sender: Any?) {
+        resolveSelectedSourceFiles(with: .modify)
     }
 
-    @IBAction private func leaveComment(_ sender: Any?) {
-        let sourceFiles = treeController.selectedObjects as? [SourceFile]
-        sourceFiles?.forEach { $0.resolution = .leave }
+    @IBAction private func deleteComment(_ sender: Any?) {
+        resolveSelectedSourceFiles(with: .delete)
     }
 
-    @IBAction private func removeComment(_ sender: Any?) {
+    @IBAction private func ignoreComment(_ sender: Any?) {
+        resolveSelectedSourceFiles(with: .ignore)
+    }
+
+    private func resolveSelectedSourceFiles(with resolution: SourceFileResolution) {
         let sourceFiles = treeController.selectedObjects as? [SourceFile]
-        sourceFiles?.forEach { $0.resolution = .remove }
+
+        sourceFiles?.forEach {
+            if $0.url.isDirectory {
+                $0.children.forEach { $0.resolution = resolution }
+            } else {
+                $0.resolution = resolution
+            }
+        }
     }
 
 }

@@ -50,6 +50,15 @@ final class SplitViewController: NSSplitViewController {
 
 extension SplitViewController {
 
+    @IBAction private func showInFinder(_ sender: Any?) {
+        guard let sourceFiles = treeController.selectedObjects as? [SourceFile] else { return }
+        NSWorkspace.shared.activateFileViewerSelecting(sourceFiles.urls as [URL])
+    }
+
+}
+
+extension SplitViewController {
+
     @IBAction private func resetFontSize(_ sender: Any?) {
         updateFontSize(initial: normalizedFontSize, with: 0)
     }

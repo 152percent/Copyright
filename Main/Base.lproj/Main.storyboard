@@ -710,6 +710,7 @@ CA
                                                 <binding destination="qhw-Ep-yIR" name="content" keyPath="arrangedObjects" id="O0E-2Q-Ocz"/>
                                                 <binding destination="qhw-Ep-yIR" name="selectionIndexPaths" keyPath="selectionIndexPaths" previousBinding="O0E-2Q-Ocz" id="pK7-5Y-fRJ"/>
                                                 <outlet property="delegate" destination="bjg-bB-7oz" id="YPd-gg-Hhu"/>
+                                                <outlet property="menu" destination="hy0-mm-Cv3" id="V0x-Ka-VId"/>
                                             </connections>
                                         </outlineView>
                                     </subviews>
@@ -753,6 +754,16 @@ CA
                         </binding>
                     </connections>
                 </treeController>
+                <menu id="hy0-mm-Cv3">
+                    <items>
+                        <menuItem title="Reveal in Finder..." id="ymb-2M-bs7">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="showInFinder:" target="NpT-9M-orl" id="VN3-Kf-COg"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
             <point key="canvasLocation" x="-306" y="1110"/>
         </scene>

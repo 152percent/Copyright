@@ -64,6 +64,16 @@ extension NSURL {
 
 extension Array where Element == SourceFile {
 
+    public var urls: [NSURL] {
+        var urls = map { $0.url }
+
+        for file in self where file.url.isDirectory {
+            urls.append(contentsOf: file.children.map { $0.url })
+        }
+
+        return urls
+    }
+
     /// Removes empty directories from the tree
     public var cleaned: ([SourceFile], Int) {
         var fileCount: Int = 0

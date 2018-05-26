@@ -83,6 +83,10 @@ extension SplitViewController {
 extension SplitViewController {
 
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        if menuItem.title == "Reveal in Finder..." {
+            return !treeController.selectedObjects.isEmpty
+        }
+        
         guard menuItem.menu?.title == "Resolve" else { return true }
         if treeController.selectedObjects.isEmpty { return false }
 

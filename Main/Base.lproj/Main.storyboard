@@ -76,7 +76,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                        <menuItem title="Add Files..." keyEquivalent="a" id="QQs-8q-7Ws">
+                                        <menuItem title="Open Files..." keyEquivalent="a" id="QQs-8q-7Ws">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                             <connections>
                                                 <action selector="importSourceFiles:" target="Ady-hI-5gd" id="0v3-Be-P3a"/>
@@ -351,7 +351,7 @@
                                                 <action selector="addComment:" target="Ady-hI-5gd" id="ODn-FA-xsv"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Modify" state="on" tag="1" keyEquivalent="m" id="nqC-Lm-hMi">
+                                        <menuItem title="Modify" tag="1" keyEquivalent="m" id="nqC-Lm-hMi">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="modifyComment:" target="Ady-hI-5gd" id="qcE-KD-nKQ"/>
@@ -364,7 +364,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="2eH-F7-eaT"/>
-                                        <menuItem title="Ignore" tag="3" id="4rz-6j-WXn">
+                                        <menuItem title="Ignore" state="on" tag="3" id="4rz-6j-WXn">
                                             <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>

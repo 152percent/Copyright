@@ -11,7 +11,7 @@ import CopyLib
 
 final class SplitViewController: NSSplitViewController {
 
-    private let normalizedFontSize: CGFloat = 12
+    private let normalizedFontSize: CGFloat = 11
 
     private var treeController: NSTreeController {
         guard let controller = childViewControllers.compactMap({ $0 as? DirectoryViewController })
@@ -127,11 +127,7 @@ extension SplitViewController {
         let sourceFiles = treeController.selectedObjects as? [SourceFile]
 
         sourceFiles?.forEach {
-            if $0.url.isDirectory {
-                $0.children.forEach { $0.resolution = resolution }
-            } else {
-                $0.resolution = resolution
-            }
+            $0.resolution = resolution
         }
     }
 

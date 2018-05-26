@@ -24,8 +24,7 @@ public final class SourceEditorView: NSTextView {
 
     public func invalidateText() {
         let size: CGFloat = UserDefaults.standard[.fontSize]
-        font = NSFont(name: "SFMono-Regular", size: size)
-            ?? NSFont.userFixedPitchFont(ofSize: size)
+        font = NSFont.userFixedPitchFont(ofSize: size)
             ?? NSFont.systemFont(ofSize: size)
 
         textColor = NSColor.secondaryLabelColor

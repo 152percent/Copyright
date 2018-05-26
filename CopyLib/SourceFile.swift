@@ -39,11 +39,13 @@ extension NSURL {
             case .delete: resolutionChar = "D"
             case .ignore: resolutionChar = ""
             }
+
+            children.forEach { $0.resolution = resolution }
         }
     }
 
     @objc public init(url: NSURL) {
-        self.resolution = .modify
+        self.resolution = .ignore
         self.url = url
     }
 
@@ -166,8 +168,7 @@ extension SourceFile {
     @objc dynamic public var attributedSource: NSAttributedString {
         let size: CGFloat = UserDefaults.standard[.fontSize]
         let attributedString = NSMutableAttributedString()
-        let font = NSFont(name: "SFMono-Regular", size: size)
-            ?? NSFont.userFixedPitchFont(ofSize: size)
+        let font = NSFont.userFixedPitchFont(ofSize: size)
             ?? NSFont.systemFont(ofSize: size)
 
         let style = NSMutableParagraphStyle()

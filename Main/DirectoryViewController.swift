@@ -32,33 +32,4 @@ final class DirectoryViewController: NSViewController {
         }
     }
 
-//    private var state: State = .empty {
-//        didSet { invalidateState() }
-//    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        invalidateState()
-    }
-
-//    public func invalidateState() {
-//        switch state {
-//        case .empty:
-//            fileCountLabel.stringValue = "No files"
-//            fileCountLabel.isHidden = false
-//            progressView.isHidden = true
-//        case let .idle(fileCount):
-//            fileCountLabel.stringValue = "\(fileCount) file(s)"
-//            fileCountLabel.isHidden = false
-//            progressView.isHidden = true
-//        case let .inProgress(progress):
-//            progressView.progress = progress
-//            fileCountLabel.isHidden = true
-//            progressView.isHidden = false
-//        }
-//
-////        state = .inProgress(p)
-////        progressView.progress = p
-//    }
-
 }

@@ -11,6 +11,8 @@ import CopyLib
 
 final class SplitViewController: NSSplitViewController {
 
+    private let normalizedFontSize: CGFloat = 12
+
     private var treeController: NSTreeController {
         guard let controller = childViewControllers.compactMap({ $0 as? DirectoryViewController })
             .first else { fatalError() }
@@ -42,6 +44,29 @@ final class SplitViewController: NSSplitViewController {
         }
 
         importDirectory(at: panel.url!)
+    }
+
+}
+
+extension SplitViewController {
+
+    @IBAction private func resetFontSize(_ sender: Any?) {
+        updateFontSize(initial: normalizedFontSize, with: 0)
+    }
+
+    @IBAction private func increaseFontSize(_ sender: Any?) {
+        let initial: CGFloat = UserDefaults.standard[.fontSize]
+        updateFontSize(initial: initial, with: 1)
+    }
+
+    @IBAction private func decreaseFontSize(_ sender: Any?) {
+        let initial: CGFloat = UserDefaults.standard[.fontSize]
+        updateFontSize(initial: initial, with: -1)
+    }
+
+    private func updateFontSize(initial size: CGFloat, with delta: CGFloat) {
+        let newSize = size + delta
+        UserDefaults.standard[.fontSize] = newSize
     }
 
 }

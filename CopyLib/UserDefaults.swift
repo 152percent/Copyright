@@ -27,31 +27,31 @@ extension UserDefaults {
         return integer(forKey: key.rawValue)
     }
 
-    func float(forKey key: Key) -> Float {
+    public func float(forKey key: Key) -> Float {
         return float(forKey: key.rawValue)
     }
 
-    func float(forKey key: Key) -> CGFloat {
+    public func float(forKey key: Key) -> CGFloat {
         return CGFloat(float(forKey: key) as Float)
     }
 
-    func double(forKey key: Key) -> Double {
+    public func double(forKey key: Key) -> Double {
         return double(forKey: key.rawValue)
     }
 
-    func url(forKey key: Key) -> URL? {
+    public func url(forKey key: Key) -> URL? {
         return url(forKey: key.rawValue)
     }
 
-    func date(forKey key: Key) -> Date? {
+    public func date(forKey key: Key) -> Date? {
         return object(forKey: key.rawValue) as? Date
     }
 
-    func string(forKey key: Key) -> String? {
+    public func string(forKey key: Key) -> String? {
         return string(forKey: key.rawValue)
     }
 
-    func value<T>(forKey key: Key) -> T? {
+    public func value<T>(forKey key: Key) -> T? {
         return value(forKey: key.rawValue) as? T
     }
 

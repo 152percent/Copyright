@@ -1,10 +1,8 @@
-//
-//  CopyLib.h
-//  CopyLib
-//
-//  Created by Shaps Benkau on 23/05/2018.
-//  Copyright © 2018 152percent Ltd. All rights reserved.
-//
+/*
+ CopyLib.h
+
+ Created by Shaps Benkau on 23/05/2018. Copyright © 2018 152percent Ltd. All rights reserved.
+*/
 
 #import <Cocoa/Cocoa.h>
 

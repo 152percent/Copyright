@@ -54,17 +54,24 @@ extension NSTextView {
         }
         
         postsFrameChangedNotifications = true
-        NotificationCenter.default.addObserver(self, selector: #selector(lnv_framDidChange), name: NSView.frameDidChangeNotification, object: self)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(lnv_textDidChange), name: NSText.didChangeNotification, object: self)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSView.frameDidChangeNotification, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSText.didChangeNotification, object: self)
+        addObserver(self, forKeyPath: "font", options: [.initial, .new], context: nil)
+        addObserver(self, forKeyPath: "string", options: [.initial, .new], context: nil)
     }
-    
-    @objc func lnv_framDidChange(notification: NSNotification) {
-        
-        lineNumberView.needsDisplay = true
+
+    //swiftlint:disable block_based_kvo
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        if let object = object as? NSTextView, object == self && (keyPath == "font" || keyPath == "string") {
+            lnv_invalidate()
+            return
+        }
+
+        super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
     }
-    
-    @objc func lnv_textDidChange(notification: NSNotification) {
+
+    @objc func lnv_invalidate() {
         lineNumberView.needsDisplay = true
     }
 }

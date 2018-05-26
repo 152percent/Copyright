@@ -8,10 +8,6 @@
 
 import Foundation
 
-extension UserDefaults {
-    public static let app = UserDefaults(suiteName: "com.152percent.copyright.preferences")!
-}
-
 extension UserDefaults.Key {
     public static let seedLicenses: UserDefaults.Key = "SeedLicenses"
     public static let fontSize: UserDefaults.Key = "SourceFontSize"

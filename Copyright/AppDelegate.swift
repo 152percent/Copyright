@@ -13,6 +13,7 @@ import CopyLib
 final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        UserDefaults.standard.register(defaults: [.fontSize: 12])
         seedLicensesIfRequired()
     }
 
@@ -26,18 +27,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate {
 
     @IBAction private func seedLicenses(_ sender: Any?) {
-        let defaults = UserDefaults.app
+        let defaults = UserDefaults.standard
         defaults[.seedLicenses] = true
         seedLicensesIfRequired()
     }
 
     private func seedLicensesIfRequired() {
-        let defaults = UserDefaults.app
+        let defaults = UserDefaults.standard
         defaults.register(defaults: [.seedLicenses: true])
 
         guard defaults[.seedLicenses] else { return }
         LicenseManager.shared.seedLicenses()
-        UserDefaults.app[.seedLicenses] = false
+        UserDefaults.standard[.seedLicenses] = false
     }
 
 }

@@ -23,10 +23,12 @@ public final class SourceEditorView: NSTextView {
     }
 
     public func invalidateText() {
-        let size: CGFloat = UserDefaults.app[.fontSize]
+        let size: CGFloat = UserDefaults.standard[.fontSize]
         font = NSFont(name: "SFMono-Regular", size: size)
             ?? NSFont.userFixedPitchFont(ofSize: size)
-        textColor = NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1)
+            ?? NSFont.systemFont(ofSize: size)
+
+        textColor = NSColor.secondaryLabelColor
 
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 7

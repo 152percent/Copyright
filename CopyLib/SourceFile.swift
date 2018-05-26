@@ -109,3 +109,55 @@ extension SourceFile: NSCopying {
     }
 
 }
+
+extension SourceFile {
+
+    @objc dynamic public var source: String {
+        guard let source = try? String(contentsOf: url as URL) else { return "" }
+        return source
+    }
+
+    @objc dynamic public var attributedSource: NSAttributedString {
+        let size: CGFloat = UserDefaults.standard[.fontSize]
+        let attributedString = NSMutableAttributedString()
+        let font = NSFont(name: "SFMono-Regular", size: size)
+            ?? NSFont.userFixedPitchFont(ofSize: size)
+            ?? NSFont.systemFont(ofSize: size)
+
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 7
+
+        if let commentRange = self.commentRange {
+            let commentAttributes: [NSAttributedStringKey: Any] = [
+                .foregroundColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
+                .paragraphStyle: style,
+                .font: font
+            ]
+
+            let comment = String(source[commentRange])
+            let commentString = NSAttributedString(string: comment, attributes: commentAttributes)
+
+            attributedString.append(commentString)
+        }
+
+        let codeAttributes: [NSAttributedStringKey: Any] = [
+            .foregroundColor: NSColor.secondaryLabelColor,
+            .paragraphStyle: style,
+            .font: font
+        ]
+
+        let code = commentRange == nil ? source : String(source.suffix(from: commentRange!.upperBound))
+        let sourceString = NSAttributedString(string: code, attributes: codeAttributes)
+
+        attributedString.append(sourceString)
+
+        return attributedString
+    }
+
+    private var commentRange: Range<String.Index>? {
+        let source = self.source
+        return blockComment(from: source)
+            ?? inlineComment(from: source)
+    }
+    
+}

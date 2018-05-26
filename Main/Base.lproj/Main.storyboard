@@ -690,12 +690,12 @@
                 <customObject id="NpT-9M-orl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <treeController objectClassName="CopyLib.SourceFile" editable="NO" automaticallyPreparesContent="YES" childrenKeyPath="children" countKeyPath="count" leafKeyPath="isLeaf" id="qhw-Ep-yIR">
                     <connections>
+                        <binding destination="bjg-bB-7oz" name="selectionIndexPaths" keyPath="representedObject.selectedIndexPaths" id="gye-c7-R40"/>
                         <binding destination="bjg-bB-7oz" name="contentArray" keyPath="representedObject.sourceFiles" id="baC-aX-J3S">
                             <dictionary key="options">
                                 <bool key="NSConditionallySetsEditable" value="NO"/>
                             </dictionary>
                         </binding>
-                        <binding destination="bjg-bB-7oz" name="selectionIndexPaths" keyPath="representedObject.selectedIndexPaths" id="gye-c7-R40"/>
                     </connections>
                 </treeController>
             </objects>
@@ -723,12 +723,13 @@
                                             <size key="maxSize" width="100000" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <binding destination="rLh-v8-d13" name="valueURL" keyPath="selection.url" id="cOn-P6-er0">
+                                                <binding destination="rLh-v8-d13" name="attributedString" keyPath="selection.attributedSource" id="UD4-JL-tk8">
                                                     <dictionary key="options">
                                                         <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
                                                         <bool key="NSConditionallySetsEditable" value="NO"/>
                                                     </dictionary>
                                                 </binding>
+                                                <binding destination="p42-jo-a0L" name="fontSize" keyPath="values.SourceFontSize" id="HDT-Cg-jmz"/>
                                             </connections>
                                         </textView>
                                     </subviews>
@@ -759,6 +760,9 @@
                                             <size key="minSize" width="232" height="267"/>
                                             <size key="maxSize" width="100000" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <binding destination="p42-jo-a0L" name="fontSize" keyPath="values.SourceFontSize" id="oUe-aU-1d6"/>
+                                            </connections>
                                         </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -869,11 +873,6 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="g4h-u9-lae">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSIsNotNil</string>
-                                        </dictionary>
-                                    </binding>
                                     <binding destination="rLh-v8-d13" name="value" keyPath="selection.self" id="ZtU-Mw-Oq0">
                                         <dictionary key="options">
                                             <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
@@ -881,6 +880,11 @@
                                             <string key="NSNoSelectionPlaceholder">No selection</string>
                                             <string key="NSNotApplicablePlaceholder">No selection</string>
                                             <string key="NSNullPlaceholder">No selection</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="g4h-u9-lae">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSIsNotNil</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
@@ -893,17 +897,17 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="qrx-pf-OYP">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSIsNotNil</string>
-                                        </dictionary>
-                                    </binding>
                                     <binding destination="rLh-v8-d13" name="value" keyPath="selection.self" id="ewf-50-M2i">
                                         <dictionary key="options">
                                             <string key="NSMultipleValuesPlaceholder">Multiple files selected</string>
                                             <string key="NSNoSelectionPlaceholder">No selection</string>
                                             <string key="NSNotApplicablePlaceholder">No selection</string>
                                             <string key="NSNullPlaceholder">No selection</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="qrx-pf-OYP">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSIsNotNil</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
@@ -941,13 +945,13 @@
                 </viewController>
                 <treeController objectClassName="CopyLib.SourceFile" editable="NO" automaticallyPreparesContent="YES" childrenKeyPath="children" countKeyPath="count" leafKeyPath="isLeaf" id="rLh-v8-d13">
                     <connections>
+                        <binding destination="Pe2-W8-qxS" name="selectionIndexPaths" keyPath="representedObject.selectedIndexPaths" id="HD3-h3-C2m"/>
+                        <binding destination="Pe2-W8-qxS" name="sortDescriptors" keyPath="representedObject.sortDescriptors" previousBinding="HD3-h3-C2m" id="gzE-UA-mz8"/>
                         <binding destination="Pe2-W8-qxS" name="contentArray" keyPath="representedObject.sourceFiles" id="PYN-c0-6Df">
                             <dictionary key="options">
                                 <bool key="NSConditionallySetsEditable" value="NO"/>
                             </dictionary>
                         </binding>
-                        <binding destination="Pe2-W8-qxS" name="selectionIndexPaths" keyPath="representedObject.selectedIndexPaths" id="HD3-h3-C2m"/>
-                        <binding destination="Pe2-W8-qxS" name="sortDescriptors" keyPath="representedObject.sortDescriptors" previousBinding="HD3-h3-C2m" id="gzE-UA-mz8"/>
                     </connections>
                 </treeController>
                 <customObject id="sZL-eP-xxt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -974,6 +978,7 @@
                         </menuItem>
                     </items>
                 </menu>
+                <userDefaultsController representsSharedInstance="YES" id="p42-jo-a0L"/>
             </objects>
             <point key="canvasLocation" x="627.5" y="1093"/>
         </scene>

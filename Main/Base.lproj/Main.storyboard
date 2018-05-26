@@ -684,6 +684,7 @@
                         <outlet property="fileCountLabel" destination="LO9-0L-Zlh" id="gvT-lg-rnQ"/>
                         <outlet property="outlineView" destination="8wb-hs-ECb" id="rmA-Cn-rHh"/>
                         <outlet property="progressView" destination="Xrr-Dl-MiP" id="ouC-gl-a4h"/>
+                        <outlet property="treeController" destination="qhw-Ep-yIR" id="Vfl-VA-hBJ"/>
                     </connections>
                 </viewController>
                 <customObject id="NpT-9M-orl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -950,17 +951,26 @@
                     </connections>
                 </treeController>
                 <customObject id="sZL-eP-xxt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <menu id="gQD-wC-pN3">
+                <menu title="File Resolution" id="gQD-wC-pN3">
                     <items>
                         <menuItem title="Update" id="SPK-Eu-oMU">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="updateSourceFile:" target="sZL-eP-xxt" id="lU5-BR-QNt"/>
+                            </connections>
                         </menuItem>
-                        <menuItem title="Ignore" id="JLK-gE-sMP">
+                        <menuItem title="Ignore" tag="1" id="JLK-gE-sMP">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="ignoreSourceFile:" target="sZL-eP-xxt" id="pZn-pe-Xei"/>
+                            </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="ToJ-PE-3sT"/>
-                        <menuItem title="Clear" id="6Jm-xb-tyy">
+                        <menuItem title="Clear" tag="2" id="6Jm-xb-tyy">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="clearSourceFile:" target="sZL-eP-xxt" id="i7J-vk-3F0"/>
+                            </connections>
                         </menuItem>
                     </items>
                 </menu>

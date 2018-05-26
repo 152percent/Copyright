@@ -8,11 +8,18 @@
 
 import Foundation
 
+@objc public enum SourceFileResolution: Int {
+    case update
+    case ignore
+    case clear
+}
+
 @objc public final class SourceFile: NSObject {
 
     @objc dynamic public let url: NSURL
     @objc dynamic public fileprivate(set) var parent: SourceFile?
     @objc dynamic public fileprivate(set) var children: [SourceFile] = []
+    @objc dynamic public var resolution: SourceFileResolution = .update
 
     @objc public init(url: NSURL) {
         self.url = url
@@ -97,6 +104,7 @@ extension SourceFile: NSCopying {
         let copy = SourceFile(url: self.url)
         copy.parent = parent
         copy.children = children
+        copy.resolution = resolution
         return copy
     }
 

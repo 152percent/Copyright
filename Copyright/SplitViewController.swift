@@ -11,6 +11,12 @@ import CopyLib
 
 final class SplitViewController: NSSplitViewController {
 
+    private var treeController: NSTreeController {
+        guard let controller = childViewControllers.compactMap({ $0 as? DirectoryViewController })
+            .first else { fatalError() }
+        return controller.treeController
+    }
+
     override var representedObject: Any? {
         didSet {
             childViewControllers.forEach { $0.representedObject = representedObject }
@@ -36,6 +42,32 @@ final class SplitViewController: NSSplitViewController {
         }
 
         importDirectory(at: panel.url!)
+    }
+
+}
+
+extension SplitViewController {
+
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        guard menuItem.menu?.title == "File Resolution" else { return true }
+        guard let file = treeController.selectedObjects.first as? SourceFile else { return true }
+        menuItem.state = menuItem.tag == file.resolution.rawValue ? .on : .off
+        return true
+    }
+
+    @IBAction private func updateSourceFile(_ sender: Any?) {
+        let sourceFiles = treeController.selectedObjects as? [SourceFile]
+        sourceFiles?.forEach { $0.resolution = .update }
+    }
+
+    @IBAction private func ignoreSourceFile(_ sender: Any?) {
+        let sourceFiles = treeController.selectedObjects as? [SourceFile]
+        sourceFiles?.forEach { $0.resolution = .ignore }
+    }
+
+    @IBAction private func clearSourceFile(_ sender: Any?) {
+        let sourceFiles = treeController.selectedObjects as? [SourceFile]
+        sourceFiles?.forEach { $0.resolution = .clear }
     }
 
 }

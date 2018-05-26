@@ -11,16 +11,11 @@ import CopyLib
 
 public final class PreviewViewController: NSViewController {
 
-    private let normalizedFontSize: CGFloat = 12
+    private let normalizedFontSize: CGFloat = 11
 
     @IBOutlet private weak var sourceTextView: SourceEditorView!
     @IBOutlet private weak var destinationTextView: SourceEditorView!
     @IBOutlet private weak var updateButton: NSButton!
-
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        view.layer?.backgroundColor = NSColor.white.cgColor
-    }
 
     @IBAction private func toggleScrolling(_ sender: Any?) {
         sourceTextView.enclosingScrollView?.scrollsDynamically = false

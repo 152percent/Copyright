@@ -76,16 +76,17 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                        <menuItem title="Open Files..." keyEquivalent="a" id="QQs-8q-7Ws">
+                                        <menuItem title="Import Folder..." keyEquivalent="a" id="QQs-8q-7Ws">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                             <connections>
                                                 <action selector="importSourceFiles:" target="Ady-hI-5gd" id="0v3-Be-P3a"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                                        <menuItem title="Show in Finder" keyEquivalent="t" id="Ww6-ph-6se">
+                                        <menuItem title="Show in Finder" id="Ww6-ph-6se">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="newDocument:" target="Ady-hI-5gd" id="Kbj-sR-OEO"/>
+                                                <action selector="showInFinder:" target="Ady-hI-5gd" id="ddX-4N-fwq"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -398,6 +399,12 @@ CA
                                                 <action selector="toggleSidebar:" target="Ady-hI-5gd" id="aHS-dK-glB"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Hide Line Numbers" tag="9" keyEquivalent="9" id="dKt-yr-D54">
+                                            <connections>
+                                                <action selector="toggleLineNumbers:" target="Ady-hI-5gd" id="a9n-8z-01g"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="01z-Ld-6nu"/>
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
@@ -756,7 +763,7 @@ CA
                 </treeController>
                 <menu id="hy0-mm-Cv3">
                     <items>
-                        <menuItem title="Reveal in Finder..." id="ymb-2M-bs7">
+                        <menuItem title="Show in Finder" id="ymb-2M-bs7">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="showInFinder:" target="NpT-9M-orl" id="VN3-Kf-COg"/>
@@ -941,11 +948,6 @@ CA
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="lS0-8k-D7B">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSIsNotNil</string>
-                                        </dictionary>
-                                    </binding>
                                     <binding destination="rLh-v8-d13" name="value" keyPath="selection.self" id="ZtU-Mw-Oq0">
                                         <dictionary key="options">
                                             <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
@@ -953,6 +955,11 @@ CA
                                             <string key="NSNoSelectionPlaceholder">No selection</string>
                                             <string key="NSNotApplicablePlaceholder">No selection</string>
                                             <string key="NSNullPlaceholder">No selection</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="lS0-8k-D7B">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSIsNotNil</string>
                                         </dictionary>
                                     </binding>
                                 </connections>

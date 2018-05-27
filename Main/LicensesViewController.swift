@@ -28,6 +28,13 @@ final class LicensesViewController: PreferencesViewController {
     @IBOutlet private weak var arrayController: LicensesController!
     @objc dynamic private let sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        // override preference
+        textView.enclosingScrollView?.hasVerticalRuler = true
+    }
+
     @IBAction private func add(_ sender: Any?) {
         let license = License(name: "Untitled", content: nil)
         licenseManager.add(license)
@@ -35,6 +42,8 @@ final class LicensesViewController: PreferencesViewController {
         undoManager?.registerUndo(withTarget: self) { [weak self] _ in
             self?.licenseManager.remove(license)
         }
+
+        arrayController.setSelectedObjects([license])
     }
 
     @IBAction private func remove(_ sender: Any?) {

@@ -281,7 +281,7 @@ CA
                     </connections>
                 </viewController>
                 <customObject id="zwM-y8-4r0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController objectClassName="CopyLib.License" automaticallyRearrangesObjects="YES" id="I5f-nt-KY5" userLabel="Licenses Controller" customClass="LicensesController" customModule="Copyright" customModuleProvider="target">
+                <arrayController objectClassName="CopyLib.License" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="I5f-nt-KY5" userLabel="Licenses Controller" customClass="LicensesController" customModule="Copyright" customModuleProvider="target">
                     <declaredKeys>
                         <string>name</string>
                         <string>content</string>

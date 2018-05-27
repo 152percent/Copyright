@@ -13,7 +13,11 @@ import CopyLib
 final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        UserDefaults.standard.register(defaults: [.fontSize: 12])
+        UserDefaults.standard.register(defaults: [
+            .fontSize: 12,
+            .showLineNumbers: true
+        ])
+
         seedLicensesIfRequired()
     }
 

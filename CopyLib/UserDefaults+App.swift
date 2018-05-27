@@ -11,4 +11,5 @@ import Foundation
 extension UserDefaults.Key {
     public static let seedLicenses: UserDefaults.Key = "SeedLicenses"
     public static let fontSize: UserDefaults.Key = "SourceFontSize"
+    public static let showLineNumbers: UserDefaults.Key = "ShowLineNumbers"
 }

@@ -7,8 +7,15 @@
 //
 
 import AppKit
+import CopyLib
 
 public final class SourceEditorView: NSTextView {
+
+    // </token/>
+    private lazy var tokenRegex: NSRegularExpression = {
+        // swiftlint:disable force_try
+        return try! NSRegularExpression(pattern: "</.+?/>", options: [])
+    }()
 
     public override var string: String {
         didSet { invalidateText() }
@@ -16,10 +23,18 @@ public final class SourceEditorView: NSTextView {
 
     public override func awakeFromNib() {
         super.awakeFromNib()
+        textStorage?.delegate = self
 
+        usesRuler = true
         usesFindBar = true
         lnv_setUpLineNumberView()
         invalidateText()
+
+        enclosingScrollView?.hasVerticalRuler = UserDefaults.standard[.showLineNumbers]
+    }
+
+    public func toggleLineNumbers() {
+        enclosingScrollView?.hasVerticalRuler = UserDefaults.standard[.showLineNumbers]
     }
 
     public func invalidateText() {
@@ -72,6 +87,40 @@ public final class SourceEditorView: NSTextView {
     @objc private func didChange(_ note: Notification) {
         ruler?.needsDisplay = true
         invalidateText()
+    }
+
+}
+
+extension SourceEditorView: NSTextStorageDelegate {
+
+    public func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+        let string = textStorage.string as NSString
+        let lineRange = string.lineRange(for: editedRange)
+        let line = string.substring(with: lineRange)
+        let matches = tokenRegex.matches(in: line, options: [], range: NSRange(location: 0, length: line.count))
+
+        let tokens = matches
+            .map { $0.range }
+            .map { line[Range($0, in: line)!] }
+            .map { $0.dropFirst(2) }
+            .map { $0.dropLast(2) }
+
+        let cells = tokens
+            .map { String($0) }
+            .map { TokenCell(textCell: $0) }
+
+        let attachments = cells.map { cell -> NSTextAttachment in
+            let attachment = NSTextAttachment()
+            attachment.attachmentCell = cell
+            return attachment
+        }
+
+        let tokenStrings = attachments
+            .map { NSAttributedString(attachment: $0) }
+
+        for (match, string) in zip(matches, tokenStrings).reversed() {
+            textStorage.replaceCharacters(in: match.range, with: string)
+        }
     }
 
 }

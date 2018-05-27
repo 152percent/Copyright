@@ -149,11 +149,7 @@ extension SourceFile {
 extension SourceFile: NSCopying {
 
     @objc dynamic public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = SourceFile(url: self.url)
-        copy.parent = parent
-        copy.children = children
-        copy.resolution = resolution
-        return copy
+        return type(of: self).init(url: url)
     }
 
 }

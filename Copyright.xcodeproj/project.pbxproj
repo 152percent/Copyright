@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		541BB59820BAC9D2009AF63A /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB59720BAC9D2009AF63A /* TokenCell.swift */; };
+		541BB59A20BB0FF9009AF63A /* Bool+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB59920BB0FF9009AF63A /* Bool+Toggle.swift */; };
 		5425C1D120B7709C00617B58 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1D020B7709C00617B58 /* PreferenceButton.swift */; };
 		5425C1DC20B8525100617B58 /* DirectoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1DB20B8525100617B58 /* DirectoryParser.swift */; };
 		5425C1DE20B854A800617B58 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1DD20B854A800617B58 /* ProgressView.swift */; };
@@ -19,7 +21,6 @@
 		543C1C2A20B70E9800F17EA9 /* SynchronizedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */; };
 		543C1C3020B7151A00F17EA9 /* SourceEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */; };
 		543C1C3420B72BAB00F17EA9 /* LineNumberRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */; };
-		543C1C3620B731E000F17EA9 /* SFMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 543C1C3520B731E000F17EA9 /* SFMono-Regular.otf */; };
 		548FBC7220B6276100672206 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC7120B6276100672206 /* SplitViewController.swift */; };
 		548FBC7520B6320A00672206 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC7320B6320A00672206 /* PreferencesViewController.swift */; };
 		548FBC7920B633B300672206 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548FBC7820B633B300672206 /* Preferences.storyboard */; };
@@ -70,6 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		541BB59720BAC9D2009AF63A /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
+		541BB59920BB0FF9009AF63A /* Bool+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Toggle.swift"; sourceTree = "<group>"; };
 		5425C1D020B7709C00617B58 /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		5425C1D720B82CDA00617B58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5425C1DB20B8525100617B58 /* DirectoryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryParser.swift; sourceTree = "<group>"; };
@@ -83,7 +86,6 @@
 		543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedScrollView.swift; sourceTree = "<group>"; };
 		543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorView.swift; sourceTree = "<group>"; };
 		543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNumberRulerView.swift; sourceTree = "<group>"; };
-		543C1C3520B731E000F17EA9 /* SFMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Regular.otf"; sourceTree = "<group>"; };
 		548FBC7120B6276100672206 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		548FBC7320B6320A00672206 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		548FBC7820B633B300672206 /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
@@ -176,9 +178,9 @@
 				543C1C2320B6FB1A00F17EA9 /* Button.swift */,
 				5425C1D020B7709C00617B58 /* PreferenceButton.swift */,
 				543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */,
+				541BB59720BAC9D2009AF63A /* TokenCell.swift */,
 				543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */,
 				5425C1DD20B854A800617B58 /* ProgressView.swift */,
-				543C1C3520B731E000F17EA9 /* SFMono-Regular.otf */,
 				54E9768820B60AEA00E94AC5 /* Assets.xcassets */,
 				54E9768D20B60AEA00E94AC5 /* Info.plist */,
 				54E9768E20B60AEA00E94AC5 /* Copyright.entitlements */,
@@ -201,6 +203,7 @@
 				5425C1DB20B8525100617B58 /* DirectoryParser.swift */,
 				5436764E20B86ADC006C3F67 /* DirectoryResult.swift */,
 				5436765020B95647006C3F67 /* CommentsParser.swift */,
+				541BB59920BB0FF9009AF63A /* Bool+Toggle.swift */,
 			);
 			path = CopyLib;
 			sourceTree = "<group>";
@@ -308,7 +311,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				543C1C3620B731E000F17EA9 /* SFMono-Regular.otf in Resources */,
 				548FBC7920B633B300672206 /* Preferences.storyboard in Resources */,
 				54F11B8C20B96C140099AADE /* inline.regex in Resources */,
 				54E9768920B60AEA00E94AC5 /* Assets.xcassets in Resources */,
@@ -356,6 +358,7 @@
 				543C1C3020B7151A00F17EA9 /* SourceEditorView.swift in Sources */,
 				5433471620B6E331007090BD /* SeparatorView.swift in Sources */,
 				543C1C2620B708B500F17EA9 /* NSImage+Tint.swift in Sources */,
+				541BB59820BAC9D2009AF63A /* TokenCell.swift in Sources */,
 				5425C1DE20B854A800617B58 /* ProgressView.swift in Sources */,
 				543C1C2820B70CB700F17EA9 /* PreviewViewController.swift in Sources */,
 				543C1C2A20B70E9800F17EA9 /* SynchronizedScrollView.swift in Sources */,
@@ -374,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541BB59A20BB0FF9009AF63A /* Bool+Toggle.swift in Sources */,
 				548FBC8320B6BA5B00672206 /* UserDefaults.swift in Sources */,
 				54E976AC20B60CFF00E94AC5 /* SourceFile.swift in Sources */,
 				5436765120B95647006C3F67 /* CommentsParser.swift in Sources */,

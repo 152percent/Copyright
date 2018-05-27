@@ -83,28 +83,47 @@ extension SplitViewController {
 extension SplitViewController {
 
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        if menuItem.title == "Reveal in Finder..." {
+        if menuItem.menu?.title == "View" && menuItem.tag == 9 {
+            menuItem.title = UserDefaults.standard[.showLineNumbers]
+                ? "Hide Line Numbers"
+                : "Show Line Numbers"
+            return true
+        }
+
+        switch (menuItem.menu?.title, menuItem.title) {
+        case (_, "Show in Finder"):
             return !treeController.selectedObjects.isEmpty
-        }
-        
-        guard menuItem.menu?.title == "Resolve" else { return true }
-        if treeController.selectedObjects.isEmpty { return false }
+        case ("Resolve", _):
+            if treeController.selectedObjects.isEmpty { return false }
+            let sourceFiles = treeController.selectedObjects as? [SourceFile] ?? []
 
-        let sourceFiles = treeController.selectedObjects as? [SourceFile] ?? []
-        let match = sourceFiles.first {
-            if $0.url.isDirectory {
-                return $0.children.first { $0.resolution.rawValue == menuItem.tag } != nil
-            } else {
-                return $0.resolution.rawValue == menuItem.tag
+            let match = sourceFiles.first {
+                if $0.url.isDirectory {
+                    return $0.children.first { $0.resolution.rawValue == menuItem.tag } != nil
+                } else {
+                    return $0.resolution.rawValue == menuItem.tag
+                }
             }
-        }
 
-        switch match {
-        case .some: menuItem.state = .on
-        case .none: menuItem.state = .off
-        }
+            switch match {
+            case .some: menuItem.state = .on
+            case .none: menuItem.state = .off
+            }
 
-        return true
+            return true
+        default:
+            return true
+        }
+    }
+
+    @IBAction private func toggleLineNumbers(_ sender: Any?) {
+        guard let controller = childViewControllers
+            .compactMap({ $0 as? PreviewViewController })
+            .first else { return }
+
+        UserDefaults.standard[.showLineNumbers].toggle()
+        controller.sourceTextView.toggleLineNumbers()
+        controller.destinationTextView.toggleLineNumbers()
     }
 
     @IBAction private func addComment(_ sender: Any?) {

@@ -151,7 +151,7 @@ class LineNumberRulerView: NSRulerView {
                         // Range of current "line of glyphs". If a line is wrapped,
                         // then it will have more than one "line of glyphs"
                         let lineFragmentRect = layoutManager.lineFragmentRect(forGlyphAt: glyphIndexForGlyphLine, effectiveRange: &effectiveRange, withoutAdditionalLayout: true)
-                        let yOrigin = lineFragmentRect.origin.y + 2
+                        let yOrigin = lineFragmentRect.origin.y + 1.5
 
                         if glyphsForLineCount > 0 {
                             drawLineNumber(" ", yOrigin)

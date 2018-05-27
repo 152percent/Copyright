@@ -11,6 +11,11 @@ import CopyLib
 
 public final class SourceEditorView: NSTextView {
 
+    // tabs or space
+    private lazy var newLineRegex: NSRegularExpression = {
+        return regex(for: "newline")
+    }()
+
     // </token/>
     private lazy var tokenRegex: NSRegularExpression = {
         // swiftlint:disable force_try
@@ -44,8 +49,11 @@ public final class SourceEditorView: NSTextView {
         font = NSFont.userFixedPitchFont(ofSize: size)
             ?? NSFont.systemFont(ofSize: size)
 
+        let style = NSMutableParagraphStyle()
+        style.headIndent = 10
+
         textColor = NSColor.secondaryLabelColor
-        typingAttributes = [.font: font!, .foregroundColor: textColor!]
+        typingAttributes = [.font: font!, .foregroundColor: textColor!, .paragraphStyle: style]
         insertionPointColor = NSColor.systemBlue
     }
 
@@ -85,6 +93,32 @@ public final class SourceEditorView: NSTextView {
     @objc private func didChange(_ note: Notification) {
         ruler?.needsDisplay = true
         invalidateText()
+    }
+
+}
+
+extension SourceEditorView {
+
+    private var currentLine: String {
+        let range = (string as NSString).lineRange(for: selectedRange())
+        return (string as NSString).substring(with: range)
+    }
+
+    @objc public override func insertNewline(_ sender: Any?) {
+        let previousLine = self.currentLine
+        let range = NSRange(location: 0, length: previousLine.count)
+
+        super.insertNewline(sender)
+
+        guard let match = newLineRegex.firstMatch(in: previousLine, options: [], range: range) else { return }
+
+        let indent = (previousLine as NSString).substring(with: match.range)
+        insertText(indent, replacementRange: selectedRange())
+    }
+
+    @objc public override func insertTab(_ sender: Any?) {
+        let spaces = Array(repeating: " ", count: 4)
+        insertText(spaces.joined(), replacementRange: selectedRange())
     }
 
 }

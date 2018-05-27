@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		541BB59820BAC9D2009AF63A /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB59720BAC9D2009AF63A /* TokenCell.swift */; };
 		541BB59A20BB0FF9009AF63A /* Bool+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB59920BB0FF9009AF63A /* Bool+Toggle.swift */; };
+		541BB5A020BB5E29009AF63A /* newline.regex in Resources */ = {isa = PBXBuildFile; fileRef = 541BB59F20BB5E29009AF63A /* newline.regex */; };
 		5425C1D120B7709C00617B58 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1D020B7709C00617B58 /* PreferenceButton.swift */; };
 		5425C1DC20B8525100617B58 /* DirectoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1DB20B8525100617B58 /* DirectoryParser.swift */; };
 		5425C1DE20B854A800617B58 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1DD20B854A800617B58 /* ProgressView.swift */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		541BB59720BAC9D2009AF63A /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
 		541BB59920BB0FF9009AF63A /* Bool+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Toggle.swift"; sourceTree = "<group>"; };
+		541BB59F20BB5E29009AF63A /* newline.regex */ = {isa = PBXFileReference; lastKnownFileType = text; path = newline.regex; sourceTree = "<group>"; };
 		5425C1D020B7709C00617B58 /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		5425C1D720B82CDA00617B58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5425C1DB20B8525100617B58 /* DirectoryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryParser.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				54E9769E20B60C4400E94AC5 /* Info.plist */,
 				54F11B8820B96A4A0099AADE /* block.regex */,
 				54F11B8B20B96C140099AADE /* inline.regex */,
+				541BB59F20BB5E29009AF63A /* newline.regex */,
 				54E9769D20B60C4400E94AC5 /* CopyLib.h */,
 				54E976AB20B60CFF00E94AC5 /* SourceFile.swift */,
 				548FBC7C20B6361100672206 /* License.swift */,
@@ -326,6 +329,7 @@
 			files = (
 				54F11B8D20B96C140099AADE /* inline.regex in Resources */,
 				54F11B8A20B96A4A0099AADE /* block.regex in Resources */,
+				541BB5A020BB5E29009AF63A /* newline.regex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

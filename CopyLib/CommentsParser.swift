@@ -10,7 +10,7 @@
 
 import Foundation
 
-private func regex(for resource: String) -> NSRegularExpression {
+public func regex(for resource: String) -> NSRegularExpression {
     let url = Bundle(for: SourceFile.self).url(forResource: resource, withExtension: "regex")!
     let pattern = try! String(contentsOf: url)
     return try! NSRegularExpression(pattern: pattern, options: [])

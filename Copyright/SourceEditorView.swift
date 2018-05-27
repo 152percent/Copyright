@@ -50,7 +50,7 @@ public final class SourceEditorView: NSTextView {
         font = .userFixedPitchFont(ofSize: size)
             ?? .systemFont(ofSize: size)
 
-        textColor = .secondaryLabelColor
+        textColor = NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1)
         typingAttributes = [.font: font!, .foregroundColor: textColor!]
         insertionPointColor = .systemBlue
     }
@@ -163,13 +163,14 @@ extension SourceEditorView: NSTextStorageDelegate {
             .map { $0.dropFirst(2) }
             .map { $0.dropLast(2) }
 
-        let cells = tokens
-            .map { String($0) }
-            .map { TokenCell(textCell: $0) }
+//        let cells = tokens
+//            .map { String($0) }
+//            .map { TokenAttachmentCell(textCell: $0) }
 
-        let attachments = cells.map { cell -> NSTextAttachment in
-            let attachment = NSTextAttachment()
-            attachment.attachmentCell = cell
+        let attachments = tokens.map { _ -> TokenAttachment in
+            let attachment = TokenAttachment(data: nil, ofType: nil)
+            attachment.fontDescender = font?.descender ?? 0
+            attachment.image = #imageLiteral(resourceName: "folder")
             return attachment
         }
 

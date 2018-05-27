@@ -30,7 +30,7 @@ final class LicensesViewController: PreferencesViewController {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         // override preference
         textView.enclosingScrollView?.hasVerticalRuler = true
     }

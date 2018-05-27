@@ -23,7 +23,9 @@ public final class SourceEditorView: NSTextView {
 
     public override func awakeFromNib() {
         super.awakeFromNib()
+
         textStorage?.delegate = self
+        layoutManager?.delegate = self
 
         usesRuler = true
         usesFindBar = true
@@ -43,12 +45,8 @@ public final class SourceEditorView: NSTextView {
             ?? NSFont.systemFont(ofSize: size)
 
         textColor = NSColor.secondaryLabelColor
-
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 7
-
-        defaultParagraphStyle = style
-        typingAttributes = [.paragraphStyle: style, .font: font!, .foregroundColor: textColor!]
+        typingAttributes = [.font: font!, .foregroundColor: textColor!]
+        insertionPointColor = NSColor.systemBlue
     }
 
     public override var font: NSFont? {
@@ -87,6 +85,34 @@ public final class SourceEditorView: NSTextView {
     @objc private func didChange(_ note: Notification) {
         ruler?.needsDisplay = true
         invalidateText()
+    }
+
+}
+
+extension SourceEditorView: NSLayoutManagerDelegate {
+
+    public func layoutManager(_ layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<NSRect>, lineFragmentUsedRect: UnsafeMutablePointer<NSRect>, baselineOffset: UnsafeMutablePointer<CGFloat>, in textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool {
+
+        let size: CGFloat = UserDefaults.standard[.fontSize]
+        let font = NSFont.userFixedPitchFont(ofSize: size) ?? NSFont.systemFont(ofSize: size)
+        let lineHeightMultiple: CGFloat = 1.6
+        let fontLineHeight = layoutManager.defaultLineHeight(for: font)
+        let lineHeight = fontLineHeight * lineHeightMultiple
+        let baselineNudge = (lineHeight - fontLineHeight)
+            // The following factor is a result of experimentation:
+            * 0.6
+
+        var rect = lineFragmentRect.pointee
+        rect.size.height = lineHeight
+
+        var usedRect = lineFragmentUsedRect.pointee
+        usedRect.size.height = max(lineHeight, usedRect.size.height) // keep emoji sizes
+
+        lineFragmentRect.pointee = rect
+        lineFragmentUsedRect.pointee = usedRect
+        baselineOffset.pointee += baselineNudge
+
+        return true
     }
 
 }

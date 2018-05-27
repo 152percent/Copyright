@@ -83,17 +83,20 @@ extension SplitViewController {
 extension SplitViewController {
 
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        if menuItem.menu?.title == "View" && menuItem.tag == 9 {
+        guard let action = menuItem.action else { return false }
+
+        switch action {
+        case #selector(toggleLineNumbers(_:)):
             menuItem.title = UserDefaults.standard[.showLineNumbers]
                 ? "Hide Line Numbers"
                 : "Show Line Numbers"
             return true
-        }
-
-        switch (menuItem.menu?.title, menuItem.title) {
-        case (_, "Show in Finder"):
+        case #selector(showInFinder(_:)):
             return !treeController.selectedObjects.isEmpty
-        case ("Resolve", _):
+        case #selector(addComment(_:)),
+             #selector(modifyComment(_:)),
+             #selector(deleteComment(_:)),
+             #selector(ignoreComment(_:)):
             if treeController.selectedObjects.isEmpty { return false }
             let sourceFiles = treeController.selectedObjects as? [SourceFile] ?? []
 
@@ -111,8 +114,7 @@ extension SplitViewController {
             }
 
             return true
-        default:
-            return true
+        default: return true
         }
     }
 

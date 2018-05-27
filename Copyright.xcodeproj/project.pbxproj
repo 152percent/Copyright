@@ -147,8 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				5425C1D720B82CDA00617B58 /* README.md */,
-				54F11B8820B96A4A0099AADE /* block.regex */,
-				54F11B8B20B96C140099AADE /* inline.regex */,
 				548FBC7E20B63B4800672206 /* Licenses */,
 				548FBC7720B6334300672206 /* Main */,
 				54E9768320B60AE900E94AC5 /* Copyright */,
@@ -177,8 +175,8 @@
 				543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */,
 				543C1C2320B6FB1A00F17EA9 /* Button.swift */,
 				5425C1D020B7709C00617B58 /* PreferenceButton.swift */,
-				543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */,
 				541BB59720BAC9D2009AF63A /* TokenCell.swift */,
+				543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */,
 				543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */,
 				5425C1DD20B854A800617B58 /* ProgressView.swift */,
 				54E9768820B60AEA00E94AC5 /* Assets.xcassets */,
@@ -194,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				54E9769E20B60C4400E94AC5 /* Info.plist */,
+				54F11B8820B96A4A0099AADE /* block.regex */,
+				54F11B8B20B96C140099AADE /* inline.regex */,
 				54E9769D20B60C4400E94AC5 /* CopyLib.h */,
 				54E976AB20B60CFF00E94AC5 /* SourceFile.swift */,
 				548FBC7C20B6361100672206 /* License.swift */,

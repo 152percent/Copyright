@@ -55,6 +55,7 @@ extension NSTextView {
         
         postsFrameChangedNotifications = true
 
+        NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSTextStorage.didProcessEditingNotification, object: self)
         NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSView.frameDidChangeNotification, object: self)
         NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSText.didChangeNotification, object: self)
         addObserver(self, forKeyPath: "font", options: [.initial, .new], context: nil)
@@ -115,7 +116,7 @@ class LineNumberRulerView: NSRulerView {
                 let drawLineNumber = { (lineNumberString: String, y: CGFloat) in
                     let attString = NSAttributedString(string: lineNumberString, attributes: lineNumberAttributes)
                     let x = 35 - attString.size().width
-                    attString.draw(at: NSPoint(x: x, y: relativePoint.y + y - 4))
+                    attString.draw(at: NSPoint(x: x, y: relativePoint.y + y))
                 }
                 
                 let visibleGlyphRange = layoutManager.glyphRange(forBoundingRect: textView.visibleRect, in: textView.textContainer!)
@@ -139,7 +140,7 @@ class LineNumberRulerView: NSRulerView {
                     let glyphRangeForStringLine = layoutManager.glyphRange(forCharacterRange: characterRangeForStringLine, actualCharacterRange: nil)
                     
                     var glyphIndexForGlyphLine = glyphIndexForStringLine
-                    var glyphLineCount = 0
+                    var glyphsForLineCount = 0
                     
                     while glyphIndexForGlyphLine < NSMaxRange(glyphRangeForStringLine) {
                         
@@ -149,16 +150,17 @@ class LineNumberRulerView: NSRulerView {
                         
                         // Range of current "line of glyphs". If a line is wrapped,
                         // then it will have more than one "line of glyphs"
-                        let lineRect = layoutManager.lineFragmentRect(forGlyphAt: glyphIndexForGlyphLine, effectiveRange: &effectiveRange, withoutAdditionalLayout: true)
-                        
-                        if glyphLineCount > 0 {
-                            drawLineNumber(" ", lineRect.minY)
+                        let lineFragmentRect = layoutManager.lineFragmentRect(forGlyphAt: glyphIndexForGlyphLine, effectiveRange: &effectiveRange, withoutAdditionalLayout: true)
+                        let yOrigin = lineFragmentRect.origin.y + 2
+
+                        if glyphsForLineCount > 0 {
+                            drawLineNumber(" ", yOrigin)
                         } else {
-                            drawLineNumber("\(lineNumber)", lineRect.minY)
+                            drawLineNumber("\(lineNumber)", yOrigin)
                         }
                         
-                        // Move to next glyph line
-                        glyphLineCount += 1
+                        // Move to next glyph
+                        glyphsForLineCount += 1
                         glyphIndexForGlyphLine = NSMaxRange(effectiveRange)
                     }
                     

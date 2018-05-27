@@ -28,7 +28,10 @@ import Foundation
     }
 
     @objc public func add(_ license: License) {
-        precondition(!licenses.contains(license))
+        guard !licenses.contains(license) else {
+            return update(license)
+        }
+
         licenses.append(license)
         commit(license)
     }

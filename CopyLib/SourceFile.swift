@@ -167,13 +167,9 @@ extension SourceFile {
         let font = NSFont.userFixedPitchFont(ofSize: size)
             ?? NSFont.systemFont(ofSize: size)
 
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 7
-
         if let commentRange = self.commentRange {
             let commentAttributes: [NSAttributedStringKey: Any] = [
                 .foregroundColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
-                .paragraphStyle: style,
                 .font: font
             ]
 
@@ -185,7 +181,6 @@ extension SourceFile {
 
         let codeAttributes: [NSAttributedStringKey: Any] = [
             .foregroundColor: NSColor.secondaryLabelColor,
-            .paragraphStyle: style,
             .font: font
         ]
 

@@ -34,6 +34,7 @@ public final class SourceEditorView: NSTextView {
 
         usesRuler = true
         usesFindBar = true
+
         lnv_setUpLineNumberView()
         invalidateText()
 
@@ -46,15 +47,12 @@ public final class SourceEditorView: NSTextView {
 
     public func invalidateText() {
         let size: CGFloat = UserDefaults.standard[.fontSize]
-        font = NSFont.userFixedPitchFont(ofSize: size)
-            ?? NSFont.systemFont(ofSize: size)
+        font = .userFixedPitchFont(ofSize: size)
+            ?? .systemFont(ofSize: size)
 
-        let style = NSMutableParagraphStyle()
-        style.headIndent = 10
-
-        textColor = NSColor.secondaryLabelColor
-        typingAttributes = [.font: font!, .foregroundColor: textColor!, .paragraphStyle: style]
-        insertionPointColor = NSColor.systemBlue
+        textColor = .secondaryLabelColor
+        typingAttributes = [.font: font!, .foregroundColor: textColor!]
+        insertionPointColor = .systemBlue
     }
 
     public override var font: NSFont? {

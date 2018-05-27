@@ -38,6 +38,7 @@ public final class SourceEditorView: NSTextView {
         lnv_setUpLineNumberView()
         invalidateText()
 
+        layoutManager?.defaultAttachmentScaling = .scaleProportionallyDown
         enclosingScrollView?.hasVerticalRuler = UserDefaults.standard[.showLineNumbers]
     }
 
@@ -163,14 +164,17 @@ extension SourceEditorView: NSTextStorageDelegate {
             .map { $0.dropFirst(2) }
             .map { $0.dropLast(2) }
 
-//        let cells = tokens
-//            .map { String($0) }
-//            .map { TokenAttachmentCell(textCell: $0) }
+        let attachments = tokens.map { token -> TokenAttachment in
+            let attributes: [NSAttributedStringKey: Any] = [
+                .foregroundColor: NSColor.white,
+                .font: font!
+            ]
+            let string = NSAttributedString(string: String(token), attributes: attributes)
+            let rect = CGRect(origin: .zero, size: string.size())
+            let attachment = TokenAttachment(data: nil, ofType: "public.png")
 
-        let attachments = tokens.map { _ -> TokenAttachment in
-            let attachment = TokenAttachment(data: nil, ofType: nil)
             attachment.fontDescender = font?.descender ?? 0
-            attachment.image = #imageLiteral(resourceName: "folder")
+            attachment.image = NSImage.draw(attributedString: string, in: rect)
             return attachment
         }
 

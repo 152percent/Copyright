@@ -30,7 +30,7 @@ private let inlineCommentRegex: NSRegularExpression = {
 /// - Returns: The range of the comment, or NSNotFound if no match was found
 internal func blockComment(from source: String) -> Range<String.Index>? {
     let sourceRange = NSRange(location: 0, length: source.count)
-    let commentRange = blockCommentRegex.rangeOfFirstMatch(in: source, options: .anchored, range: sourceRange)
+    let commentRange = blockCommentRegex.rangeOfFirstMatch(in: source, options: .withoutAnchoringBounds, range: sourceRange)
     return Range(commentRange, in: source)
 }
 
@@ -38,7 +38,7 @@ internal func blockComment(from source: String) -> Range<String.Index>? {
 ///
 /// - Parameter source: The source to search
 /// - Returns: The range of the comment, or NSNotFound if no match was found
-internal func inlineComment(from source: String) -> Range<String.Index>? {
+internal func inlineComment(from source: String) -> Range<String.Index>? { 
     let sourceRange = NSRange(location: 0, length: source.count)
     let commentRange = inlineCommentRegex.rangeOfFirstMatch(in: source, options: [], range: sourceRange)
     return Range(commentRange, in: source)

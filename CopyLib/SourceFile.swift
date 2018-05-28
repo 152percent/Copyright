@@ -164,9 +164,13 @@ extension SourceFile {
 
     @objc dynamic public var attributedSource: NSAttributedString {
         let size: CGFloat = UserDefaults.standard[.fontSize]
-        let attributedString = NSMutableAttributedString()
         let font = NSFont.userFixedPitchFont(ofSize: size)
             ?? NSFont.systemFont(ofSize: size)
+
+        let attributedString = NSMutableAttributedString(string: source, attributes: [
+            .foregroundColor: NSColor.secondaryLabelColor,
+            .font: font
+        ])
 
         if let commentRange = self.commentRange {
             let commentAttributes: [NSAttributedStringKey: Any] = [
@@ -177,18 +181,8 @@ extension SourceFile {
             let comment = String(source[commentRange])
             let commentString = NSAttributedString(string: comment, attributes: commentAttributes)
 
-            attributedString.append(commentString)
+            attributedString.replaceCharacters(in: NSRange(commentRange, in: commentString.string), with: commentString)
         }
-
-        let codeAttributes: [NSAttributedStringKey: Any] = [
-            .foregroundColor: NSColor.secondaryLabelColor,
-            .font: font
-        ]
-
-        let code = commentRange == nil ? source : String(source.suffix(from: commentRange!.upperBound))
-        let sourceString = NSAttributedString(string: code, attributes: codeAttributes)
-
-        attributedString.append(sourceString)
 
         return attributedString
     }

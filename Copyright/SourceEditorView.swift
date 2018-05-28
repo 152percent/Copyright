@@ -169,12 +169,14 @@ extension SourceEditorView: NSTextStorageDelegate {
                 .foregroundColor: NSColor.white,
                 .font: font!
             ]
+
             let string = NSAttributedString(string: String(token), attributes: attributes)
             let rect = CGRect(origin: .zero, size: string.size())
             let attachment = TokenAttachment(data: nil, ofType: "public.png")
 
             attachment.fontDescender = font?.descender ?? 0
             attachment.image = NSImage.draw(attributedString: string, in: rect)
+
             return attachment
         }
 

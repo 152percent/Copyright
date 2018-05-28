@@ -11,7 +11,7 @@ import CopyLib
 
 final class SplitViewController: NSSplitViewController {
 
-    private let normalizedFontSize: CGFloat = 11
+    private let normalizedFontSize: CGFloat = 12
 
     private var treeController: NSTreeController {
         guard let controller = childViewControllers.compactMap({ $0 as? DirectoryViewController })

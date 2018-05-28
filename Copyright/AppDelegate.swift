@@ -18,8 +18,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             ?? .systemFont(ofSize: defaultSize)
 
         UserDefaults.standard.register(defaults: [
-            .sourceTextColor: NSColor.tertiaryLabelColor,
-            .commentTextColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
             .showLineNumbers: true,
             .fontFamily: defaultFont.familyName!,
             .fontSize: defaultSize,

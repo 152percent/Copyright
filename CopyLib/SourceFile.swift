@@ -164,18 +164,15 @@ extension SourceFile {
     }
 
     private var codeAttributes: [NSAttributedStringKey: Any] {
-        let color = UserDefaults.standard.color(forKey: .sourceTextColor)
-//        let color: NSColor = UserDefaults.standard[.sourceTextColor]!
-
         return [
-            .foregroundColor: color,
+            .foregroundColor: NSColor.tertiaryLabelColor,
             .font: sourceFont
         ]
     }
 
     private var commentAttributes: [NSAttributedStringKey: Any] {
         return [
-            .foregroundColor: UserDefaults.standard[.commentTextColor]!,
+            .foregroundColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
             .font: sourceFont
         ]
     }

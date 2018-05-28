@@ -201,7 +201,7 @@ extension SourceFile {
 
     private var codeAttributes: [NSAttributedStringKey: Any] {
         return [
-            .foregroundColor: NSColor.tertiaryLabelColor,
+            .foregroundColor: NSColor.secondaryLabelColor,
             .font: sourceFont
         ]
     }

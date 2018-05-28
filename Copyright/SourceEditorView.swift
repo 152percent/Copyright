@@ -98,6 +98,14 @@ public final class SourceEditorView: NSTextView {
 
 extension SourceEditorView {
 
+    public override func deleteBackward(_ sender: Any?) {
+        if currentLine.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && currentLine != "\n" {
+            deleteToBeginningOfLine(sender)
+        } else {
+            super.deleteBackward(sender)
+        }
+    }
+
     private var currentLine: String {
         let range = (string as NSString).lineRange(for: selectedRange())
         return (string as NSString).substring(with: range)

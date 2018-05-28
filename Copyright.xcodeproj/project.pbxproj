@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		541BB59820BAC9D2009AF63A /* TokenAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB59720BAC9D2009AF63A /* TokenAttachment.swift */; };
 		541BB59A20BB0FF9009AF63A /* Bool+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB59920BB0FF9009AF63A /* Bool+Toggle.swift */; };
-		541BB5A020BB5E29009AF63A /* newline.regex in Resources */ = {isa = PBXBuildFile; fileRef = 541BB59F20BB5E29009AF63A /* newline.regex */; };
+		541BB5A020BB5E29009AF63A /* whitespace.regex in Resources */ = {isa = PBXBuildFile; fileRef = 541BB59F20BB5E29009AF63A /* whitespace.regex */; };
 		541BB5A520BB731E009AF63A /* NSImage+Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB5A420BB731E009AF63A /* NSImage+Drawing.swift */; };
 		5425C1D120B7709C00617B58 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1D020B7709C00617B58 /* PreferenceButton.swift */; };
 		5425C1DC20B8525100617B58 /* DirectoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1DB20B8525100617B58 /* DirectoryParser.swift */; };
@@ -24,6 +24,7 @@
 		543C1C3420B72BAB00F17EA9 /* LineNumberRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */; };
 		548EB00A20BC4DEB000B5F30 /* SplitViewController+FontSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EB00920BC4DEB000B5F30 /* SplitViewController+FontSizing.swift */; };
 		548EB00C20BC4DFE000B5F30 /* SplitViewController+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EB00B20BC4DFE000B5F30 /* SplitViewController+Menu.swift */; };
+		548EB01620BC69F0000B5F30 /* newline.regex in Resources */ = {isa = PBXBuildFile; fileRef = 548EB01520BC69F0000B5F30 /* newline.regex */; };
 		548FBC7220B6276100672206 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC7120B6276100672206 /* SplitViewController.swift */; };
 		548FBC7520B6320A00672206 /* PreferencePaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FBC7320B6320A00672206 /* PreferencePaneViewController.swift */; };
 		548FBC7920B633B300672206 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548FBC7820B633B300672206 /* Preferences.storyboard */; };
@@ -80,7 +81,7 @@
 		2269EB8062821A0C6C954081 /* Pods-Copyright.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Copyright.release.xcconfig"; path = "Pods/Target Support Files/Pods-Copyright/Pods-Copyright.release.xcconfig"; sourceTree = "<group>"; };
 		541BB59720BAC9D2009AF63A /* TokenAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAttachment.swift; sourceTree = "<group>"; };
 		541BB59920BB0FF9009AF63A /* Bool+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Toggle.swift"; sourceTree = "<group>"; };
-		541BB59F20BB5E29009AF63A /* newline.regex */ = {isa = PBXFileReference; lastKnownFileType = text; path = newline.regex; sourceTree = "<group>"; };
+		541BB59F20BB5E29009AF63A /* whitespace.regex */ = {isa = PBXFileReference; lastKnownFileType = text; path = whitespace.regex; sourceTree = "<group>"; };
 		541BB5A420BB731E009AF63A /* NSImage+Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Drawing.swift"; sourceTree = "<group>"; };
 		5425C1D020B7709C00617B58 /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		5425C1DB20B8525100617B58 /* DirectoryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryParser.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		548EB00920BC4DEB000B5F30 /* SplitViewController+FontSizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitViewController+FontSizing.swift"; sourceTree = "<group>"; };
 		548EB00B20BC4DFE000B5F30 /* SplitViewController+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitViewController+Menu.swift"; sourceTree = "<group>"; };
 		548EB01320BC507F000B5F30 /* Copyright.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Copyright.entitlements; sourceTree = "<group>"; };
+		548EB01520BC69F0000B5F30 /* newline.regex */ = {isa = PBXFileReference; lastKnownFileType = text; path = newline.regex; sourceTree = "<group>"; };
 		548FBC7120B6276100672206 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		548FBC7320B6320A00672206 /* PreferencePaneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencePaneViewController.swift; sourceTree = "<group>"; };
 		548FBC7820B633B300672206 /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
@@ -198,6 +200,17 @@
 			path = SplitView;
 			sourceTree = "<group>";
 		};
+		548EB01420BC6513000B5F30 /* Regex */ = {
+			isa = PBXGroup;
+			children = (
+				54F11B8820B96A4A0099AADE /* block.regex */,
+				54F11B8B20B96C140099AADE /* inline.regex */,
+				541BB59F20BB5E29009AF63A /* whitespace.regex */,
+				548EB01520BC69F0000B5F30 /* newline.regex */,
+			);
+			path = Regex;
+			sourceTree = "<group>";
+		};
 		548FBC7720B6334300672206 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,9 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				54E9769E20B60C4400E94AC5 /* Info.plist */,
-				54F11B8820B96A4A0099AADE /* block.regex */,
-				54F11B8B20B96C140099AADE /* inline.regex */,
-				541BB59F20BB5E29009AF63A /* newline.regex */,
+				548EB01420BC6513000B5F30 /* Regex */,
 				54E9769D20B60C4400E94AC5 /* CopyLib.h */,
 				54E976AB20B60CFF00E94AC5 /* SourceFile.swift */,
 				548FBC7C20B6361100672206 /* License.swift */,
@@ -404,9 +415,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548EB01620BC69F0000B5F30 /* newline.regex in Resources */,
 				54F11B8D20B96C140099AADE /* inline.regex in Resources */,
 				54F11B8A20B96A4A0099AADE /* block.regex in Resources */,
-				541BB5A020BB5E29009AF63A /* newline.regex in Resources */,
+				541BB5A020BB5E29009AF63A /* whitespace.regex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

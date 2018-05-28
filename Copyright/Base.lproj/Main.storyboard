@@ -635,7 +635,7 @@ CA
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
                                                 <tableColumn identifier="" editable="NO" width="197" minWidth="40" maxWidth="1000" id="hA5-CG-JVj">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Files">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Source Files">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -645,7 +645,7 @@ CA
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
-                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="url.absoluteString"/>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="self"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="7x0-T7-Lhk">
@@ -781,6 +781,7 @@ CA
                                 <bool key="NSConditionallySetsEditable" value="NO"/>
                             </dictionary>
                         </binding>
+                        <binding destination="bjg-bB-7oz" name="sortDescriptors" keyPath="representedObject.sortDescriptors" previousBinding="gye-c7-R40" id="RTY-OF-wSU"/>
                     </connections>
                 </treeController>
                 <menu id="hy0-mm-Cv3">

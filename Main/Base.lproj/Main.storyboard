@@ -79,7 +79,7 @@
                                         <menuItem title="Import Folder..." keyEquivalent="a" id="QQs-8q-7Ws">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                             <connections>
-                                                <action selector="importSourceFiles:" target="Ady-hI-5gd" id="0v3-Be-P3a"/>
+                                                <action selector="importDirectory:" target="Ady-hI-5gd" id="mmh-3C-3Aw"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
@@ -468,7 +468,7 @@ CA
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController storyboardIdentifier="WindowController" id="B8D-0N-5wS" customClass="WindowController" customModule="Copyright" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="No Folder" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="window" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="750" height="500"/>
@@ -739,12 +739,29 @@ CA
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i2f-qg-Ara">
+                                <rect key="frame" x="63" y="159" width="74" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Importing..." id="Nl1-yD-WTj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="Ymd-jy-Fi3">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSIsNil</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="e0N-fX-K41" firstAttribute="leading" secondItem="HZ2-3N-oVS" secondAttribute="leading" id="9bb-V9-b6f"/>
+                            <constraint firstItem="i2f-qg-Ara" firstAttribute="centerX" secondItem="HZ2-3N-oVS" secondAttribute="centerX" id="9o1-J8-pxd"/>
                             <constraint firstItem="e0N-fX-K41" firstAttribute="top" secondItem="HZ2-3N-oVS" secondAttribute="top" id="BQc-dK-nX3"/>
                             <constraint firstItem="I49-qo-7zp" firstAttribute="leading" secondItem="HZ2-3N-oVS" secondAttribute="leading" id="ICQ-Ad-3aN"/>
                             <constraint firstAttribute="trailing" secondItem="e0N-fX-K41" secondAttribute="trailing" id="M0v-KL-mMp"/>
+                            <constraint firstItem="i2f-qg-Ara" firstAttribute="centerY" secondItem="HZ2-3N-oVS" secondAttribute="centerY" id="fdV-UT-juC"/>
                             <constraint firstAttribute="trailing" secondItem="I49-qo-7zp" secondAttribute="trailing" id="hnR-6Q-Jzd"/>
                             <constraint firstAttribute="bottom" secondItem="I49-qo-7zp" secondAttribute="bottom" id="mjb-BE-1Zc"/>
                             <constraint firstItem="I49-qo-7zp" firstAttribute="top" secondItem="e0N-fX-K41" secondAttribute="bottom" id="r17-bH-K7U"/>

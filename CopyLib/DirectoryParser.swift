@@ -117,6 +117,7 @@ import Foundation
         return progress
     }
 
+    // todo: move this to a preference with sensible defaults
     private func shouldSkip(url: NSURL, _ isDirectory: Bool) -> Bool {
         let disallowedPaths = [ "Human", "Machine", "Pods" ]
         let allowedExtensions = [ "h", "m", "swift" ]

@@ -36,22 +36,29 @@ final class SplitViewController: NSSplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         minimumThicknessForInlineSidebars = 800
+
+        guard representedObject == nil else { return }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.importDirectory(nil)
+        }
     }
 
-    @IBAction public func importSourceFiles(_ sender: Any?) {
+    @IBAction public func importDirectory(_ sender: Any?) {
         let panel = NSOpenPanel()
 
-        panel.title = "Select files to import"
+        panel.title = "Select a folder to import"
         panel.canChooseFiles = false
         panel.canChooseDirectories = true
 
-        let result = panel.runModal()
+        panel.beginSheetModal(for: view.superview!.window!) { [weak self] result in
+            if result == .cancel {
+                return
+            }
 
-        if result == .cancel {
-            return
+            self?.importDirectory(at: panel.url!)
+            self?.view.superview!.window!.title = panel.url?.lastPathComponent ?? "Source Files"
         }
-
-        importDirectory(at: panel.url!)
     }
 
 }

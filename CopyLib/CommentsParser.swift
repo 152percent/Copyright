@@ -24,17 +24,27 @@ private let inlineCommentRegex: NSRegularExpression = {
     return regex(for: "inline")
 }()
 
+private let newlineRegex: NSRegularExpression = {
+    return regex(for: "newline")
+}()
+
 /// Returns the range for the first block comment found
 ///
 /// - Parameter source: The source to search
 /// - Returns: The range of the comment, or NSNotFound if no match was found
 internal func blockComment(from original: String) -> Range<String.Index>? {
+    guard !original.isEmpty else { return nil }
+
+    let originalRange = NSRange(location: 0, length: original.count)
+    let range = newlineRegex.rangeOfFirstMatch(in: original, options: [], range: originalRange)
+
     let source = original.trimmingCharacters(in: .whitespacesAndNewlines)
     let sourceRange = NSRange(location: 0, length: source.count)
     let commentRange = blockCommentRegex.rangeOfFirstMatch(in: source, options: .anchored, range: sourceRange)
 
-    guard commentRange.location != NSNotFound else { return Range(NSRange(location: 0, length: 0), in: source) }
-    return Range(commentRange, in: source)
+    guard commentRange.location != NSNotFound else { return nil }
+    let originalCommentRange = NSRange(location: commentRange.location + range.length, length: commentRange.length)
+    return Range(originalCommentRange, in: source)
 }
 
 /// Returns the range for a series of inline comments, terminated by an empty whitespace line

@@ -11,12 +11,6 @@ import CopyLib
 
 final class DirectoryViewController: NSViewController {
 
-    public enum State {
-        case empty
-        case idle(Int)
-        case inProgress(Progress)
-    }
-
     @IBOutlet private(set) weak var outlineView: NSOutlineView!
     @IBOutlet private(set) weak var treeController: NSTreeController!
 

@@ -111,7 +111,9 @@ extension SplitViewController {
              #selector(modifyComment(_:)),
              #selector(deleteComment(_:)),
              #selector(ignoreComment(_:)):
+            
             let sourceFiles = effectedSourceFiles()
+            guard !sourceFiles.isEmpty else { return false }
 
             let match = sourceFiles.first {
                 if $0.url.isDirectory {
@@ -157,6 +159,12 @@ extension SplitViewController {
         resolveSelectedSourceFiles(with: .ignore)
     }
 
+    private func resolveSelectedSourceFiles(with resolution: SourceFileResolution) {
+        effectedSourceFiles().forEach {
+            $0.resolution = resolution
+        }
+    }
+
     private func effectedSourceFiles() -> [SourceFile] {
         let clickedRow = directoryViewController.outlineView.clickedRow
         let clickedNode = directoryViewController.outlineView.item(atRow: clickedRow) as? NSTreeNode
@@ -172,12 +180,6 @@ extension SplitViewController {
             }
         } else {
             return selectedFiles
-        }
-    }
-
-    private func resolveSelectedSourceFiles(with resolution: SourceFileResolution) {
-        effectedSourceFiles().forEach {
-            $0.resolution = resolution
         }
     }
 

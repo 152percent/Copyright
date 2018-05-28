@@ -371,7 +371,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="2eH-F7-eaT"/>
-                                        <menuItem title="Ignore" state="on" tag="3" id="4rz-6j-WXn">
+                                        <menuItem title="Ignore" tag="3" id="4rz-6j-WXn">
                                             <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
@@ -747,9 +747,12 @@ CA
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="Ymd-jy-Fi3">
+                                    <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="tyW-XW-w6f">
                                         <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSIsNil</string>
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
                                         </dictionary>
                                     </binding>
                                 </connections>
@@ -804,7 +807,7 @@ CA
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="mcn-UF-GSQ"/>
-                        <menuItem title="Ignore" state="on" tag="3" id="i87-tr-wJt">
+                        <menuItem title="Ignore" tag="3" id="i87-tr-wJt">
                             <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
@@ -907,8 +910,8 @@ CA
                                 <rect key="frame" x="-1" y="0.0" width="517" height="33"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wiT-uX-mdc">
-                                        <rect key="frame" x="60" y="8" width="116" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Before (read-only)" id="cHB-GJ-Cql">
+                                        <rect key="frame" x="96" y="8" width="44" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Before" id="cHB-GJ-Cql">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1091,7 +1094,7 @@ CA
                                 <action selector="addComment:" target="sZL-eP-xxt" id="mp7-GF-nL3"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Modify" state="on" tag="1" keyEquivalent="m" id="2SN-Cc-lXM">
+                        <menuItem title="Modify" tag="1" keyEquivalent="m" id="2SN-Cc-lXM">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="modifyComment:" target="sZL-eP-xxt" id="htM-hv-9kQ"/>

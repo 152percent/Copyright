@@ -311,9 +311,9 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Format" id="jxT-CU-nIS">
+                            <menuItem title="Editor" id="jxT-CU-nIS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Format" id="GEO-Iw-cKr">
+                                <menu key="submenu" title="Editor" id="GEO-Iw-cKr">
                                     <items>
                                         <menuItem title="Font Size" id="Gi5-1S-RQB">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -338,6 +338,12 @@
                                                     </menuItem>
                                                 </items>
                                             </menu>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="BT3-Rh-xk5"/>
+                                        <menuItem title="Hide Line Numbers" tag="9" keyEquivalent="9" id="dKt-yr-D54">
+                                            <connections>
+                                                <action selector="toggleLineNumbers:" target="Ady-hI-5gd" id="a9n-8z-01g"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -397,11 +403,6 @@ CA
                                         <menuItem title="Show Sidebar" keyEquivalent="0" id="kIP-vf-haE">
                                             <connections>
                                                 <action selector="toggleSidebar:" target="Ady-hI-5gd" id="aHS-dK-glB"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Hide Line Numbers" tag="9" keyEquivalent="9" id="dKt-yr-D54">
-                                            <connections>
-                                                <action selector="toggleLineNumbers:" target="Ady-hI-5gd" id="a9n-8z-01g"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="01z-Ld-6nu"/>

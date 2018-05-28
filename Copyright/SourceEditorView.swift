@@ -53,7 +53,7 @@ public final class SourceEditorView: NSTextView {
 
         textColor = NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1)
         typingAttributes = [.font: font!, .foregroundColor: textColor!]
-        insertionPointColor = .systemBlue
+        insertionPointColor = .keyboardFocusIndicatorColor
     }
 
     public override var font: NSFont? {
@@ -98,8 +98,30 @@ public final class SourceEditorView: NSTextView {
 
 extension SourceEditorView {
 
+    public override func writeSelection(to pboard: NSPasteboard, types: [NSPasteboard.PasteboardType]) -> Bool {
+        let selectedString = attributedString().attributedSubstring(from: selectedRange())
+        let string = NSMutableAttributedString(attributedString: selectedString)
+        let range = NSRange(location: 0, length: selectedString.string.count)
+
+        string.enumerateAttribute(.attachment, in: range, options: .reverse) { value, range, _ in
+            guard let attachment = value as? TokenAttachment, let token = attachment.token else { return }
+
+            var range2: NSRange = NSRange(location: 0, length: 0)
+            let attributes = string.attributes(at: range.location, effectiveRange: &range2)
+            let tokenString = "</\(token.string)/>"
+
+            string.replaceCharacters(in: range, with: NSMutableAttributedString(string: tokenString))
+            string.addAttributes(attributes, range: range)
+        }
+
+        pboard.clearContents()
+        pboard.writeObjects([string])
+
+        return true
+    }
+
     public override func deleteBackward(_ sender: Any?) {
-        if currentLine.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && currentLine != "\n" {
+        if currentLine.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && currentLine.count > 1 {
             deleteToBeginningOfLine(sender)
         } else {
             super.deleteBackward(sender)
@@ -166,6 +188,8 @@ extension SourceEditorView: NSTextStorageDelegate {
         let line = string.substring(with: lineRange)
         let matches = tokenRegex.matches(in: line, options: [], range: NSRange(location: 0, length: line.count))
 
+        guard !matches.isEmpty else { return }
+
         let tokens = matches
             .map { $0.range }
             .map { line[Range($0, in: line)!] }
@@ -182,6 +206,7 @@ extension SourceEditorView: NSTextStorageDelegate {
             let rect = CGRect(origin: .zero, size: string.size())
             let attachment = TokenAttachment(data: nil, ofType: "public.png")
 
+            attachment.token = string
             attachment.fontDescender = font?.descender ?? 0
             attachment.image = NSImage.draw(attributedString: string, in: rect)
 
@@ -192,7 +217,8 @@ extension SourceEditorView: NSTextStorageDelegate {
             .map { NSAttributedString(attachment: $0) }
 
         for (match, string) in zip(matches, tokenStrings).reversed() {
-            textStorage.replaceCharacters(in: match.range, with: string)
+            let range = NSRange(location: match.range.location + lineRange.location, length: match.range.length)
+            textStorage.replaceCharacters(in: range, with: string)
         }
     }
 

@@ -10,6 +10,7 @@ import AppKit
 
 public final class TokenAttachment: NSTextAttachment {
 
+    public var token: NSAttributedString?
     public var fontDescender: CGFloat = 0
 
     public override func attachmentBounds(for textContainer: NSTextContainer?, proposedLineFragment lineFrag: NSRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> NSRect {

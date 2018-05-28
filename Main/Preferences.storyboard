@@ -32,9 +32,9 @@
         <!--Tab View Controller-->
         <scene sceneID="aA5-z4-HoX">
             <objects>
-                <tabViewController tabStyle="unspecified" id="rPi-Vr-50A" sceneMemberID="viewController">
+                <tabViewController tabStyle="toolbar" id="rPi-Vr-50A" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="Licenses" image="NSMultipleDocuments" id="PLA-Qx-EvL"/>
+                        <tabViewItem label="Licenses" image="NSInfo" id="PLA-Qx-EvL"/>
                     </tabViewItems>
                     <viewControllerTransitionOptions key="transitionOptions" allowUserInteraction="YES"/>
                     <tabView key="tabView" type="noTabsNoBorder" id="Xby-0R-vp7">
@@ -102,7 +102,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="515"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
-                                            <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                             <color key="gridColor" white="0.80000000000000004" alpha="0.0" colorSpace="deviceWhite"/>
                                             <tableColumns>
@@ -298,7 +298,7 @@ CA
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSMultipleDocuments" width="32" height="32"/>
+        <image name="NSInfo" width="32" height="32"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

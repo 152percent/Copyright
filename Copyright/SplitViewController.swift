@@ -57,7 +57,6 @@ final class SplitViewController: NSSplitViewController {
             }
 
             self?.importDirectory(at: panel.url!)
-            self?.view.superview!.window!.title = panel.url?.lastPathComponent ?? "Source Files"
         }
     }
 
@@ -172,11 +171,12 @@ extension SplitViewController {
 extension SplitViewController {
 
     internal func importDirectory(at url: URL) {
-        let parser = DirectoryParser()
+        representedObject = nil
 
-        progress = parser.parseDirectory(startingAt: url) { [weak self] result in
+        progress = DirectoryParser().parseDirectory(startingAt: url) { [weak self] result in
             self?.representedObject = result
             self?.progress = nil
+            self?.view.superview!.window!.title = url.lastPathComponent
         }
     }
 

@@ -462,7 +462,7 @@ CA
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="-516"/>
+            <point key="canvasLocation" x="76" y="-552"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -471,7 +471,7 @@ CA
                     <window key="window" title="No Folder" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="window" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="750" height="500"/>
+                        <rect key="contentRect" x="196" y="240" width="900" height="700"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="750" height="500"/>
                         <toolbar key="toolbar" implicitIdentifier="A1B6A0A0-EFD1-4015-B8DC-977AEBDE950D" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="ajy-lW-jw2">
@@ -510,7 +510,7 @@ CA
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="105"/>
+            <point key="canvasLocation" x="75" y="26"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -573,7 +573,7 @@ CA
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="I49-qo-7zp">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="33"/>
                                 <subviews>
                                     <progressIndicator wantsLayer="YES" maxValue="1" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Xrr-Dl-MiP">
                                         <rect key="frame" x="16" y="7" width="168" height="20"/>
@@ -587,9 +587,9 @@ CA
                                         </connections>
                                     </progressIndicator>
                                     <textField horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="LO9-0L-Zlh">
-                                        <rect key="frame" x="75" y="9" width="50" height="17"/>
+                                        <rect key="frame" x="77" y="9" width="47" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="No files" id="elK-g4-8Ov">
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="system" size="12"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -612,7 +612,7 @@ CA
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="3ra-ow-DCh"/>
+                                    <constraint firstAttribute="height" constant="33" id="3ra-ow-DCh"/>
                                     <constraint firstItem="Xrr-Dl-MiP" firstAttribute="centerX" secondItem="I49-qo-7zp" secondAttribute="centerX" id="QES-yy-obc"/>
                                     <constraint firstAttribute="trailing" secondItem="Xrr-Dl-MiP" secondAttribute="trailing" constant="16" id="Rg6-iU-3Qo"/>
                                     <constraint firstItem="LO9-0L-Zlh" firstAttribute="centerX" secondItem="I49-qo-7zp" secondAttribute="centerX" id="Uaf-lN-B3H"/>
@@ -622,13 +622,13 @@ CA
                                 </constraints>
                             </visualEffectView>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="25" horizontalPageScroll="10" verticalLineScroll="25" verticalPageScroll="10" usesPredominantAxisScrolling="NO" findBarPosition="belowContent" translatesAutoresizingMaskIntoConstraints="NO" id="e0N-fX-K41">
-                                <rect key="frame" x="0.0" y="34" width="200" height="300"/>
+                                <rect key="frame" x="0.0" y="33" width="200" height="301"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="g9s-KG-Ffx">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="301"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" typeSelect="NO" autosaveName="directoryList" rowHeight="22" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="14" outlineTableColumn="hA5-CG-JVj" id="8wb-hs-ECb">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="301"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="3"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -740,7 +740,7 @@ CA
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i2f-qg-Ara">
-                                <rect key="frame" x="63" y="176" width="74" height="17"/>
+                                <rect key="frame" x="63" y="175" width="74" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Importing..." id="Nl1-yD-WTj">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -776,12 +776,12 @@ CA
                 <treeController objectClassName="CopyLib.SourceFile" editable="NO" automaticallyPreparesContent="YES" childrenKeyPath="children" countKeyPath="count" leafKeyPath="isLeaf" id="qhw-Ep-yIR">
                     <connections>
                         <binding destination="bjg-bB-7oz" name="selectionIndexPaths" keyPath="representedObject.selectedIndexPaths" id="gye-c7-R40"/>
+                        <binding destination="bjg-bB-7oz" name="sortDescriptors" keyPath="representedObject.sortDescriptors" previousBinding="gye-c7-R40" id="RTY-OF-wSU"/>
                         <binding destination="bjg-bB-7oz" name="contentArray" keyPath="representedObject.sourceFiles" id="baC-aX-J3S">
                             <dictionary key="options">
                                 <bool key="NSConditionallySetsEditable" value="NO"/>
                             </dictionary>
                         </binding>
-                        <binding destination="bjg-bB-7oz" name="sortDescriptors" keyPath="representedObject.sortDescriptors" previousBinding="gye-c7-R40" id="RTY-OF-wSU"/>
                     </connections>
                 </treeController>
                 <menu id="hy0-mm-Cv3">
@@ -908,17 +908,17 @@ CA
                                 <rect key="frame" x="-1" y="0.0" width="517" height="33"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wiT-uX-mdc">
-                                        <rect key="frame" x="96" y="8" width="44" height="17"/>
+                                        <rect key="frame" x="98" y="9" width="42" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Before" id="cHB-GJ-Cql">
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="system" size="12"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RjU-P4-ZQa">
-                                        <rect key="frame" x="383" y="8" width="34" height="17"/>
+                                        <rect key="frame" x="384" y="9" width="32" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="After" id="DwR-s2-CDJ">
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="system" size="12"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -1124,7 +1124,7 @@ CA
                 <controllerPlaceholder storyboardName="Preferences" id="C3o-6d-Aix" sceneMemberID="viewController"/>
                 <customObject id="TzT-04-5YQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="-354"/>
+            <point key="canvasLocation" x="75" y="-446"/>
         </scene>
     </scenes>
     <resources>

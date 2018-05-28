@@ -10,7 +10,12 @@ import Foundation
 
 extension UserDefaults.Key {
     public static let seedLicenses: UserDefaults.Key = "SeedLicenses"
-    public static let fontSize: UserDefaults.Key = "SourceFontSize"
-    public static let defaultFontSize: UserDefaults.Key = "DefaultFontSize"
     public static let showLineNumbers: UserDefaults.Key = "ShowLineNumbers"
+
+    public static let fontFamily: UserDefaults.Key = "SourceFontFamily"
+    public static let fontSize: UserDefaults.Key = "SourceFontSize"
+    public static let defaultFontSize: UserDefaults.Key = "DefaultSourceFontSize"
+
+    public static let sourceTextColor: UserDefaults.Key = "SourceTextColor"
+    public static let commentTextColor: UserDefaults.Key = "CommentTextColor"
 }

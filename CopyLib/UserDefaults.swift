@@ -11,12 +11,24 @@ import Foundation
 extension UserDefaults {
 
     public func register(defaults: [Key: Any]) {
-        let mapped = Dictionary(uniqueKeysWithValues: defaults.map { key, value in (key.rawValue, value) })
+        let mapped = Dictionary(uniqueKeysWithValues: defaults.map { (key, value) -> (String, Any) in
+            if let color = value as? NSColor {
+                return (key.rawValue, NSKeyedArchiver.archivedData(withRootObject: color))
+            } else {
+                return (key.rawValue, value)
+            }
+        })
+
         register(defaults: mapped)
     }
 
     public func set(_ value: Any?, forKey key: Key) {
         set(value, forKey: key.rawValue)
+    }
+
+    public func set(_ color: NSColor, forKey key: Key) {
+        let data = NSKeyedArchiver.archivedData(withRootObject: color)
+        set(data, forKey: key.rawValue)
     }
 
     public func bool(forKey key: Key) -> Bool {
@@ -49,6 +61,11 @@ extension UserDefaults {
 
     public func string(forKey key: Key) -> String? {
         return string(forKey: key.rawValue)
+    }
+
+    public func color(forKey key: Key) -> NSColor? {
+        return data(forKey: key.rawValue)
+            .flatMap { NSUnarchiver.unarchiveObject(with: $0) as? NSColor }
     }
 
     public func value<T>(forKey key: Key) -> T? {
@@ -97,6 +114,11 @@ extension UserDefaults {
     public subscript(key: Key) -> Date? {
         get { return date(forKey: key) }
         set { set(newValue, forKey: key.rawValue) }
+    }
+
+    public subscript(key: Key) -> NSColor? {
+        get { return color(forKey: key) }
+        set { set(newValue, forKey: key) }
     }
 
     public subscript<T>(key: Key) -> T? {

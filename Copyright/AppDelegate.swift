@@ -13,9 +13,17 @@ import CopyLib
 final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        let defaultSize: CGFloat = 11
+        let defaultFont: NSFont = NSFont.userFixedPitchFont(ofSize: defaultSize)
+            ?? .systemFont(ofSize: defaultSize)
+
         UserDefaults.standard.register(defaults: [
-            .defaultFontSize: 11,
-            .showLineNumbers: true
+            .sourceTextColor: NSColor.tertiaryLabelColor,
+            .commentTextColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
+            .showLineNumbers: true,
+            .fontFamily: defaultFont.familyName!,
+            .fontSize: defaultSize,
+            .defaultFontSize: defaultSize,
         ])
 
         seedLicensesIfRequired()

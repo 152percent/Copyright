@@ -157,35 +157,47 @@ extension SourceFile: NSCopying {
 
 extension SourceFile {
 
+    private var sourceFont: NSFont {
+        let size: CGFloat = UserDefaults.standard[.fontSize]
+        return NSFont.userFixedPitchFont(ofSize: size)
+            ?? NSFont.systemFont(ofSize: size)
+    }
+
+    private var codeAttributes: [NSAttributedStringKey: Any] {
+        let color = UserDefaults.standard.color(forKey: .sourceTextColor)
+//        let color: NSColor = UserDefaults.standard[.sourceTextColor]!
+
+        return [
+            .foregroundColor: color,
+            .font: sourceFont
+        ]
+    }
+
+    private var commentAttributes: [NSAttributedStringKey: Any] {
+        return [
+            .foregroundColor: UserDefaults.standard[.commentTextColor]!,
+            .font: sourceFont
+        ]
+    }
+
     @objc dynamic public var source: String {
         guard let source = try? String(contentsOf: url as URL) else { return "" }
         return source
     }
 
-    // todo: maybe more this to textStorage:didProcessEditing:
     @objc dynamic public var attributedSource: NSAttributedString {
-        let size: CGFloat = UserDefaults.standard[.fontSize]
-        let font = NSFont.userFixedPitchFont(ofSize: size)
-            ?? NSFont.systemFont(ofSize: size)
-
-        let attributedString = NSMutableAttributedString(string: source, attributes: [
-            .foregroundColor: NSColor.secondaryLabelColor,
-            .font: font
-        ])
-
+        let attributedString = NSMutableAttributedString(string: source, attributes: codeAttributes)
         guard let commentRange = self.commentRange else { return attributedString }
-
-        let commentAttributes: [NSAttributedStringKey: Any] = [
-            .foregroundColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
-            .font: font
-        ]
 
         let comment = String(source[commentRange])
         let commentString = NSAttributedString(string: comment, attributes: commentAttributes)
 
         attributedString.replaceCharacters(in: NSRange(commentRange, in: commentString.string), with: commentString)
-
         return attributedString
+    }
+
+    @objc dynamic public func attributedSource(with license: String) -> NSAttributedString {
+        fatalError()
     }
 
     private var commentRange: Range<String.Index>? {

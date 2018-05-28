@@ -12,8 +12,8 @@ import CopyLib
 public final class SourceEditorView: NSTextView {
 
     // tabs or space
-    private lazy var newLineRegex: NSRegularExpression = {
-        return regex(for: "newline")
+    private lazy var indentRegex: NSRegularExpression = {
+        return regex(for: "indent")
     }()
 
     // </token/>
@@ -141,7 +141,7 @@ extension SourceEditorView {
 
         super.insertNewline(sender)
 
-        guard let match = newLineRegex.firstMatch(in: previousLine, options: [], range: range) else { return }
+        guard let match = indentRegex.firstMatch(in: previousLine, options: [], range: range) else { return }
 
         let indent = (previousLine as NSString).substring(with: match.range)
         insertText(indent, replacementRange: selectedRange())

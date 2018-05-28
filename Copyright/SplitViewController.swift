@@ -65,8 +65,7 @@ final class SplitViewController: NSSplitViewController {
 extension SplitViewController {
 
     @IBAction private func showInFinder(_ sender: Any?) {
-        guard let sourceFiles = treeController.selectedObjects as? [SourceFile] else { return }
-        NSWorkspace.shared.activateFileViewerSelecting(sourceFiles.urls as [URL])
+        NSWorkspace.shared.activateFileViewerSelecting(effectedSourceFiles().urls as [URL])
     }
 
 }

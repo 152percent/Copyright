@@ -24,6 +24,9 @@ import Foundation
 
 @objc public final class DirectoryParser: NSObject {
 
+    private let disallowedPaths = [ "Human", "Machine", "Pods", "Carthage", "Build", "fastlane", "Docs" ].map { $0.lowercased() }
+    private let allowedExtensions = [ "h", "m", "swift", "js" ].map { $0.lowercased() }
+
     @objc public override init() {
         super.init()
     }
@@ -98,11 +101,10 @@ import Foundation
 
     // todo: move this to a preference with sensible defaults
     private func isBlacklisted(url: URL) -> Bool {
-        let disallowedPaths = [ "Human", "Machine", "Pods", "Carthage", "Build", "fastlane", "Docs" ]
-        let allowedExtensions = [ "h", "m", "swift", "js" ]
-
         for path in disallowedPaths {
-            if url.pathComponents.contains(path) {
+            let components = url.pathComponents.map { $0.lowercased() }
+            
+            if components.contains(path) {
                 return true
             }
         }

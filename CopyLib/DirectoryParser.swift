@@ -31,7 +31,7 @@ import Foundation
     @objc public func parseDirectory(startingAt url: URL, completion: @escaping (DirectoryResult) -> Void) -> Progress? {
         var progressCount: Int64 = 0
 
-        let enumerator = FileManager.default.enumerator(at: url, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants], errorHandler: nil)
+        let enumerator = FileManager.default.enumerator(at: url, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsHiddenFiles, .skipsPackageDescendants], errorHandler: nil)
         while enumerator?.nextObject() != nil { progressCount += 1 }
 
         let progress = Progress(totalUnitCount: progressCount)

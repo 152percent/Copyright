@@ -11,7 +11,7 @@
             condition = "path.contains(&quot;___&quot;)"
             continueAfterRunningActions = "No"
             filePath = "CopyLib/DirectoryParser.swift"
-            timestampString = "549237449.782235"
+            timestampString = "549237765.302166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"

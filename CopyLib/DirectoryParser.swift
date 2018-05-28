@@ -37,6 +37,8 @@ import Foundation
         let progress = Progress(totalUnitCount: progressCount)
 
         DispatchQueue.global().async {
+            progress.becomeCurrent(withPendingUnitCount: 0)
+
             do {
                 var fileCount = 0
                 let files = try self.sourceFiles(forDirectoryAt: url, fileCount: &fileCount, progress: progress)
@@ -45,10 +47,13 @@ import Foundation
                 DispatchQueue.main.async {
                     completion(result)
                 }
+
+                progress.resignCurrent()
             } catch {
                 print("Import Failed: \(error)")
                 let result = DirectoryResult(sourceFiles: [], fileCount: 0)
                 progress.completedUnitCount = progressCount
+                progress.resignCurrent()
                 completion(result)
             }
         }
@@ -63,16 +68,27 @@ import Foundation
         var files: [SourceFile] = []
 
         for url in urls {
-            let sourceFile = SourceFile(url: url as NSURL)
-            files.append(sourceFile)
-
             DispatchQueue.main.async {
                 progress.completedUnitCount += 1
             }
 
+            // only add paths that are not blacklisted
+            guard !isBlacklisted(url: url) else { continue }
+
+            let sourceFile = SourceFile(url: url as NSURL)
+
             if url.isDirectory {
-                sourceFile.add(try sourceFiles(forDirectoryAt: url, fileCount: &fileCount, progress: progress))
+                let subFiles = try sourceFiles(forDirectoryAt: url, fileCount: &fileCount, progress: progress)
+
+                // only add directories that have children
+                guard !subFiles.isEmpty else { continue }
+
+                sourceFile.add(subFiles)
+                files.append(sourceFile)
             } else {
+                files.append(sourceFile)
+
+                // only increment for files (not directories)
                 fileCount += 1
             }
         }
@@ -80,131 +96,22 @@ import Foundation
         return files
     }
 
-    @objc public func parseDirectory2(startingAt URL: URL, completion: @escaping (DirectoryResult) -> Void) -> Progress? {
-        /*
-         - root
-           - child1
-           - child2
-             - sub-root
-                 - child1
-                 - child1
-             - sub-root
-                 - child1
-                 - child1
-         - root
-             - child1
-         */
-
-        let enumerator = FileManager.default
-            .enumerator(at: URL, includingPropertiesForKeys: [.isDirectoryKey],
-                        options: [.skipsPackageDescendants, .skipsHiddenFiles, .skipsSubdirectoryDescendants]) { url, error in
-            print("Failed for: \(url) -- \(error)")
-            return true
-        }
-
-        var URLs = [NSURL]()
-        var tree = [SourceFile]()
-        var flattened = [SourceFile]()
-
-        while let url = enumerator?.nextObject() as? NSURL {
-            let folder = url
-            URLs.append(folder)
-        }
-
-        if URLs.count == 0 {
-            let result = DirectoryResult(sourceFiles: [], fileCount: 0)
-            completion(result)
-            return nil
-        }
-
-        let progress = Progress(totalUnitCount: Int64(URLs.count))
-        progress.becomeCurrent(withPendingUnitCount: 0)
-
-        progress.isCancellable = false
-        progress.isPausable = false
-
-        DispatchQueue.global(qos: .default).async {
-            let enumerator = FileManager.default.enumerator(at: URL, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsPackageDescendants, .skipsHiddenFiles]) { url, error in
-                print("Failed for: \(url) -- \(error)")
-                return true
-            }
-
-            func updateProgress() {
-                DispatchQueue.main.async {
-                    progress.completedUnitCount += 1
-                }
-            }
-
-            var directories = [String: SourceFile]()
-
-            while let url = enumerator?.nextObject() as? NSURL {
-                var isDirectory: AnyObject?
-                //swiftlint:disable force_try
-                try! url.getResourceValue(&isDirectory, forKey: .isDirectoryKey)
-                let directory = isDirectory as? Bool ?? false
-
-                // check if we should skip, don't forget to increment the progress anyway
-                if self.shouldSkip(url: url, directory) {
-                    updateProgress()
-                    continue
-                }
-
-                guard let path = url.path else {
-                    updateProgress()
-                    continue
-                }
-
-                let file = SourceFile(url: url)
-                let parent = directories[NSString(string: path).deletingLastPathComponent]
-
-                if directory {
-                    directories[path] = file
-                }
-
-                if parent != nil {
-                    parent?.add(file)
-                    flattened.append(file)
-                } else {
-                    tree.append(file)
-                    flattened.append(file)
-                }
-
-                updateProgress()
-            }
-
-            DispatchQueue.main.async {
-                let (files, count) = tree.cleaned
-                let result = DirectoryResult(sourceFiles: files, fileCount: count)
-                completion(result)
-                progress.resignCurrent()
-            }
-        }
-
-        return progress
-    }
-
     // todo: move this to a preference with sensible defaults
-    private func shouldSkip(url: NSURL, _ isDirectory: Bool) -> Bool {
-        let disallowedPaths = [ "Human", "Machine", "Pods", ] //"Carthage", "Build" ]
-        let allowedExtensions = [ "h", "m", "swift" ]
+    private func isBlacklisted(url: URL) -> Bool {
+        let disallowedPaths = [ "Human", "Machine", "Pods", "Carthage", "Build", "fastlane", "Docs" ]
+        let allowedExtensions = [ "h", "m", "swift", "js" ]
 
         for path in disallowedPaths {
-            if let components = url.pathComponents {
-                if components.contains(path) {
-                    return true
-                }
+            if url.pathComponents.contains(path) {
+                return true
             }
         }
 
-        if isDirectory && url.pathExtension?.count == 0 {
+        if url.isDirectory && url.pathExtension.isEmpty {
             return false
         }
 
-        if let ext = url.pathExtension {
-            return !allowedExtensions.contains(ext)
-        }
-
-        return false
+        return !allowedExtensions.contains(url.pathExtension)
     }
 
 }

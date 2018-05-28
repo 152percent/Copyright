@@ -19,13 +19,9 @@ extension SplitViewController {
     }
 
     @IBAction private func toggleLineNumbers(_ sender: Any?) {
-        guard let controller = childViewControllers
-            .compactMap({ $0 as? PreviewViewController })
-            .first else { return }
-
         UserDefaults.standard[.showLineNumbers].toggle()
-        controller.sourceTextView.toggleLineNumbers()
-        controller.destinationTextView.toggleLineNumbers()
+        previewViewController.sourceTextView.toggleLineNumbers()
+        previewViewController.destinationTextView.toggleLineNumbers()
     }
 
     @IBAction private func showInFinder(_ sender: Any?) {

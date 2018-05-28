@@ -13,7 +13,6 @@
 		541BB5A520BB731E009AF63A /* NSImage+Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB5A420BB731E009AF63A /* NSImage+Drawing.swift */; };
 		5425C1D120B7709C00617B58 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1D020B7709C00617B58 /* PreferenceButton.swift */; };
 		5425C1DC20B8525100617B58 /* DirectoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1DB20B8525100617B58 /* DirectoryParser.swift */; };
-		5425C1DE20B854A800617B58 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1DD20B854A800617B58 /* ProgressView.swift */; };
 		5433471620B6E331007090BD /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433471520B6E331007090BD /* SeparatorView.swift */; };
 		5436764F20B86ADC006C3F67 /* DirectoryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5436764E20B86ADC006C3F67 /* DirectoryResult.swift */; };
 		5436765120B95647006C3F67 /* CommentsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5436765020B95647006C3F67 /* CommentsParser.swift */; };
@@ -85,7 +84,6 @@
 		5425C1D020B7709C00617B58 /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		5425C1D720B82CDA00617B58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5425C1DB20B8525100617B58 /* DirectoryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryParser.swift; sourceTree = "<group>"; };
-		5425C1DD20B854A800617B58 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		5433471520B6E331007090BD /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		5436764E20B86ADC006C3F67 /* DirectoryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryResult.swift; sourceTree = "<group>"; };
 		5436765020B95647006C3F67 /* CommentsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsParser.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 				5425C1D020B7709C00617B58 /* PreferenceButton.swift */,
 				543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */,
 				543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */,
-				5425C1DD20B854A800617B58 /* ProgressView.swift */,
 				541BB59720BAC9D2009AF63A /* TokenAttachment.swift */,
 				541BB5A420BB731E009AF63A /* NSImage+Drawing.swift */,
 				54E9768820B60AEA00E94AC5 /* Assets.xcassets */,
@@ -411,7 +408,6 @@
 				5433471620B6E331007090BD /* SeparatorView.swift in Sources */,
 				543C1C2620B708B500F17EA9 /* NSImage+Tint.swift in Sources */,
 				541BB59820BAC9D2009AF63A /* TokenAttachment.swift in Sources */,
-				5425C1DE20B854A800617B58 /* ProgressView.swift in Sources */,
 				543C1C2820B70CB700F17EA9 /* PreviewViewController.swift in Sources */,
 				543C1C2A20B70E9800F17EA9 /* SynchronizedScrollView.swift in Sources */,
 				548FBC8720B6C8AF00672206 /* LicenseManager+Restore.swift in Sources */,

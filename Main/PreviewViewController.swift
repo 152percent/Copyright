@@ -13,12 +13,8 @@ public final class PreviewViewController: NSViewController {
 
     @IBOutlet private(set) weak var sourceTextView: SourceEditorView!
     @IBOutlet private(set) weak var destinationTextView: SourceEditorView!
-    @IBOutlet private weak var updateButton: NSButton!
     @IBOutlet private(set) weak var treeController: NSTreeController!
-
-    @IBAction private func toggleScrolling(_ sender: Any?) {
-        sourceTextView.enclosingScrollView?.scrollsDynamically = false
-    }
+    @IBOutlet private weak var updateButton: NSButton!
 
     @IBAction private func showUpdateButtonMenu(_ sender: Any?) {
         let point = CGPoint(x: -updateButton.frame.midX, y: updateButton.frame.height + 8)

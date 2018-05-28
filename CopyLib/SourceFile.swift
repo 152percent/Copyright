@@ -86,11 +86,12 @@ extension Array where Element == SourceFile {
 
             let newFile = SourceFile(url: file.url)
             newFile.parent = file.parent
-            newFile.children = file.children.cleaned.0
+            let cleaned = file.children.cleaned
 
-            if newFile.isDirectory {
-                fileCount += newFile.children.count
-            } else {
+            newFile.children = cleaned.0
+            fileCount += cleaned.1
+
+            if !newFile.isDirectory {
                 fileCount += 1
             }
 

@@ -13,6 +13,14 @@ final class SplitViewController: NSSplitViewController {
 
     private let normalizedFontSize: CGFloat = 12
 
+    private var progress: Progress? {
+        didSet { directoryViewController.activeProgress = progress }
+    }
+
+    private var directoryViewController: DirectoryViewController {
+        return childViewControllers.compactMap({ $0 as? DirectoryViewController }).first!
+    }
+
     private var treeController: NSTreeController {
         guard let controller = childViewControllers.compactMap({ $0 as? DirectoryViewController })
             .first else { fatalError() }
@@ -158,8 +166,10 @@ extension SplitViewController {
 
     internal func importDirectory(at url: URL) {
         let parser = DirectoryParser()
-        _ = parser.parseDirectory(startingAt: url) { [weak self] result in
+
+        progress = parser.parseDirectory(startingAt: url) { [weak self] result in
             self?.representedObject = result
+            self?.progress = nil
         }
     }
 

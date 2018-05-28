@@ -18,11 +18,9 @@ final class DirectoryViewController: NSViewController {
     }
 
     @IBOutlet private weak var outlineView: NSOutlineView!
-    @IBOutlet private weak var progressView: ProgressView!
-    @IBOutlet private weak var fileCountLabel: NSTextField!
     @IBOutlet private(set) weak var treeController: NSTreeController!
 
-    @objc dynamic private var activeProgress: Progress?
+    @objc dynamic internal var activeProgress: Progress?
 
     override var representedObject: Any? {
         didSet {

@@ -578,11 +578,12 @@ CA
                                     <progressIndicator wantsLayer="YES" maxValue="1" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Xrr-Dl-MiP" customClass="ProgressView" customModule="Copyright" customModuleProvider="target">
                                         <rect key="frame" x="16" y="7" width="168" height="20"/>
                                         <connections>
-                                            <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="1aj-L5-aaF">
+                                            <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="6rm-fE-kFB">
                                                 <dictionary key="options">
                                                     <string key="NSValueTransformerName">NSIsNil</string>
                                                 </dictionary>
                                             </binding>
+                                            <binding destination="bjg-bB-7oz" name="value" keyPath="activeProgress.fractionCompleted" id="l7S-Zh-N0T"/>
                                         </connections>
                                     </progressIndicator>
                                     <textField horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="LO9-0L-Zlh">
@@ -593,6 +594,11 @@ CA
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
+                                            <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="zRA-Is-KNK">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                                </dictionary>
+                                            </binding>
                                             <binding destination="bjg-bB-7oz" name="displayPatternValue1" keyPath="representedObject.fileCount" id="QjB-9G-tjP">
                                                 <dictionary key="options">
                                                     <string key="NSDisplayPattern">%{value1}@ file(s)</string>
@@ -615,7 +621,7 @@ CA
                                     <constraint firstItem="Xrr-Dl-MiP" firstAttribute="leading" secondItem="I49-qo-7zp" secondAttribute="leading" constant="16" id="t91-un-5ot"/>
                                 </constraints>
                             </visualEffectView>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" findBarPosition="belowContent" translatesAutoresizingMaskIntoConstraints="NO" id="e0N-fX-K41">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="25" horizontalPageScroll="10" verticalLineScroll="25" verticalPageScroll="10" usesPredominantAxisScrolling="NO" findBarPosition="belowContent" translatesAutoresizingMaskIntoConstraints="NO" id="e0N-fX-K41">
                                 <rect key="frame" x="0.0" y="34" width="200" height="300"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="g9s-KG-Ffx">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
@@ -624,7 +630,7 @@ CA
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" typeSelect="NO" autosaveName="directoryList" rowHeight="22" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="14" autosaveExpandedItems="YES" outlineTableColumn="hA5-CG-JVj" id="8wb-hs-ECb">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <size key="intercellSpacing" width="3" height="0.0"/>
+                                            <size key="intercellSpacing" width="3" height="3"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
@@ -643,7 +649,7 @@ CA
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="7x0-T7-Lhk">
-                                                            <rect key="frame" x="1" y="0.0" width="197" height="25"/>
+                                                            <rect key="frame" x="1" y="1" width="197" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TuS-Wz-wV4" userLabel="Icon">
@@ -745,9 +751,7 @@ CA
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fileCountLabel" destination="LO9-0L-Zlh" id="gvT-lg-rnQ"/>
                         <outlet property="outlineView" destination="8wb-hs-ECb" id="rmA-Cn-rHh"/>
-                        <outlet property="progressView" destination="Xrr-Dl-MiP" id="ouC-gl-a4h"/>
                         <outlet property="treeController" destination="qhw-Ep-yIR" id="Vfl-VA-hBJ"/>
                     </connections>
                 </viewController>

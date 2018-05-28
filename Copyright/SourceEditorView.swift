@@ -76,8 +76,10 @@ public final class SourceEditorView: NSTextView {
             scrollView.hasVerticalRuler = true
             scrollView.rulersVisible = true
 
-            NotificationCenter.default.addObserver(self, selector: #selector(didChange(_:)), name: NSView.frameDidChangeNotification, object: self)
-            NotificationCenter.default.addObserver(self, selector: #selector(didChange(_:)), name: NSText.didChangeNotification, object: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(didChange(_:)),
+                                                   name: NSView.frameDidChangeNotification, object: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(didChange(_:)),
+                                                   name: NSText.didChangeNotification, object: self)
         }
     }
 
@@ -105,8 +107,8 @@ extension SourceEditorView {
 
         string.enumerateAttribute(.attachment, in: range, options: .reverse) { value, range, _ in
             guard let attachment = value as? TokenAttachment, let token = attachment.token else { return }
-
-            var range2: NSRange = NSRange(location: 0, length: 0)
+            
+            var range2 = NSRange(location: 0, length: 0)
             let attributes = string.attributes(at: range.location, effectiveRange: &range2)
             let tokenString = "</\(token.string)/>"
 
@@ -154,7 +156,12 @@ extension SourceEditorView {
 
 extension SourceEditorView: NSLayoutManagerDelegate {
 
-    public func layoutManager(_ layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<NSRect>, lineFragmentUsedRect: UnsafeMutablePointer<NSRect>, baselineOffset: UnsafeMutablePointer<CGFloat>, in textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool {
+    public func layoutManager(_ layoutManager: NSLayoutManager,
+                              shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<NSRect>,
+                              lineFragmentUsedRect: UnsafeMutablePointer<NSRect>,
+                              baselineOffset: UnsafeMutablePointer<CGFloat>,
+                              in textContainer: NSTextContainer,
+                              forGlyphRange glyphRange: NSRange) -> Bool {
 
         let size: CGFloat = UserDefaults.standard[.fontSize]
         let font = NSFont.userFixedPitchFont(ofSize: size) ?? NSFont.systemFont(ofSize: size)
@@ -182,7 +189,8 @@ extension SourceEditorView: NSLayoutManagerDelegate {
 
 extension SourceEditorView: NSTextStorageDelegate {
 
-    public func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+    public func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions,
+                            range editedRange: NSRange, changeInLength delta: Int) {
         let string = textStorage.string as NSString
         let lineRange = string.lineRange(for: editedRange)
         let line = string.substring(with: lineRange)

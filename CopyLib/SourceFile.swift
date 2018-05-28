@@ -8,16 +8,6 @@
 
 import Foundation
 
-extension URL {
-
-    public var isDirectory: Bool {
-        do {
-            return try resourceValues(forKeys: [.isDirectoryKey]).isDirectory ?? false
-        } catch { return false }
-    }
-
-}
-
 extension NSURL {
 
     // swiftlint:disable force_try

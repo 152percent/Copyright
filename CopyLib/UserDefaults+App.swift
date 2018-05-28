@@ -18,4 +18,7 @@ extension UserDefaults.Key {
 
     public static let sourceTextColor: UserDefaults.Key = "SourceTextColor"
     public static let commentTextColor: UserDefaults.Key = "CommentTextColor"
+
+    public static let whiteListExtensions: UserDefaults.Key = "WhitelistExtensions"
+    public static let blackListPaths: UserDefaults.Key = "BlacklistPaths"
 }

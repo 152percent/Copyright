@@ -24,9 +24,6 @@ import Foundation
 
 @objc public final class DirectoryParser: NSObject {
 
-    private let disallowedPaths = [ "Human", "Machine", "Pods", "Carthage", "Build", "fastlane", "Docs" ].map { $0.lowercased() }
-    private let allowedExtensions = [ "h", "m", "swift", "js" ].map { $0.lowercased() }
-
     @objc public override init() {
         super.init()
     }
@@ -76,7 +73,7 @@ import Foundation
             }
 
             // only add paths that are not blacklisted
-            guard !isBlacklisted(url: url) else { continue }
+            guard !url.isBlacklisted else { continue }
 
             let sourceFile = SourceFile(url: url as NSURL)
 
@@ -97,23 +94,6 @@ import Foundation
         }
 
         return files
-    }
-
-    // todo: move this to a preference with sensible defaults
-    private func isBlacklisted(url: URL) -> Bool {
-        for path in disallowedPaths {
-            let components = url.pathComponents.map { $0.lowercased() }
-            
-            if components.contains(path) {
-                return true
-            }
-        }
-
-        if url.isDirectory && url.pathExtension.isEmpty {
-            return false
-        }
-
-        return !allowedExtensions.contains(url.pathExtension)
     }
 
 }

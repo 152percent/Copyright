@@ -22,6 +22,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             .fontFamily: defaultFont.familyName!,
             .fontSize: defaultSize,
             .defaultFontSize: defaultSize,
+            .whiteListExtensions: ["h", "m", "swift", "js"],
+            .blackListPaths: ["Human", "Machine", "Pods", "Carthage", "Build", "fastlane", "Docs"]
         ])
 
         seedLicensesIfRequired()

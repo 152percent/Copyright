@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5404EBFF20BCBF1200BE8F26 /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5404EBFE20BCBF1200BE8F26 /* AdvancedViewController.swift */; };
+		5404EC0120BCC00A00BE8F26 /* URL+SourceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5404EC0020BCC00A00BE8F26 /* URL+SourceFile.swift */; };
 		541BB59820BAC9D2009AF63A /* TokenAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB59720BAC9D2009AF63A /* TokenAttachment.swift */; };
 		541BB59A20BB0FF9009AF63A /* Bool+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB59920BB0FF9009AF63A /* Bool+Toggle.swift */; };
 		541BB5A020BB5E29009AF63A /* whitespace.regex in Resources */ = {isa = PBXBuildFile; fileRef = 541BB59F20BB5E29009AF63A /* whitespace.regex */; };
@@ -79,6 +81,8 @@
 		18D8185125BBEFC9FD3236CF /* libPods-Copyright.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Copyright.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20DA6ACDD2FAAB7517BAC653 /* Pods-Copyright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Copyright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Copyright/Pods-Copyright.debug.xcconfig"; sourceTree = "<group>"; };
 		2269EB8062821A0C6C954081 /* Pods-Copyright.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Copyright.release.xcconfig"; path = "Pods/Target Support Files/Pods-Copyright/Pods-Copyright.release.xcconfig"; sourceTree = "<group>"; };
+		5404EBFE20BCBF1200BE8F26 /* AdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedViewController.swift; sourceTree = "<group>"; };
+		5404EC0020BCC00A00BE8F26 /* URL+SourceFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL+SourceFile.swift"; path = "CopyLib/URL+SourceFile.swift"; sourceTree = SOURCE_ROOT; };
 		541BB59720BAC9D2009AF63A /* TokenAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAttachment.swift; sourceTree = "<group>"; };
 		541BB59920BB0FF9009AF63A /* Bool+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Toggle.swift"; sourceTree = "<group>"; };
 		541BB59F20BB5E29009AF63A /* whitespace.regex */ = {isa = PBXFileReference; lastKnownFileType = text; path = whitespace.regex; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				54E9768620B60AE900E94AC5 /* DirectoryViewController.swift */,
 				543C1C2720B70CB700F17EA9 /* PreviewViewController.swift */,
 				548FBC7A20B635A300672206 /* LicensesViewController.swift */,
+				5404EBFE20BCBF1200BE8F26 /* AdvancedViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				5436764E20B86ADC006C3F67 /* DirectoryResult.swift */,
 				5436765020B95647006C3F67 /* CommentsParser.swift */,
 				541BB59920BB0FF9009AF63A /* Bool+Toggle.swift */,
+				5404EC0020BCC00A00BE8F26 /* URL+SourceFile.swift */,
 			);
 			path = CopyLib;
 			sourceTree = "<group>";
@@ -482,6 +488,7 @@
 				54E9769520B60B4100E94AC5 /* WindowController.swift in Sources */,
 				54E9768520B60AE900E94AC5 /* AppDelegate.swift in Sources */,
 				548FBC7220B6276100672206 /* SplitViewController.swift in Sources */,
+				5404EBFF20BCBF1200BE8F26 /* AdvancedViewController.swift in Sources */,
 				541BB5A520BB731E009AF63A /* NSImage+Drawing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5404EC0120BCC00A00BE8F26 /* URL+SourceFile.swift in Sources */,
 				541BB59A20BB0FF9009AF63A /* Bool+Toggle.swift in Sources */,
 				548FBC8320B6BA5B00672206 /* UserDefaults.swift in Sources */,
 				54E976AC20B60CFF00E94AC5 /* SourceFile.swift in Sources */,

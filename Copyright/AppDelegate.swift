@@ -1,8 +1,3 @@
-
-
-/**
- Copyright
- */
 //
 //  AppDelegate.swift
 //  Copyright

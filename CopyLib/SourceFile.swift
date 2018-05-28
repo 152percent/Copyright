@@ -162,6 +162,7 @@ extension SourceFile {
         return source
     }
 
+    // todo: maybe more this to textStorage:didProcessEditing:
     @objc dynamic public var attributedSource: NSAttributedString {
         let size: CGFloat = UserDefaults.standard[.fontSize]
         let font = NSFont.userFixedPitchFont(ofSize: size)
@@ -172,17 +173,17 @@ extension SourceFile {
             .font: font
         ])
 
-        if let commentRange = self.commentRange {
-            let commentAttributes: [NSAttributedStringKey: Any] = [
-                .foregroundColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
-                .font: font
-            ]
+        guard let commentRange = self.commentRange else { return attributedString }
 
-            let comment = String(source[commentRange])
-            let commentString = NSAttributedString(string: comment, attributes: commentAttributes)
+        let commentAttributes: [NSAttributedStringKey: Any] = [
+            .foregroundColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
+            .font: font
+        ]
 
-            attributedString.replaceCharacters(in: NSRange(commentRange, in: commentString.string), with: commentString)
-        }
+        let comment = String(source[commentRange])
+        let commentString = NSAttributedString(string: comment, attributes: commentAttributes)
+
+        attributedString.replaceCharacters(in: NSRange(commentRange, in: commentString.string), with: commentString)
 
         return attributedString
     }

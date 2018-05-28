@@ -8,15 +8,20 @@
 
 import Cocoa
 
-class PreferencesViewController: NSViewController {
+/// Defines common behaviour for all preference panes.
+open class PreferencePaneViewController: NSViewController {
 
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Forces the controller's view to size itself based on the Storyboard/XIB
         preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height)
     }
     
-    override func viewDidAppear() {
+    open override func viewDidAppear() {
         super.viewDidAppear()
+
+        // Propogates this controller's title to the window
         parent?.view.window?.title = title ?? ""
     }
     

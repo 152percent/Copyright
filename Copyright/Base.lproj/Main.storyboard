@@ -575,7 +575,7 @@ CA
                             <visualEffectView blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="I49-qo-7zp">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
                                 <subviews>
-                                    <progressIndicator wantsLayer="YES" maxValue="1" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Xrr-Dl-MiP" customClass="ProgressView" customModule="Copyright" customModuleProvider="target">
+                                    <progressIndicator wantsLayer="YES" maxValue="1" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Xrr-Dl-MiP">
                                         <rect key="frame" x="16" y="7" width="168" height="20"/>
                                         <connections>
                                             <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="6rm-fE-kFB">
@@ -627,7 +627,7 @@ CA
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" typeSelect="NO" autosaveName="directoryList" rowHeight="22" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="14" autosaveExpandedItems="YES" outlineTableColumn="hA5-CG-JVj" id="8wb-hs-ECb">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" typeSelect="NO" autosaveName="directoryList" rowHeight="22" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="14" outlineTableColumn="hA5-CG-JVj" id="8wb-hs-ECb">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="3"/>
@@ -747,12 +747,9 @@ CA
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="tyW-XW-w6f">
+                                    <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="vMJ-mW-2IF">
                                         <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                            <string key="NSValueTransformerName">NSIsNil</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
@@ -836,7 +833,7 @@ CA
                         <rect key="frame" x="0.0" y="0.0" width="515" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGA-aR-S5c" customClass="SynchronizedScrollView" customModule="Copyright" customModuleProvider="target">
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGA-aR-S5c" userLabel="Synchronized Scroll View" customClass="SynchronizedScrollView" customModule="Copyright" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="33" width="233" height="267"/>
                                 <clipView key="contentView" id="VSQ-ex-pwm">
                                     <rect key="frame" x="0.0" y="0.0" width="233" height="267"/>
@@ -963,7 +960,7 @@ CA
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="showUpdateButtonMenu:" target="Pe2-W8-qxS" id="3e1-Ef-mle"/>
+                                            <action selector="showResolutionMenu:" target="Pe2-W8-qxS" id="3e1-Ef-mle"/>
                                             <binding destination="rLh-v8-d13" name="hidden" keyPath="selection.url" id="kIf-xC-tGz">
                                                 <dictionary key="options">
                                                     <integer key="NSMultipleValuesPlaceholder" value="0"/>
@@ -1068,9 +1065,8 @@ CA
                     </view>
                     <connections>
                         <outlet property="destinationTextView" destination="1gx-Kx-sy7" id="sva-oX-6jN"/>
+                        <outlet property="resolutionButton" destination="Kpw-kG-zAc" id="siA-Hh-dZ3"/>
                         <outlet property="sourceTextView" destination="533-ov-4lx" id="URQ-Av-yNG"/>
-                        <outlet property="treeController" destination="rLh-v8-d13" id="FdU-OP-5hJ"/>
-                        <outlet property="updateButton" destination="Kpw-kG-zAc" id="siA-Hh-dZ3"/>
                     </connections>
                 </viewController>
                 <treeController objectClassName="CopyLib.SourceFile" editable="NO" automaticallyPreparesContent="YES" childrenKeyPath="children" countKeyPath="count" leafKeyPath="isLeaf" id="rLh-v8-d13">

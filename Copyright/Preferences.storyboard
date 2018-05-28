@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="eWj-ko-ODd">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -66,7 +65,7 @@
                                 <rect key="frame" x="201" y="0.0" width="649" height="550"/>
                                 <clipView key="contentView" copiesOnScroll="NO" id="qAk-MB-Jgc">
                                     <rect key="frame" x="0.0" y="0.0" width="649" height="550"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="vis-uD-eZp" customClass="SourceEditorView" customModule="Copyright" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="649" height="550"/>
@@ -96,7 +95,7 @@
                                 <rect key="frame" x="0.0" y="35" width="200" height="515"/>
                                 <clipView key="contentView" id="GCi-Hh-70T">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="515"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" emptySelection="NO" autosaveColumns="NO" rowHeight="27" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="EJC-D7-ndi">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="515"/>
@@ -281,7 +280,7 @@ CA
                     </connections>
                 </viewController>
                 <customObject id="zwM-y8-4r0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController objectClassName="CopyLib.License" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="I5f-nt-KY5" userLabel="Licenses Controller" customClass="LicensesController" customModule="Copyright" customModuleProvider="target">
+                <arrayController objectClassName="CopyLib.License" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="I5f-nt-KY5" userLabel="Licenses Controller" customClass="LicensesArrayController" customModule="Copyright" customModuleProvider="target">
                     <declaredKeys>
                         <string>name</string>
                         <string>content</string>

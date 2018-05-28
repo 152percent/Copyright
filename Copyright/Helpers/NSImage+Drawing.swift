@@ -1,5 +1,5 @@
 //
-//  NSImage+Drawing.swift <#comapny#>
+//  NSImage+Drawing.swift
 //  Copyright
 //
 //  Created by Shaps Benkau on 28/05/2018.

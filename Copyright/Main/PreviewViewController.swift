@@ -13,12 +13,11 @@ public final class PreviewViewController: NSViewController {
 
     @IBOutlet private(set) weak var sourceTextView: SourceEditorView!
     @IBOutlet private(set) weak var destinationTextView: SourceEditorView!
-    @IBOutlet private(set) weak var treeController: NSTreeController!
-    @IBOutlet private weak var updateButton: NSButton!
+    @IBOutlet private weak var resolutionButton: NSButton!
 
-    @IBAction private func showUpdateButtonMenu(_ sender: Any?) {
-        let point = CGPoint(x: -updateButton.frame.midX, y: updateButton.frame.height + 8)
-        updateButton.menu?.popUp(positioning: nil, at: point, in: updateButton)
+    @IBAction private func showResolutionMenu(_ sender: Any?) {
+        let point = CGPoint(x: -resolutionButton.frame.midX, y: resolutionButton.frame.height + 8)
+        resolutionButton.menu?.popUp(positioning: nil, at: point, in: resolutionButton)
     }
 
 }

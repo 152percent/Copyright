@@ -8,7 +8,24 @@
 
 import AppKit
 
-public final class SynchronizedScrollView: NSScrollView {
+/// NSScrollView doesn't provide a built-in `isEnabled` – so this provides one.
+public class ScrollView: NSScrollView {
+
+    @IBInspectable @objc(enabled)
+    public var isEnabled: Bool = true
+
+    public override func scrollWheel(with event: NSEvent) {
+        if isEnabled {
+            super.scrollWheel(with: event)
+        } else {
+            nextResponder?.scrollWheel(with: event)
+        }
+    }
+
+}
+
+/// This allows two NSScrollView's to synchronize their scrolling
+public final class SynchronizedScrollView: ScrollView {
 
     public override class var isCompatibleWithResponsiveScrolling: Bool {
         return true
@@ -31,6 +48,8 @@ public final class SynchronizedScrollView: NSScrollView {
     }
 
     @objc private func synchronizedScrollViewDidScroll(_ note: Notification) {
+        guard isEnabled else { return }
+
         let changedContentView = note.object as! NSClipView
         let changedBoundsOrigin = changedContentView.documentVisibleRect.origin
 

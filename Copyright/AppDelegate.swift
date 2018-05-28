@@ -14,7 +14,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         UserDefaults.standard.register(defaults: [
-            .fontSize: 12,
+            .defaultFontSize: 11,
             .showLineNumbers: true
         ])
 

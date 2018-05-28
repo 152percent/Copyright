@@ -31,20 +31,14 @@ var LineNumberViewAssocObjKey: UInt8 = 0
 
 extension NSTextView {
 
-    var lineNumberView: LineNumberRulerView {
-        get {
-            return objc_getAssociatedObject(self, &LineNumberViewAssocObjKey) as! LineNumberRulerView
-        }
-        set {
-            objc_setAssociatedObject(self, &LineNumberViewAssocObjKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
+    private var lineNumberView: LineNumberRulerView {
+        get { return objc_getAssociatedObject(self, &LineNumberViewAssocObjKey) as! LineNumberRulerView }
+        set { objc_setAssociatedObject(self, &LineNumberViewAssocObjKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
     func lnv_setUpLineNumberView() {
-        if font == nil {
-            font = NSFont.userFixedPitchFont(ofSize: NSFont.smallSystemFontSize)
-        }
-        
+        font = NSFont.userFixedPitchFont(ofSize: NSFont.smallSystemFontSize)
+
         if let scrollView = enclosingScrollView {
             lineNumberView = LineNumberRulerView(textView: self)
             
@@ -58,6 +52,7 @@ extension NSTextView {
         NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSTextStorage.didProcessEditingNotification, object: self)
         NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSView.frameDidChangeNotification, object: self)
         NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSText.didChangeNotification, object: self)
+        
         addObserver(self, forKeyPath: "font", options: [.initial, .new], context: nil)
         addObserver(self, forKeyPath: "string", options: [.initial, .new], context: nil)
     }

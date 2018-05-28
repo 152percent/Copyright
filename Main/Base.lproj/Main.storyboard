@@ -785,6 +785,35 @@ CA
                 </treeController>
                 <menu id="hy0-mm-Cv3">
                     <items>
+                        <menuItem title="Add" keyEquivalent="a" id="uTs-6f-DRQ">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="addComment:" target="NpT-9M-orl" id="94L-PF-enK"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Modify" tag="1" keyEquivalent="m" id="2ih-Ch-qT3">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="modifyComment:" target="NpT-9M-orl" id="ckQ-kJ-UJF"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Delete" tag="2" keyEquivalent="d" id="bkc-pB-Yvc">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="deleteComment:" target="NpT-9M-orl" id="8NY-sh-GZ4"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="mcn-UF-GSQ"/>
+                        <menuItem title="Ignore" state="on" tag="3" id="i87-tr-wJt">
+                            <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="ignoreComment:" target="NpT-9M-orl" id="xY1-da-SMg"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="NwD-oo-PHy"/>
                         <menuItem title="Show in Finder" id="ymb-2M-bs7">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>

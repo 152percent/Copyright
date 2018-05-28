@@ -17,7 +17,7 @@ final class DirectoryViewController: NSViewController {
         case inProgress(Progress)
     }
 
-    @IBOutlet private weak var outlineView: NSOutlineView!
+    @IBOutlet private(set) weak var outlineView: NSOutlineView!
     @IBOutlet private(set) weak var treeController: NSTreeController!
 
     @objc dynamic internal var activeProgress: Progress?

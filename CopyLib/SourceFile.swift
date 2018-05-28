@@ -8,6 +8,16 @@
 
 import Foundation
 
+extension URL {
+
+    public var isDirectory: Bool {
+        do {
+            return try resourceValues(forKeys: [.isDirectoryKey]).isDirectory ?? false
+        } catch { return false }
+    }
+
+}
+
 extension NSURL {
 
     // swiftlint:disable force_try
@@ -105,6 +115,27 @@ extension Array where Element == SourceFile {
 
 extension SourceFile {
 
+    public override var description: String {
+        return recursiveDescription(level: 0)
+    }
+
+    private func recursiveDescription(level: Int) -> String {
+        let indent = Array(repeating: " ", count: 4 * level).joined()
+
+        if url.isDirectory {
+            return """
+            \(indent)▾ \(url)
+            \(children.map { $0.recursiveDescription(level: level + 1) }.joined(separator: "\n"))
+            """
+        } else {
+            return "\(indent)• \(url.path!)"
+        }
+    }
+
+}
+
+extension SourceFile {
+
     @objc dynamic var isDirectory: Bool {
         var isDirectory: AnyObject?
         try? url.getResourceValue(&isDirectory, forKey: .isDirectoryKey)
@@ -135,6 +166,11 @@ extension SourceFile {
     internal func add(_ file: SourceFile) {
         file.parent = self
         children.append(file)
+    }
+
+    internal func add(_ files: [SourceFile]) {
+        files.forEach { $0.parent = self }
+        children.append(contentsOf: files)
     }
 
     @objc dynamic var isLeaf: Bool {

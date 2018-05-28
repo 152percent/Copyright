@@ -20,7 +20,7 @@ public final class DirectoryResult: NSObject {
         self.fileCount = fileCount
 
         selectedIndexPaths = sourceFiles.isEmpty ? [] : [IndexPath(index: 0) ]
-        sortDescriptors = [NSSortDescriptor(key: "url.absoluteString", ascending: true)]
+        sortDescriptors = [NSSortDescriptor(key: "url.lastPathComponent", ascending: true)]
         
         super.init()
     }

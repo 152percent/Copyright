@@ -18,8 +18,9 @@ final class DirectoryViewController: NSViewController {
 
     override var representedObject: Any? {
         didSet {
-            DispatchQueue.main.async {
-                self.outlineView.expandItem(nil, expandChildren: true)
+            DispatchQueue.main.async {  [weak self] in
+                guard let result = self?.representedObject as? DirectoryResult, result.fileCount < 100 else { return }
+                self?.outlineView.expandItem(nil, expandChildren: true)
             }
         }
     }

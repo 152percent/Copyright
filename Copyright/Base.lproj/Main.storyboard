@@ -589,7 +589,7 @@ CA
                                     <textField horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="LO9-0L-Zlh">
                                         <rect key="frame" x="77" y="9" width="47" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="No files" id="elK-g4-8Ov">
-                                            <font key="font" metaFont="system" size="12"/>
+                                            <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -599,9 +599,9 @@ CA
                                                     <string key="NSValueTransformerName">NSIsNotNil</string>
                                                 </dictionary>
                                             </binding>
-                                            <binding destination="bjg-bB-7oz" name="displayPatternValue1" keyPath="representedObject.fileCount" id="QjB-9G-tjP">
+                                            <binding destination="bjg-bB-7oz" name="displayPatternValue1" keyPath="representedObject.fileCount" id="41z-KO-KtE">
                                                 <dictionary key="options">
-                                                    <string key="NSDisplayPattern">%{value1}@ file(s)</string>
+                                                    <string key="NSDisplayPattern">%{value1}@ files</string>
                                                     <string key="NSMultipleValuesPlaceholder">Multiple files selected</string>
                                                     <string key="NSNoSelectionPlaceholder">No</string>
                                                     <string key="NSNotApplicablePlaceholder">No</string>
@@ -676,6 +676,7 @@ CA
                                                                                 <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
                                                                             </dictionary>
                                                                         </binding>
+                                                                        <binding destination="7x0-T7-Lhk" name="toolTip" keyPath="objectValue.url.path" id="NmS-MN-HEO"/>
                                                                     </connections>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-mf-yye" userLabel="Resolution">
@@ -908,9 +909,9 @@ CA
                                 <rect key="frame" x="-1" y="0.0" width="517" height="33"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wiT-uX-mdc">
-                                        <rect key="frame" x="98" y="9" width="42" height="16"/>
+                                        <rect key="frame" x="97" y="9" width="42" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Before" id="cHB-GJ-Cql">
-                                            <font key="font" metaFont="system" size="12"/>
+                                            <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -918,7 +919,7 @@ CA
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RjU-P4-ZQa">
                                         <rect key="frame" x="384" y="9" width="32" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="After" id="DwR-s2-CDJ">
-                                            <font key="font" metaFont="system" size="12"/>
+                                            <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -941,7 +942,7 @@ CA
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Pqd-Mi-6YL" customClass="SeparatorView" customModule="Copyright" customModuleProvider="target">
                                 <rect key="frame" x="233" y="0.0" width="50" height="301"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kpw-kG-zAc" customClass="Button" customModule="Copyright" customModuleProvider="target">
+                                    <button toolTip="Resolve File" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kpw-kG-zAc" customClass="Button" customModule="Copyright" customModuleProvider="target">
                                         <rect key="frame" x="6" y="152" width="38" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="wEc-qN-R8K"/>

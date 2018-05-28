@@ -28,10 +28,76 @@ import Foundation
         super.init()
     }
 
-    @objc public func parseDirectory(startingAt URL: URL, completion: @escaping (DirectoryResult) -> Void) -> Progress? {
+    @objc public func parseDirectory(startingAt url: URL, completion: @escaping (DirectoryResult) -> Void) -> Progress? {
+        var progressCount: Int64 = 0
+
+        let enumerator = FileManager.default.enumerator(at: url, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants], errorHandler: nil)
+        while enumerator?.nextObject() != nil { progressCount += 1 }
+
+        let progress = Progress(totalUnitCount: progressCount)
+
+        DispatchQueue.global().async {
+            do {
+                var fileCount = 0
+                let files = try self.sourceFiles(forDirectoryAt: url, fileCount: &fileCount, progress: progress)
+                let result = DirectoryResult(sourceFiles: files, fileCount: fileCount)
+
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            } catch {
+                print("Import Failed: \(error)")
+                let result = DirectoryResult(sourceFiles: [], fileCount: 0)
+                progress.completedUnitCount = progressCount
+                completion(result)
+            }
+        }
+
+        return progress
+    }
+
+    private func sourceFiles(forDirectoryAt url: URL, fileCount: inout Int, progress: Progress) throws -> [SourceFile] {
+        var urls = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants])
+        urls.sort { $0.path < $1.path }
+
+        var files: [SourceFile] = []
+
+        for url in urls {
+            let sourceFile = SourceFile(url: url as NSURL)
+            files.append(sourceFile)
+
+            DispatchQueue.main.async {
+                progress.completedUnitCount += 1
+            }
+
+            if url.isDirectory {
+                sourceFile.add(try sourceFiles(forDirectoryAt: url, fileCount: &fileCount, progress: progress))
+            } else {
+                fileCount += 1
+            }
+        }
+
+        return files
+    }
+
+    @objc public func parseDirectory2(startingAt URL: URL, completion: @escaping (DirectoryResult) -> Void) -> Progress? {
+        /*
+         - root
+           - child1
+           - child2
+             - sub-root
+                 - child1
+                 - child1
+             - sub-root
+                 - child1
+                 - child1
+         - root
+             - child1
+         */
+
         let enumerator = FileManager.default
             .enumerator(at: URL, includingPropertiesForKeys: [.isDirectoryKey],
-                        options: [.skipsPackageDescendants, .skipsHiddenFiles]) { url, error in
+                        options: [.skipsPackageDescendants, .skipsHiddenFiles, .skipsSubdirectoryDescendants]) { url, error in
             print("Failed for: \(url) -- \(error)")
             return true
         }
@@ -119,7 +185,7 @@ import Foundation
 
     // todo: move this to a preference with sensible defaults
     private func shouldSkip(url: NSURL, _ isDirectory: Bool) -> Bool {
-        let disallowedPaths = [ "Human", "Machine", "Pods" ]
+        let disallowedPaths = [ "Human", "Machine", "Pods", ] //"Carthage", "Build" ]
         let allowedExtensions = [ "h", "m", "swift" ]
 
         for path in disallowedPaths {

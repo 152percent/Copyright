@@ -1,11 +1,17 @@
-//
-//  LicensesViewController.swift
-//  Copyright
-//
-//  Created by Shaps Benkau on 24/05/2018.
-//  Copyright © 2018 152percent Ltd. All rights reserved.
-//
+/*
+    2016-2018 152 Percent Ltd
+    All Rights Reserved.
 
+    NOTICE: All information contained herein is, and remains
+    the property of 152 Percent Ltd and its suppliers,
+    if any. The intellectual and technical concepts contained
+    herein are proprietary to 152 Percent Ltd and its suppliers,
+    and are protected by trade secret or copyright law.
+    Dissemination of this information or reproduction of this material
+    is strictly forbidden unless prior written permission is obtained
+    from 152 Percent Ltd.
+ */
+   
 import AppKit
 import CopyLib
 
@@ -26,21 +32,12 @@ final class LicensesViewController: PreferencePaneViewController {
     @IBAction private func add(_ sender: Any?) {
         let license = License(name: "Untitled", content: nil)
         licenseManager.add(license)
-
-        undoManager?.registerUndo(withTarget: self) { [weak self] _ in
-            self?.licenseManager.remove(license)
-        }
-
         arrayController.setSelectedObjects([license])
     }
 
     @IBAction private func remove(_ sender: Any?) {
         guard let licenses = arrayController.selectedObjects as? [License] else { return }
         licenses.forEach { licenseManager.remove($0) }
-
-        undoManager?.registerUndo(withTarget: self) { [weak self] _ in
-            licenses.forEach { self?.licenseManager.add($0) }
-        }
     }
 
     @IBAction private func update(_ sender: Any?) {

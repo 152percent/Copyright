@@ -1,11 +1,17 @@
-//
-//  Filtering.swift
-//  Copyright
-//
-//  Created by Shaps Benkau on 28/05/2018.
-//  Copyright © 2018 152percent Ltd. All rights reserved.
-//
+/*
+    2016-2018 152 Percent Ltd
+    All Rights Reserved.
 
+    NOTICE: All information contained herein is, and remains
+    the property of 152 Percent Ltd and its suppliers,
+    if any. The intellectual and technical concepts contained
+    herein are proprietary to 152 Percent Ltd and its suppliers,
+    and are protected by trade secret or copyright law.
+    Dissemination of this information or reproduction of this material
+    is strictly forbidden unless prior written permission is obtained
+    from 152 Percent Ltd.
+ */
+   
 import AppKit
 import CopyLib
 

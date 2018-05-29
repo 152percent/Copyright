@@ -71,6 +71,22 @@ final class SplitViewController: NSSplitViewController {
     }
 
     @IBAction public func updateLicenses(_ sender: Any?) {
+        guard let result = representedObject as? DirectoryResult else { return }
+        let resolved = result.sourceFiles.resolvedSourceFiles()
+
+        guard resolved.count > 0 else {
+            let error = NSError(domain: "com.152percent.license", code: -1, userInfo: [
+                NSLocalizedDescriptionKey: "Nothing to update"
+            ])
+
+            let alert = NSAlert(error: error)
+            alert.alertStyle = .informational
+            alert.informativeText = "Resolve some files before running an update."
+            alert.runModal()
+
+            return
+        }
+
         let alert = NSAlert()
 
         alert.alertStyle = .critical
@@ -81,11 +97,39 @@ final class SplitViewController: NSSplitViewController {
         alert.addButton(withTitle: "Cancel")
 
         guard alert.runModal() == .alertFirstButtonReturn else { return }
-        print("Updating...")
+        updateLicenses(resolved: resolved)
     }
 
-    private func updateLicenses() {
+    private func updateLicenses(resolved: [SourceFile]) {
+        activeProgress = Progress(totalUnitCount: Int64(resolved.count))
 
+        DispatchQueue.global().async { [weak self] in
+            self?.activeProgress?.becomeCurrent(withPendingUnitCount: 0)
+
+            for sourceFile in resolved {
+                DispatchQueue.main.async {
+                    self?.activeProgress?.completedUnitCount += 1
+                }
+
+                do {
+                    try sourceFile.resolvedSource?.string.write(to: sourceFile.url as URL, atomically: true, encoding: .utf8)
+
+                    DispatchQueue.main.async {
+                        sourceFile.willChangeValue(for: \.attributedSource)
+                        sourceFile.resolution = .resolved
+                        sourceFile.didChangeValue(for: \.attributedSource)
+                    }
+                } catch {
+                    print("Update license failed for: \(sourceFile.url.path!)")
+                }
+            }
+
+            self?.activeProgress?.resignCurrent()
+
+            DispatchQueue.main.async {
+                self?.activeProgress = nil
+            }
+        }
     }
 
 }

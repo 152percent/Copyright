@@ -10,11 +10,8 @@ import Foundation
 
 extension NSURL {
 
-    // swiftlint:disable force_try
     @objc dynamic public var isDirectory: Bool {
-        var isDirectory: AnyObject?
-        try! getResourceValue(&isDirectory, forKey: .isDirectoryKey)
-        return isDirectory as? Bool ?? false
+        return (self as URL).isDirectory
     }
 
 }
@@ -24,6 +21,7 @@ extension NSURL {
     case modify
     case delete
     case ignore
+    case resolved
 }
 
 @objc public final class SourceFile: NSObject {
@@ -38,6 +36,7 @@ extension NSURL {
             case .modify: resolutionChar = "M"
             case .delete: resolutionChar = "D"
             case .ignore: resolutionChar = ""
+            case .resolved: resolutionChar = "✓"
             }
 
             children.forEach { $0.resolution = resolution }
@@ -79,31 +78,6 @@ extension Array where Element == SourceFile {
         }
 
         return urls
-    }
-
-    /// Removes empty directories from the tree
-    public var cleaned: ([SourceFile], Int) {
-        var fileCount: Int = 0
-        var files: [SourceFile] = []
-
-        for file in self {
-            if file.isDirectory && file.children.cleaned.0.isEmpty { continue }
-
-            let newFile = SourceFile(url: file.url)
-            newFile.parent = file.parent
-            let cleaned = file.children.cleaned
-
-            newFile.children = cleaned.0
-            fileCount += cleaned.1
-
-            if !newFile.isDirectory {
-                fileCount += 1
-            }
-
-            files.append(newFile)
-        }
-
-        return (files, fileCount)
     }
 
 }
@@ -220,11 +194,6 @@ extension SourceFile {
 
         attributedString.replaceCharacters(in: NSRange(commentRange, in: commentString.string), with: commentString)
         return attributedString
-    }
-
-    @objc dynamic public func attributedSource(with license: License) -> NSAttributedString {
-        
-        fatalError()
     }
 
     internal var commentRange: Range<String.Index> {

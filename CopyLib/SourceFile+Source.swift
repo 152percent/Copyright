@@ -35,7 +35,7 @@ extension SourceFile {
             source.replaceCharacters(in: range, with: attributedLicense)
         case .delete:
             source.deleteCharacters(in: range)
-        case .ignore:
+        case .ignore, .resolved:
             break
         }
 

@@ -51,6 +51,7 @@
 		54F11B8A20B96A4A0099AADE /* block.regex in Resources */ = {isa = PBXBuildFile; fileRef = 54F11B8820B96A4A0099AADE /* block.regex */; };
 		54F11B8C20B96C140099AADE /* inline.regex in Resources */ = {isa = PBXBuildFile; fileRef = 54F11B8B20B96C140099AADE /* inline.regex */; };
 		54F11B8D20B96C140099AADE /* inline.regex in Resources */ = {isa = PBXBuildFile; fileRef = 54F11B8B20B96C140099AADE /* inline.regex */; };
+		54F4831C20BD67DF0083A45A /* Array+SourceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F4831B20BD67DF0083A45A /* Array+SourceFile.swift */; };
 		A7B8D07E66626D100F2F39B4 /* libPods-Copyright.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D8185125BBEFC9FD3236CF /* libPods-Copyright.a */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		54E976AB20B60CFF00E94AC5 /* SourceFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceFile.swift; sourceTree = "<group>"; };
 		54F11B8820B96A4A0099AADE /* block.regex */ = {isa = PBXFileReference; lastKnownFileType = text; path = block.regex; sourceTree = "<group>"; wrapsLines = 1; };
 		54F11B8B20B96C140099AADE /* inline.regex */ = {isa = PBXFileReference; lastKnownFileType = text; path = inline.regex; sourceTree = "<group>"; };
+		54F4831B20BD67DF0083A45A /* Array+SourceFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SourceFile.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 				54E9769E20B60C4400E94AC5 /* Info.plist */,
 				548EB01420BC6513000B5F30 /* Regex */,
 				54E9769D20B60C4400E94AC5 /* CopyLib.h */,
+				54F4831B20BD67DF0083A45A /* Array+SourceFile.swift */,
 				54E976AB20B60CFF00E94AC5 /* SourceFile.swift */,
 				54349BD320BD3CCC00F44B0D /* SourceFile+Source.swift */,
 				548FBC7C20B6361100672206 /* License.swift */,
@@ -500,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F4831C20BD67DF0083A45A /* Array+SourceFile.swift in Sources */,
 				5404EC0120BCC00A00BE8F26 /* URL+SourceFile.swift in Sources */,
 				541BB59A20BB0FF9009AF63A /* Bool+Toggle.swift in Sources */,
 				548FBC8320B6BA5B00672206 /* UserDefaults.swift in Sources */,

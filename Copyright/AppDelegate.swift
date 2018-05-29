@@ -28,6 +28,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         seedLicensesIfRequired()
     }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
     
 }
 

@@ -11,7 +11,7 @@
     is strictly forbidden unless prior written permission is obtained
     from 152 Percent Ltd.
  */
-   
+     
 #import <Cocoa/Cocoa.h>
 
 //! Project version number for CopyLib.

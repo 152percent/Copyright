@@ -32,7 +32,7 @@ final class WindowController: NSWindowController, NSWindowDelegate {
     }
 
     public func window(_ window: NSWindow, willUseFullScreenPresentationOptions proposedOptions: NSApplication.PresentationOptions = []) -> NSApplication.PresentationOptions {
-        return [proposedOptions, .autoHideToolbar]
+        return [proposedOptions] //, .autoHideToolbar]
     }
 
 }

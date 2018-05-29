@@ -115,7 +115,7 @@
 		548FBC8220B6BA5B00672206 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		548FBC8420B6C5B200672206 /* UserDefaults+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+App.swift"; sourceTree = "<group>"; };
 		548FBC8620B6C8AF00672206 /* LicenseManager+Restore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LicenseManager+Restore.swift"; sourceTree = "<group>"; };
-		54E9768120B60AE900E94AC5 /* Copyright.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Copyright.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54E9768120B60AE900E94AC5 /* Copy Right.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Copy Right.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E9768420B60AE900E94AC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54E9768620B60AE900E94AC5 /* DirectoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewController.swift; sourceTree = "<group>"; };
 		54E9768820B60AEA00E94AC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 		54E9768220B60AE900E94AC5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54E9768120B60AE900E94AC5 /* Copyright.app */,
+				54E9768120B60AE900E94AC5 /* Copy Right.app */,
 				54E9769B20B60C4400E94AC5 /* CopyLib.framework */,
 			);
 			name = Products;
@@ -342,7 +342,7 @@
 			);
 			name = Copyright;
 			productName = Copyright;
-			productReference = 54E9768120B60AE900E94AC5 /* Copyright.app */;
+			productReference = 54E9768120B60AE900E94AC5 /* Copy Right.app */;
 			productType = "com.apple.product-type.application";
 		};
 		54E9769A20B60C4400E94AC5 /* CopyLib */ = {
@@ -377,7 +377,7 @@
 						CreatedOnToolsVersion = 9.3.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -668,8 +668,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.152percent.Copyright;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.152percent.CopyRight;
+				PRODUCT_NAME = "Copy Right";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -689,8 +689,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.152percent.Copyright;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.152percent.CopyRight;
+				PRODUCT_NAME = "Copy Right";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

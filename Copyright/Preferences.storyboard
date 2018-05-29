@@ -11,9 +11,8 @@
         <scene sceneID="hG5-US-Pa9">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="eWj-ko-ODd" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="0Rh-Oz-pKm">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingIdentifier="preferences" id="0Rh-Oz-pKm">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-                        <windowCollectionBehavior key="collectionBehavior" fullScreenAuxiliary="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="294" y="372" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
@@ -59,7 +58,7 @@
         <!--Licenses-->
         <scene sceneID="fD1-Ys-BGO">
             <objects>
-                <viewController title="Licenses" id="h9d-jp-puw" customClass="LicensesViewController" customModule="Copyright" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Licenses" id="h9d-jp-puw" customClass="LicensesViewController" customModule="Copy_Right" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="EQQ-Zo-4Zv">
                         <rect key="frame" x="0.0" y="0.0" width="850" height="550"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -70,7 +69,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="649" height="550"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="vis-uD-eZp" customClass="SourceEditorView" customModule="Copyright" customModuleProvider="target">
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="vis-uD-eZp" customClass="SourceEditorView" customModule="Copy_Right" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="649" height="550"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -176,16 +175,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="tBR-1w-run" customClass="SeparatorView" customModule="Copyright" customModuleProvider="target">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="tBR-1w-run" customClass="SeparatorView" customModule="Copy_Right" customModuleProvider="target">
                                 <rect key="frame" x="-1" y="0.0" width="202" height="34"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="coP-FD-Sfv" customClass="PreferenceButton" customModule="Copyright" customModuleProvider="target">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="coP-FD-Sfv" customClass="PreferenceButton" customModule="Copy_Right" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-2" width="47" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="coP-FD-Sfv" secondAttribute="height" multiplier="4:3" id="jl7-G7-kxM"/>
                                             <constraint firstAttribute="height" constant="35" id="sJ3-cF-E8L"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OyN-xV-vGx" customClass="PreferenceButtonCell" customModule="Copyright" customModuleProvider="target">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OyN-xV-vGx" customClass="PreferenceButtonCell" customModule="Copy_Right" customModuleProvider="target">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -201,9 +200,9 @@
                                             <action selector="add:" target="h9d-jp-puw" id="1kd-4Z-W7i"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="12w-U9-t5I" customClass="PreferenceButton" customModule="Copyright" customModuleProvider="target">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="12w-U9-t5I" customClass="PreferenceButton" customModule="Copy_Right" customModuleProvider="target">
                                         <rect key="frame" x="46" y="-2" width="47" height="37"/>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KL6-Ln-ilV" customClass="PreferenceButtonCell" customModule="Copyright" customModuleProvider="target">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KL6-Ln-ilV" customClass="PreferenceButtonCell" customModule="Copy_Right" customModuleProvider="target">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -222,9 +221,9 @@ CA
                                             <action selector="remove:" target="h9d-jp-puw" id="lmy-Qo-I4q"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZYZ-3P-0Ke" customClass="PreferenceButton" customModule="Copyright" customModuleProvider="target">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZYZ-3P-0Ke" customClass="PreferenceButton" customModule="Copy_Right" customModuleProvider="target">
                                         <rect key="frame" x="92" y="-2" width="111" height="37"/>
-                                        <buttonCell key="cell" type="smallSquare" title="Restore" bezelStyle="smallSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QIt-5M-2ym" customClass="PreferenceButtonCell" customModule="Copyright" customModuleProvider="target">
+                                        <buttonCell key="cell" type="smallSquare" title="Restore" bezelStyle="smallSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QIt-5M-2ym" customClass="PreferenceButtonCell" customModule="Copy_Right" customModuleProvider="target">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -283,7 +282,7 @@ CA
                     </connections>
                 </viewController>
                 <customObject id="zwM-y8-4r0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController objectClassName="CopyLib.License" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="I5f-nt-KY5" userLabel="Licenses Controller" customClass="LicensesArrayController" customModule="Copyright" customModuleProvider="target">
+                <arrayController objectClassName="CopyLib.License" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="I5f-nt-KY5" userLabel="Licenses Controller" customClass="LicensesArrayController" customModule="Copy_Right" customModuleProvider="target">
                     <declaredKeys>
                         <string>name</string>
                         <string>content</string>
@@ -300,7 +299,7 @@ CA
         <!--Advanced-->
         <scene sceneID="kYZ-ol-bZu">
             <objects>
-                <viewController title="Advanced" id="tHl-bL-2sU" customClass="AdvancedViewController" customModule="Copyright" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Advanced" id="tHl-bL-2sU" customClass="AdvancedViewController" customModule="Copy_Right" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="M8X-Qj-6oe">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="309"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -317,7 +316,9 @@ CA
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </tokenFieldCell>
                                 <connections>
+                                    <action selector="tokenFieldDidChange:" target="tHl-bL-2sU" id="aoq-ar-AHu"/>
                                     <binding destination="lVa-1I-SwL" name="value" keyPath="values.WhitelistExtensions" id="igY-Xo-guq"/>
+                                    <outlet property="delegate" destination="tHl-bL-2sU" id="pcx-yd-Bu8"/>
                                 </connections>
                             </tokenField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="buU-zN-gh0">
@@ -334,13 +335,15 @@ CA
                                     <constraint firstAttribute="width" constant="400" id="jbk-Sn-CTJ"/>
                                     <constraint firstAttribute="height" constant="99" id="tnE-Bk-y4U"/>
                                 </constraints>
-                                <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="comma separated list" drawsBackground="YES" allowsEditingTextAttributes="YES" tokenStyle="rounded" id="xJT-tR-64g">
+                                <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="comma separated list" drawsBackground="YES" allowsEditingTextAttributes="YES" tokenStyle="rounded" id="xJT-tR-64g">
                                     <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </tokenFieldCell>
                                 <connections>
+                                    <action selector="tokenFieldDidChange:" target="tHl-bL-2sU" id="m1L-0z-qjx"/>
                                     <binding destination="lVa-1I-SwL" name="value" keyPath="values.BlacklistPaths" id="VKc-oe-PLN"/>
+                                    <outlet property="delegate" destination="tHl-bL-2sU" id="Hil-DT-LhT"/>
                                 </connections>
                             </tokenField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="If8-Yr-oer">

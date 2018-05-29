@@ -23,6 +23,8 @@ extension SourceFile {
     }
 
     @objc dynamic public var resolvedSource: NSAttributedString? {
+        guard !url.isDirectory else { return nil }
+        
         guard let source = attributedSource.mutableCopy() as? NSMutableAttributedString else { return nil }
         let range = NSRange(commentRange, in: attributedSource.string)
 

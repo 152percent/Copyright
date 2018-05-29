@@ -4,6 +4,7 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
@@ -76,10 +77,15 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                        <menuItem title="Import Folder..." keyEquivalent="a" id="QQs-8q-7Ws">
+                                        <menuItem title="Update Licenses" keyEquivalent="r" id="QQs-8q-7Ws">
+                                            <connections>
+                                                <action selector="updateLicenses:" target="Ady-hI-5gd" id="An5-gY-L99"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Import Folder..." keyEquivalent="a" id="h1P-mR-pwh">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                             <connections>
-                                                <action selector="importDirectory:" target="Ady-hI-5gd" id="mmh-3C-3Aw"/>
+                                                <action selector="importDirectory:" target="Ady-hI-5gd" id="Mrn-At-fdO"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
@@ -479,8 +485,7 @@ CA
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Rmq-WS-f55"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="2QR-u3-thO"/>
-                                <toolbarItem implicitItemIdentifier="F7E558F3-EE97-4042-8DDB-BFAF062CF0B4" explicitItemIdentifier="license" label="License" paletteLabel="License" id="NFb-4T-2tH">
-                                    <nil key="toolTip"/>
+                                <toolbarItem implicitItemIdentifier="F7E558F3-EE97-4042-8DDB-BFAF062CF0B4" explicitItemIdentifier="license" label="License" paletteLabel="License" toolTip="Select a license" id="NFb-4T-2tH">
                                     <size key="minSize" width="100" height="28"/>
                                     <size key="maxSize" width="152" height="28"/>
                                     <popUpButton key="view" verticalHuggingPriority="750" id="fp8-Yb-u8Z">
@@ -507,9 +512,46 @@ CA
                                         </connections>
                                     </popUpButton>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="0E51E718-880E-4FD5-B45F-7CF2D9EB682A" label="Update Licenses" paletteLabel="Update Licenses" toolTip="Update Licenses" image="update" id="Wyz-RX-B2e">
+                                    <size key="minSize" width="35" height="28"/>
+                                    <size key="maxSize" width="35" height="32"/>
+                                    <button key="view" verticalHuggingPriority="750" id="LBh-ns-eLt">
+                                        <rect key="frame" x="30" y="14" width="35" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="update" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eW9-Bu-3Wd">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent">r</string>
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="updateLicenses:" target="Oky-zY-oP4" id="2Fv-jR-Wy7"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="6EBF49CC-3E21-4037-B278-7624992109C0" label="Show Sidebar" paletteLabel="Show Sidebar" image="sidebar" id="bQl-7w-o6s">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="35" height="25"/>
+                                    <size key="maxSize" width="35" height="25"/>
+                                    <button key="view" toolTip="Toggle Sidebar" verticalHuggingPriority="750" id="HlR-nN-UEx">
+                                        <rect key="frame" x="22" y="14" width="35" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="sidebar" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HVw-gT-7XX">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent">0</string>
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="toggleSidebar:" target="Oky-zY-oP4" id="REN-Te-4J5"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
+                                <toolbarItem reference="bQl-7w-o6s"/>
                                 <toolbarItem reference="2QR-u3-thO"/>
+                                <toolbarItem reference="Wyz-RX-B2e"/>
                                 <toolbarItem reference="NFb-4T-2tH"/>
                             </defaultToolbarItems>
                         </toolbar>
@@ -592,25 +634,14 @@ CA
             <objects>
                 <viewController id="bjg-bB-7oz" customClass="DirectoryViewController" customModule="Copyright" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="HZ2-3N-oVS">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="I49-qo-7zp">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="33"/>
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="42"/>
                                 <subviews>
-                                    <progressIndicator wantsLayer="YES" maxValue="1" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Xrr-Dl-MiP">
-                                        <rect key="frame" x="16" y="7" width="168" height="20"/>
-                                        <connections>
-                                            <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="6rm-fE-kFB">
-                                                <dictionary key="options">
-                                                    <string key="NSValueTransformerName">NSIsNil</string>
-                                                </dictionary>
-                                            </binding>
-                                            <binding destination="bjg-bB-7oz" name="value" keyPath="activeProgress.fractionCompleted" id="l7S-Zh-N0T"/>
-                                        </connections>
-                                    </progressIndicator>
                                     <textField horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="LO9-0L-Zlh">
-                                        <rect key="frame" x="77" y="9" width="47" height="16"/>
+                                        <rect key="frame" x="97" y="-74" width="47" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="No files" id="elK-g4-8Ov">
                                             <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -635,29 +666,24 @@ CA
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="3ra-ow-DCh"/>
-                                    <constraint firstItem="Xrr-Dl-MiP" firstAttribute="centerX" secondItem="I49-qo-7zp" secondAttribute="centerX" id="QES-yy-obc"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xrr-Dl-MiP" secondAttribute="trailing" constant="16" id="Rg6-iU-3Qo"/>
+                                    <constraint firstItem="LO9-0L-Zlh" firstAttribute="top" secondItem="I49-qo-7zp" secondAttribute="top" constant="100" id="3h2-gE-fsl"/>
                                     <constraint firstItem="LO9-0L-Zlh" firstAttribute="centerX" secondItem="I49-qo-7zp" secondAttribute="centerX" id="Uaf-lN-B3H"/>
-                                    <constraint firstItem="LO9-0L-Zlh" firstAttribute="centerY" secondItem="I49-qo-7zp" secondAttribute="centerY" id="Vfn-Wk-WlZ"/>
-                                    <constraint firstItem="Xrr-Dl-MiP" firstAttribute="centerY" secondItem="I49-qo-7zp" secondAttribute="centerY" id="sg9-UH-5il"/>
-                                    <constraint firstItem="Xrr-Dl-MiP" firstAttribute="leading" secondItem="I49-qo-7zp" secondAttribute="leading" constant="16" id="t91-un-5ot"/>
                                 </constraints>
                             </visualEffectView>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="25" horizontalPageScroll="10" verticalLineScroll="25" verticalPageScroll="10" usesPredominantAxisScrolling="NO" findBarPosition="belowContent" translatesAutoresizingMaskIntoConstraints="NO" id="e0N-fX-K41">
-                                <rect key="frame" x="0.0" y="33" width="200" height="301"/>
+                                <rect key="frame" x="0.0" y="42" width="240" height="292"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="g9s-KG-Ffx">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="301"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="292"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" typeSelect="NO" autosaveName="directoryList" rowHeight="22" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="14" outlineTableColumn="hA5-CG-JVj" id="8wb-hs-ECb">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="301"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="292"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="3"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" editable="NO" width="197" minWidth="40" maxWidth="1000" id="hA5-CG-JVj">
+                                                <tableColumn identifier="" editable="NO" width="237" minWidth="40" maxWidth="1000" id="hA5-CG-JVj">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Source Files">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -672,7 +698,7 @@ CA
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="7x0-T7-Lhk">
-                                                            <rect key="frame" x="1" y="1" width="197" height="25"/>
+                                                            <rect key="frame" x="1" y="1" width="237" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TuS-Wz-wV4" userLabel="Icon">
@@ -687,7 +713,7 @@ CA
                                                                     </connections>
                                                                 </imageView>
                                                                 <textField verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="L7f-VH-ivE" userLabel="Url">
-                                                                    <rect key="frame" x="29" y="6" width="150" height="14"/>
+                                                                    <rect key="frame" x="29" y="6" width="190" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="url" id="9rs-zh-ojp">
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -703,7 +729,7 @@ CA
                                                                     </connections>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-mf-yye" userLabel="Resolution">
-                                                                    <rect key="frame" x="187" y="6" width="4" height="14"/>
+                                                                    <rect key="frame" x="227" y="6" width="4" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="LFM-TA-fEB">
                                                                         <font key="font" metaFont="systemSemibold" size="11"/>
                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -755,7 +781,7 @@ CA
                                     <nil key="backgroundColor"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="azo-4r-PlX">
-                                    <rect key="frame" x="0.0" y="284" width="200" height="16"/>
+                                    <rect key="frame" x="0.0" y="282" width="200" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="UGs-WX-Vaz">
@@ -764,7 +790,7 @@ CA
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i2f-qg-Ara">
-                                <rect key="frame" x="63" y="175" width="74" height="17"/>
+                                <rect key="frame" x="83" y="180" width="74" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Importing..." id="Nl1-yD-WTj">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -778,16 +804,52 @@ CA
                                     </binding>
                                 </connections>
                             </textField>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="1000" horizontalClippingResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nBl-Us-JQ5">
+                                <rect key="frame" x="4" y="4" width="232" height="34"/>
+                                <subviews>
+                                    <progressIndicator wantsLayer="YES" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" maxValue="1" displayedWhenStopped="NO" controlSize="small" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Xrr-Dl-MiP">
+                                        <rect key="frame" x="0.0" y="22" width="232" height="12"/>
+                                        <connections>
+                                            <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="6rm-fE-kFB">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSIsNil</string>
+                                                </dictionary>
+                                            </binding>
+                                            <binding destination="bjg-bB-7oz" name="value" keyPath="activeProgress.fractionCompleted" id="l7S-Zh-N0T"/>
+                                        </connections>
+                                    </progressIndicator>
+                                    <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lal-GC-j1s">
+                                        <rect key="frame" x="0.0" y="0.0" width="232" height="22"/>
+                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" maximumRecents="5" recentsAutosaveName="search" id="iEY-mb-XPh">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </searchFieldCell>
+                                    </searchField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="e0N-fX-K41" firstAttribute="leading" secondItem="HZ2-3N-oVS" secondAttribute="leading" id="9bb-V9-b6f"/>
                             <constraint firstItem="i2f-qg-Ara" firstAttribute="centerX" secondItem="HZ2-3N-oVS" secondAttribute="centerX" id="9o1-J8-pxd"/>
-                            <constraint firstItem="e0N-fX-K41" firstAttribute="top" secondItem="HZ2-3N-oVS" secondAttribute="top" id="BQc-dK-nX3"/>
+                            <constraint firstItem="e0N-fX-K41" firstAttribute="top" secondItem="HZ2-3N-oVS" secondAttribute="top" id="FCe-T7-9lZ"/>
                             <constraint firstItem="i2f-qg-Ara" firstAttribute="centerY" secondItem="e0N-fX-K41" secondAttribute="centerY" id="IBD-9l-2DQ"/>
                             <constraint firstItem="I49-qo-7zp" firstAttribute="leading" secondItem="HZ2-3N-oVS" secondAttribute="leading" id="ICQ-Ad-3aN"/>
+                            <constraint firstItem="nBl-Us-JQ5" firstAttribute="bottom" secondItem="I49-qo-7zp" secondAttribute="bottom" constant="-4" id="LAl-9W-mhz"/>
                             <constraint firstAttribute="trailing" secondItem="e0N-fX-K41" secondAttribute="trailing" id="M0v-KL-mMp"/>
+                            <constraint firstItem="nBl-Us-JQ5" firstAttribute="top" secondItem="I49-qo-7zp" secondAttribute="top" constant="4" id="TvF-oM-NP7"/>
+                            <constraint firstItem="nBl-Us-JQ5" firstAttribute="trailing" secondItem="I49-qo-7zp" secondAttribute="trailing" constant="-4" id="W3B-Kx-Seu"/>
                             <constraint firstAttribute="trailing" secondItem="I49-qo-7zp" secondAttribute="trailing" id="hnR-6Q-Jzd"/>
                             <constraint firstAttribute="bottom" secondItem="I49-qo-7zp" secondAttribute="bottom" id="mjb-BE-1Zc"/>
+                            <constraint firstItem="nBl-Us-JQ5" firstAttribute="leading" secondItem="I49-qo-7zp" secondAttribute="leading" constant="4" id="mzT-qn-Ux8"/>
                             <constraint firstItem="I49-qo-7zp" firstAttribute="top" secondItem="e0N-fX-K41" secondAttribute="bottom" id="r17-bH-K7U"/>
                         </constraints>
                     </view>
@@ -847,6 +909,7 @@ CA
                         </menuItem>
                     </items>
                 </menu>
+                <userDefaultsController id="sKv-z3-GfW"/>
             </objects>
             <point key="canvasLocation" x="-306" y="1110"/>
         </scene>
@@ -1160,5 +1223,7 @@ CA
     <resources>
         <image name="disclosure" width="14" height="8"/>
         <image name="folder" width="100" height="100"/>
+        <image name="sidebar" width="19" height="19"/>
+        <image name="update" width="19" height="19"/>
     </resources>
 </document>

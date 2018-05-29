@@ -70,4 +70,22 @@ final class SplitViewController: NSSplitViewController {
         }
     }
 
+    @IBAction public func updateLicenses(_ sender: Any?) {
+        let alert = NSAlert()
+
+        alert.alertStyle = .critical
+        alert.messageText = "Update Licenses"
+        alert.informativeText = "This task cannot be undone. Ensure your files are backed before continuing."
+
+        alert.addButton(withTitle: "Update")
+        alert.addButton(withTitle: "Cancel")
+
+        guard alert.runModal() == .alertFirstButtonReturn else { return }
+        print("Updating...")
+    }
+
+    private func updateLicenses() {
+
+    }
+
 }

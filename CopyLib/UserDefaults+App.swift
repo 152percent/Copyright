@@ -10,6 +10,7 @@ import Foundation
 
 extension UserDefaults.Key {
     public static let seedLicenses: UserDefaults.Key = "SeedLicenses"
+    public static let currentLicense: UserDefaults.Key = "CurrentLicense"
     public static let showLineNumbers: UserDefaults.Key = "ShowLineNumbers"
 
     public static let fontFamily: UserDefaults.Key = "SourceFontFamily"

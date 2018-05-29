@@ -7,8 +7,11 @@
 //
 
 import AppKit
+import CopyLib
 
 final class WindowController: NSWindowController, NSWindowDelegate {
+
+    @objc dynamic public let licenseManager = LicenseManager.shared
 
     override func windowDidLoad() {
         super.windowDidLoad()

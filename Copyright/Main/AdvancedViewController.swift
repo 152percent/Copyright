@@ -11,6 +11,4 @@ import CopyLib
 
 final class AdvancedViewController: PreferencePaneViewController {
 
-    
-
 }

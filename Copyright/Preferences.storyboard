@@ -34,12 +34,12 @@
             <objects>
                 <tabViewController tabStyle="toolbar" id="rPi-Vr-50A" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="Licenses" image="NSInfo" id="PLA-Qx-EvL"/>
-                        <tabViewItem label="Advanced" image="NSAdvanced" id="HDv-1h-CVy"/>
+                        <tabViewItem label="Licenses" identifier="licenses" image="NSInfo" id="PLA-Qx-EvL"/>
+                        <tabViewItem label="Advanced" identifier="advanced" image="NSAdvanced" id="HDv-1h-CVy"/>
                     </tabViewItems>
                     <viewControllerTransitionOptions key="transitionOptions" allowUserInteraction="YES"/>
                     <tabView key="tabView" type="noTabsNoBorder" id="Xby-0R-vp7">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="1" y="0.0" width="449" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" metaFont="message"/>
                         <connections>
@@ -54,7 +54,7 @@
                 </tabViewController>
                 <customObject id="16M-u2-WFL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1335" y="180"/>
+            <point key="canvasLocation" x="1335.5" y="180"/>
         </scene>
         <!--Licenses-->
         <scene sceneID="fD1-Ys-BGO">
@@ -290,22 +290,22 @@ CA
                     </declaredKeys>
                     <connections>
                         <binding destination="h9d-jp-puw" name="contentArray" keyPath="licenseManager.licenses" id="U6v-xQ-kkD"/>
-                        <binding destination="h9d-jp-puw" name="sortDescriptors" keyPath="sortDescriptors" id="iEu-x0-acT"/>
+                        <binding destination="h9d-jp-puw" name="sortDescriptors" keyPath="licenseManager.sortDescriptors" id="oVB-AY-Aln"/>
                     </connections>
                 </arrayController>
                 <userDefaultsController representsSharedInstance="YES" id="mLP-1m-QaF"/>
             </objects>
             <point key="canvasLocation" x="2098" y="-114"/>
         </scene>
-        <!--Filtering-->
+        <!--Advanced-->
         <scene sceneID="kYZ-ol-bZu">
             <objects>
-                <viewController title="Filtering" id="tHl-bL-2sU" customClass="AdvancedViewController" sceneMemberID="viewController">
+                <viewController title="Advanced" id="tHl-bL-2sU" customClass="AdvancedViewController" customModule="Copyright" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="M8X-Qj-6oe">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="309"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <tokenField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cgd-Em-AEu">
+                            <tokenField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgd-Em-AEu">
                                 <rect key="frame" x="20" y="164" width="400" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="MmU-wJ-ibO"/>
@@ -328,7 +328,7 @@ CA
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <tokenField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gIv-Xm-IJb">
+                            <tokenField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIv-Xm-IJb">
                                 <rect key="frame" x="20" y="20" width="400" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="jbk-Sn-CTJ"/>

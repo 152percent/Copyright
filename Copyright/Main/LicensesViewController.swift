@@ -15,7 +15,6 @@ final class LicensesViewController: PreferencePaneViewController {
     @objc dynamic public let licenseManager = LicenseManager.shared
 
     @IBOutlet private weak var arrayController: LicensesArrayController!
-    @objc dynamic private let sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
 
     override func awakeFromNib() {
         super.awakeFromNib()

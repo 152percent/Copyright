@@ -478,26 +478,38 @@ CA
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Rmq-WS-f55"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="2QR-u3-thO"/>
-                                <toolbarItem implicitItemIdentifier="8832EEF4-E570-4A29-81FF-A11B5C9EE9F6" label="Run" paletteLabel="Run" image="NSGoRightTemplate" id="NNL-Mr-EFe">
+                                <toolbarItem implicitItemIdentifier="F7E558F3-EE97-4042-8DDB-BFAF062CF0B4" explicitItemIdentifier="license" label="License" paletteLabel="License" id="NFb-4T-2tH">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="35" height="25"/>
-                                    <size key="maxSize" width="40" height="25"/>
-                                    <button key="view" verticalHuggingPriority="750" id="GIX-tO-eY3">
-                                        <rect key="frame" x="0.0" y="14" width="35" height="25"/>
+                                    <size key="minSize" width="100" height="28"/>
+                                    <size key="maxSize" width="152" height="28"/>
+                                    <popUpButton key="view" verticalHuggingPriority="750" id="fp8-Yb-u8Z">
+                                        <rect key="frame" x="0.0" y="14" width="150" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSGoRightTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="elh-kU-5Mb">
+                                        <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" preferredEdge="maxY" id="FcM-OE-e2d">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="6yc-de-09r"/>
+                                        </popUpButtonCell>
                                         <connections>
-                                            <action selector="toggleScrolling:" target="Oky-zY-oP4" id="JGL-t1-09t"/>
+                                            <binding destination="IhB-c6-yXu" name="content" keyPath="arrangedObjects" id="Tky-Mp-vYA"/>
+                                            <binding destination="IhB-c6-yXu" name="contentValues" keyPath="arrangedObjects.name" previousBinding="Tky-Mp-vYA" id="ldy-ey-8jn">
+                                                <dictionary key="options">
+                                                    <string key="NSNoSelectionPlaceholder">Missing License</string>
+                                                    <string key="NSNullPlaceholder">No License</string>
+                                                </dictionary>
+                                            </binding>
+                                            <binding destination="B8D-0N-5wS" name="selectedObject" keyPath="licenseManager.currentLicense" previousBinding="ldy-ey-8jn" id="qok-cD-4Wh">
+                                                <dictionary key="options">
+                                                    <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                </dictionary>
+                                            </binding>
                                         </connections>
-                                    </button>
+                                    </popUpButton>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="NNL-Mr-EFe"/>
                                 <toolbarItem reference="2QR-u3-thO"/>
+                                <toolbarItem reference="NFb-4T-2tH"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -509,6 +521,16 @@ CA
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController objectClassName="License" editable="NO" automaticallyPreparesContent="YES" selectsInsertedObjects="NO" clearsFilterPredicateOnInsertion="NO" id="IhB-c6-yXu">
+                    <declaredKeys>
+                        <string>identifier</string>
+                        <string>name</string>
+                    </declaredKeys>
+                    <connections>
+                        <binding destination="B8D-0N-5wS" name="contentArray" keyPath="licenseManager.licenses" id="zbw-d7-pH5"/>
+                        <binding destination="B8D-0N-5wS" name="sortDescriptors" keyPath="licenseManager.sortDescriptors" id="DCL-bD-nBP"/>
+                    </connections>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="75" y="26"/>
         </scene>
@@ -1129,7 +1151,6 @@ CA
         </scene>
     </scenes>
     <resources>
-        <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="disclosure" width="14" height="8"/>
         <image name="folder" width="100" height="100"/>
     </resources>

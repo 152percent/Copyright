@@ -13,6 +13,22 @@ import Foundation
     @objc public static let shared = LicenseManager()
     @objc dynamic public private(set) var licenses: [License] = []
 
+    @objc dynamic public var sortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "name", ascending: true)]
+    }
+
+    @objc dynamic public var currentLicense: License? {
+        get {
+            let identifier: String = UserDefaults.standard[.currentLicense] ?? ""
+            return licenses.first(where: { $0.identifier == identifier })
+        }
+        set {
+            willChangeValue(forKey: "currentLicense")
+            UserDefaults.standard[.currentLicense] = newValue?.identifier
+            didChangeValue(forKey: "currentLicense")
+        }
+    }
+
     @objc public override init() {
         super.init()
 
@@ -30,6 +46,10 @@ import Foundation
     @objc public func add(_ license: License) {
         guard !licenses.contains(license) else {
             return update(license)
+        }
+
+        if licenses.isEmpty {
+            currentLicense = license
         }
 
         licenses.append(license)
@@ -69,6 +89,10 @@ import Foundation
             } catch {
                 print("Failed to restore license: \(url) | \(error)")
             }
+        }
+
+        if currentLicense == nil {
+            currentLicense = licenses.sorted().first
         }
     }
 

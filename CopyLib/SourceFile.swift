@@ -41,6 +41,10 @@ extension NSURL {
             }
 
             children.forEach { $0.resolution = resolution }
+
+            // trigger KVO so bindings update
+            willChangeValue(for: \.resolvedSource)
+            didChangeValue(for: \.resolvedSource)
         }
     }
 
@@ -56,9 +60,10 @@ extension NSURL {
         } set {
             guard !url.isDirectory else { return }
 
-            willChangeValue(forKey: "resolutionChar")
+            // trigger KVO so bindings update
+            willChangeValue(for: \.resolutionChar)
             _resolutionChar = newValue
-            didChangeValue(forKey: "resolutionChar")
+            didChangeValue(for: \.resolutionChar)
         }
     }
 
@@ -189,14 +194,14 @@ extension SourceFile {
             ?? NSFont.systemFont(ofSize: size)
     }
 
-    private var codeAttributes: [NSAttributedStringKey: Any] {
+    internal var codeAttributes: [NSAttributedStringKey: Any] {
         return [
             .foregroundColor: NSColor.secondaryLabelColor,
             .font: sourceFont
         ]
     }
 
-    private var commentAttributes: [NSAttributedStringKey: Any] {
+    internal var commentAttributes: [NSAttributedStringKey: Any] {
         return [
             .foregroundColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
             .font: sourceFont
@@ -210,8 +215,6 @@ extension SourceFile {
 
     @objc dynamic public var attributedSource: NSAttributedString {
         let attributedString = NSMutableAttributedString(string: source, attributes: codeAttributes)
-        guard let commentRange = self.commentRange else { return attributedString }
-
         let comment = String(source[commentRange])
         let commentString = NSAttributedString(string: comment, attributes: commentAttributes)
 
@@ -219,14 +222,16 @@ extension SourceFile {
         return attributedString
     }
 
-    @objc dynamic public func attributedSource(with license: String) -> NSAttributedString {
+    @objc dynamic public func attributedSource(with license: License) -> NSAttributedString {
+        
         fatalError()
     }
 
-    private var commentRange: Range<String.Index>? {
+    internal var commentRange: Range<String.Index> {
         let source = self.source
         return blockComment(from: source)
             ?? inlineComment(from: source)
+            ?? Range(NSRange(location: 0, length: 0), in: source)!
     }
     
 }

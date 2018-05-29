@@ -23,9 +23,9 @@ import Foundation
             return licenses.first(where: { $0.identifier == identifier })
         }
         set {
-            willChangeValue(forKey: "currentLicense")
+            willChangeValue(for: \.currentLicense)
             UserDefaults.standard[.currentLicense] = newValue?.identifier
-            didChangeValue(forKey: "currentLicense")
+            didChangeValue(for: \.currentLicense)
         }
     }
 

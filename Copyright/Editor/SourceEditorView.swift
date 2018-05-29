@@ -212,7 +212,7 @@ extension SourceEditorView: NSTextStorageDelegate {
 
             let string = NSAttributedString(string: String(token), attributes: attributes)
             let rect = CGRect(origin: .zero, size: string.size())
-            let attachment = TokenAttachment(data: nil, ofType: "public.png")
+            let attachment = TokenAttachment(data: nil, ofType: nil)
 
             attachment.token = string
             attachment.fontDescender = font?.descender ?? 0

@@ -474,6 +474,7 @@ CA
                         <rect key="contentRect" x="196" y="240" width="900" height="700"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="750" height="500"/>
+                        <value key="minFullScreenContentSize" type="size" width="750" height="500"/>
                         <toolbar key="toolbar" implicitIdentifier="A1B6A0A0-EFD1-4015-B8DC-977AEBDE950D" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="ajy-lW-jw2">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Rmq-WS-f55"/>
@@ -909,6 +910,11 @@ CA
                                             <size key="maxSize" width="100000" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
+                                                <binding destination="rLh-v8-d13" name="attributedString" keyPath="selection.resolvedSource" id="uA2-Jj-xWr">
+                                                    <dictionary key="options">
+                                                        <bool key="NSConditionallySetsEditable" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                                 <binding destination="p42-jo-a0L" name="fontSize" keyPath="values.SourceFontSize" id="oUe-aU-1d6"/>
                                             </connections>
                                         </textView>
@@ -1091,6 +1097,7 @@ CA
                         <outlet property="destinationTextView" destination="1gx-Kx-sy7" id="sva-oX-6jN"/>
                         <outlet property="resolutionButton" destination="Kpw-kG-zAc" id="siA-Hh-dZ3"/>
                         <outlet property="sourceTextView" destination="533-ov-4lx" id="URQ-Av-yNG"/>
+                        <outlet property="treeController" destination="rLh-v8-d13" id="zZK-H6-8Tu"/>
                     </connections>
                 </viewController>
                 <treeController objectClassName="CopyLib.SourceFile" editable="NO" automaticallyPreparesContent="YES" childrenKeyPath="children" countKeyPath="count" leafKeyPath="isLeaf" id="rLh-v8-d13">

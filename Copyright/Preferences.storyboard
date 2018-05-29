@@ -311,7 +311,7 @@ CA
                                     <constraint firstAttribute="width" constant="400" id="MmU-wJ-ibO"/>
                                     <constraint firstAttribute="height" constant="99" id="hkz-Fk-aJa"/>
                                 </constraints>
-                                <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="comma separated list" drawsBackground="YES" allowsEditingTextAttributes="YES" tokenStyle="rounded" id="5fD-xv-OvD">
+                                <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="comma separated list" drawsBackground="YES" allowsEditingTextAttributes="YES" tokenStyle="rounded" id="5fD-xv-OvD">
                                     <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -334,7 +334,7 @@ CA
                                     <constraint firstAttribute="width" constant="400" id="jbk-Sn-CTJ"/>
                                     <constraint firstAttribute="height" constant="99" id="tnE-Bk-y4U"/>
                                 </constraints>
-                                <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="comma separated list" drawsBackground="YES" allowsEditingTextAttributes="YES" tokenStyle="rounded" id="xJT-tR-64g">
+                                <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="comma separated list" drawsBackground="YES" allowsEditingTextAttributes="YES" tokenStyle="rounded" id="xJT-tR-64g">
                                     <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

@@ -16,6 +16,7 @@
 		5425C1D120B7709C00617B58 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1D020B7709C00617B58 /* PreferenceButton.swift */; };
 		5425C1DC20B8525100617B58 /* DirectoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425C1DB20B8525100617B58 /* DirectoryParser.swift */; };
 		5433471620B6E331007090BD /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433471520B6E331007090BD /* SeparatorView.swift */; };
+		54349BD420BD3CCC00F44B0D /* SourceFile+Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54349BD320BD3CCC00F44B0D /* SourceFile+Source.swift */; };
 		5436764F20B86ADC006C3F67 /* DirectoryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5436764E20B86ADC006C3F67 /* DirectoryResult.swift */; };
 		5436765120B95647006C3F67 /* CommentsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5436765020B95647006C3F67 /* CommentsParser.swift */; };
 		543C1C2420B6FB1A00F17EA9 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2320B6FB1A00F17EA9 /* Button.swift */; };
@@ -90,6 +91,7 @@
 		5425C1D020B7709C00617B58 /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		5425C1DB20B8525100617B58 /* DirectoryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryParser.swift; sourceTree = "<group>"; };
 		5433471520B6E331007090BD /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		54349BD320BD3CCC00F44B0D /* SourceFile+Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SourceFile+Source.swift"; sourceTree = "<group>"; };
 		5436764E20B86ADC006C3F67 /* DirectoryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryResult.swift; sourceTree = "<group>"; };
 		5436765020B95647006C3F67 /* CommentsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsParser.swift; sourceTree = "<group>"; };
 		543C1C2320B6FB1A00F17EA9 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				548EB01420BC6513000B5F30 /* Regex */,
 				54E9769D20B60C4400E94AC5 /* CopyLib.h */,
 				54E976AB20B60CFF00E94AC5 /* SourceFile.swift */,
+				54349BD320BD3CCC00F44B0D /* SourceFile+Source.swift */,
 				548FBC7C20B6361100672206 /* License.swift */,
 				548FBC8020B63B9500672206 /* LicenseManager.swift */,
 				548FBC8220B6BA5B00672206 /* UserDefaults.swift */,
@@ -504,6 +507,7 @@
 				5436765120B95647006C3F67 /* CommentsParser.swift in Sources */,
 				5425C1DC20B8525100617B58 /* DirectoryParser.swift in Sources */,
 				5436764F20B86ADC006C3F67 /* DirectoryResult.swift in Sources */,
+				54349BD420BD3CCC00F44B0D /* SourceFile+Source.swift in Sources */,
 				548FBC8520B6C5B200672206 /* UserDefaults+App.swift in Sources */,
 				548FBC7D20B6361100672206 /* License.swift in Sources */,
 				548FBC8120B63B9500672206 /* LicenseManager.swift in Sources */,

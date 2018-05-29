@@ -168,24 +168,28 @@ extension SourceFile: NSCopying {
 
 extension SourceFile {
 
-    private var sourceFont: NSFont {
+    static private var sourceFont: NSFont {
         let size: CGFloat = UserDefaults.standard[.fontSize]
         return NSFont.userFixedPitchFont(ofSize: size)
             ?? NSFont.systemFont(ofSize: size)
     }
 
-    internal var codeAttributes: [NSAttributedStringKey: Any] {
+    public static var sourceAttributes: [NSAttributedStringKey: Any] {
         return [
             .foregroundColor: NSColor.secondaryLabelColor,
             .font: sourceFont
         ]
     }
 
-    internal var commentAttributes: [NSAttributedStringKey: Any] {
+    public static var commentAttributes: [NSAttributedStringKey: Any] {
         return [
             .foregroundColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
             .font: sourceFont
         ]
+    }
+
+    public static var tokenAttributes: [NSAttributedStringKey: Any] {
+        return commentAttributes
     }
 
     @objc dynamic public var source: String {
@@ -194,9 +198,9 @@ extension SourceFile {
     }
 
     @objc dynamic public var attributedSource: NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: source, attributes: codeAttributes)
+        let attributedString = NSMutableAttributedString(string: source, attributes: type(of: self).sourceAttributes)
         let comment = String(source[commentRange])
-        let commentString = NSAttributedString(string: comment, attributes: commentAttributes)
+        let commentString = NSAttributedString(string: comment, attributes: type(of: self).commentAttributes)
 
         attributedString.replaceCharacters(in: NSRange(commentRange, in: commentString.string), with: commentString)
         return attributedString

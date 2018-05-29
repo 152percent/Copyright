@@ -17,19 +17,42 @@ import CopyLib
 
 public final class SourceEditorView: NSTextView {
 
-    // tabs or space
     private lazy var indentRegex: NSRegularExpression = {
         return regex(for: "indent")
     }()
 
-    // </token/>
-    private lazy var tokenRegex: NSRegularExpression = {
+    private(set) lazy var tokenRegex: NSRegularExpression = {
         // swiftlint:disable force_try
         return try! NSRegularExpression(pattern: "</.+?/>", options: [])
     }()
 
     public override var string: String {
         didSet { invalidateText() }
+    }
+
+    deinit {
+        removeObserver(self, forKeyPath: "textStorage")
+    }
+
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        addObserver(self, forKeyPath: "textStorage", options: [.initial, .new], context: nil)
+    }
+
+    //swiftlint:disable block_based_kvo
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "textStorage" {
+            guard let textStorage = textStorage else { return }
+            textStorage.removeLayoutManager(layoutManager!)
+
+            let layout = SourceEditorLayoutManager()
+            textStorage.addLayoutManager(layout)
+            layout.addTextContainer(textContainer!)
+
+            return
+        }
+
+        super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
     }
 
     public override func awakeFromNib() {
@@ -59,7 +82,6 @@ public final class SourceEditorView: NSTextView {
 
         textColor = NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1)
         typingAttributes = [.font: font!, .foregroundColor: textColor!]
-        insertionPointColor = .keyboardFocusIndicatorColor
     }
 
     public override var font: NSFont? {
@@ -195,44 +217,45 @@ extension SourceEditorView: NSLayoutManagerDelegate {
 
 extension SourceEditorView: NSTextStorageDelegate {
 
-    public func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions,
+    public func textStorage(_ textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions,
                             range editedRange: NSRange, changeInLength delta: Int) {
-        let string = textStorage.string as NSString
-        let lineRange = string.lineRange(for: editedRange)
-        let line = string.substring(with: lineRange)
-        let matches = tokenRegex.matches(in: line, options: [], range: NSRange(location: 0, length: line.count))
+        let string = textStorage.string
+        let range = NSRange(location: 0, length: string.count)
 
+        // reset attributes
+//        textStorage.setAttributes(SourceFile.commentAttributes, range: range)
+
+        let matches = tokenRegex.matches(in: string, options: [], range: range)
         guard !matches.isEmpty else { return }
 
-        let tokens = matches
-            .map { $0.range }
-            .map { line[Range($0, in: line)!] }
-            .map { $0.dropFirst(2) }
-            .map { $0.dropLast(2) }
-
-        let attachments = tokens.map { token -> TokenAttachment in
-            let attributes: [NSAttributedStringKey: Any] = [
-                .foregroundColor: NSColor.white,
-                .font: font!
-            ]
-
-            let string = NSAttributedString(string: String(token), attributes: attributes)
-            let rect = CGRect(origin: .zero, size: string.size())
-            let attachment = TokenAttachment(data: nil, ofType: nil)
-
-            attachment.token = string
-            attachment.fontDescender = font?.descender ?? 0
-            attachment.image = NSImage.draw(attributedString: string, in: rect)
-
-            return attachment
+        for match in matches {
+            // update token attributes
+            textStorage.setAttributes(SourceFile.tokenAttributes, range: match.range)
         }
+    }
 
-        let tokenStrings = attachments
-            .map { NSAttributedString(attachment: $0) }
+}
 
-        for (match, string) in zip(matches, tokenStrings).reversed() {
-            let range = NSRange(location: match.range.location + lineRange.location, length: match.range.length)
-            textStorage.replaceCharacters(in: range, with: string)
+public final class SourceEditorLayoutManager: NSLayoutManager {
+
+    public override func drawBackground(forGlyphRange glyphsToShow: NSRange, at origin: NSPoint) {
+        super.drawBackground(forGlyphRange: glyphsToShow, at: origin)
+
+        guard let textView = firstTextView as? SourceEditorView,
+            let container = textContainers.first else { return }
+
+        let range = characterRange(forGlyphRange: glyphsToShow, actualGlyphRange: nil)
+        guard let string = textStorage?.mutableString.substring(with: range) else { return }
+
+        let matches = textView.tokenRegex.matches(in: string, options: [], range: NSRange(location: 0, length: string.count))
+        guard !matches.isEmpty else { return }
+
+        NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1).withAlphaComponent(0.2).setFill()
+
+        for match in matches {
+            let rect = boundingRect(forGlyphRange: match.range, in: container)
+            let path = NSBezierPath(roundedRect: rect.insetBy(dx: -2, dy: 1), xRadius: 4, yRadius: 4)
+            path.fill()
         }
     }
 

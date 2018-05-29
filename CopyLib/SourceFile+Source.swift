@@ -25,7 +25,7 @@ extension SourceFile {
             ?? License(name: "", content: nil)
 
         let content = (license.content ?? "")
-        return NSAttributedString(string: content, attributes: commentAttributes)
+        return NSAttributedString(string: content, attributes: type(of: self).commentAttributes)
     }
 
     @objc dynamic public var resolvedSource: NSAttributedString? {

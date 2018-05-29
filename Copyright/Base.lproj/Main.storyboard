@@ -4,7 +4,6 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
@@ -464,7 +463,7 @@ CA
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Copyright" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Copy_Right" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -473,7 +472,7 @@ CA
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController storyboardIdentifier="WindowController" id="B8D-0N-5wS" customClass="WindowController" customModule="Copyright" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="WindowController" id="B8D-0N-5wS" customClass="WindowController" customModule="Copy_Right" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="No Folder" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="window" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -607,7 +606,7 @@ CA
         <!--Split View Controller-->
         <scene sceneID="4MZ-Ve-Vqn">
             <objects>
-                <splitViewController id="U0i-Bk-79l" customClass="SplitViewController" customModule="Copyright" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="U0i-Bk-79l" customClass="SplitViewController" customModule="Copy_Right" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="Amf-lk-WoE"/>
                         <splitViewItem id="cd3-lP-1oc"/>
@@ -632,16 +631,16 @@ CA
         <!--Directory View Controller-->
         <scene sceneID="eQ6-Wb-2Dt">
             <objects>
-                <viewController id="bjg-bB-7oz" customClass="DirectoryViewController" customModule="Copyright" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bjg-bB-7oz" customClass="DirectoryViewController" customModule="Copy_Right" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="HZ2-3N-oVS">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="I49-qo-7zp">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="42"/>
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="34"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="LO9-0L-Zlh">
-                                        <rect key="frame" x="97" y="-74" width="47" height="16"/>
+                                        <rect key="frame" x="97" y="9" width="47" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="No files" id="elK-g4-8Ov">
                                             <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -664,20 +663,36 @@ CA
                                             </binding>
                                         </connections>
                                     </textField>
+                                    <progressIndicator wantsLayer="YES" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" maxValue="1" displayedWhenStopped="NO" controlSize="small" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Xrr-Dl-MiP">
+                                        <rect key="frame" x="16" y="11" width="208" height="12"/>
+                                        <connections>
+                                            <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="6rm-fE-kFB">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSIsNil</string>
+                                                </dictionary>
+                                            </binding>
+                                            <binding destination="bjg-bB-7oz" name="value" keyPath="activeProgress.fractionCompleted" id="l7S-Zh-N0T"/>
+                                        </connections>
+                                    </progressIndicator>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="LO9-0L-Zlh" firstAttribute="top" secondItem="I49-qo-7zp" secondAttribute="top" constant="100" id="3h2-gE-fsl"/>
+                                    <constraint firstItem="LO9-0L-Zlh" firstAttribute="centerY" secondItem="I49-qo-7zp" secondAttribute="centerY" id="4e4-Wg-rf6"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xrr-Dl-MiP" secondAttribute="trailing" constant="16" id="Imq-np-E7O"/>
+                                    <constraint firstItem="Xrr-Dl-MiP" firstAttribute="centerX" secondItem="I49-qo-7zp" secondAttribute="centerX" id="QpP-zG-VmC"/>
                                     <constraint firstItem="LO9-0L-Zlh" firstAttribute="centerX" secondItem="I49-qo-7zp" secondAttribute="centerX" id="Uaf-lN-B3H"/>
+                                    <constraint firstItem="Xrr-Dl-MiP" firstAttribute="centerY" secondItem="I49-qo-7zp" secondAttribute="centerY" id="WoO-vB-meG"/>
+                                    <constraint firstItem="Xrr-Dl-MiP" firstAttribute="leading" secondItem="I49-qo-7zp" secondAttribute="leading" constant="16" id="qVE-Pr-CLi"/>
+                                    <constraint firstAttribute="height" constant="34" id="uxp-YL-Ir4"/>
                                 </constraints>
                             </visualEffectView>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="25" horizontalPageScroll="10" verticalLineScroll="25" verticalPageScroll="10" usesPredominantAxisScrolling="NO" findBarPosition="belowContent" translatesAutoresizingMaskIntoConstraints="NO" id="e0N-fX-K41">
-                                <rect key="frame" x="0.0" y="42" width="240" height="292"/>
+                                <rect key="frame" x="0.0" y="34" width="240" height="300"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="g9s-KG-Ffx">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="292"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" typeSelect="NO" autosaveName="directoryList" rowHeight="22" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="14" outlineTableColumn="hA5-CG-JVj" id="8wb-hs-ECb">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="292"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="3"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -790,7 +805,7 @@ CA
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i2f-qg-Ara">
-                                <rect key="frame" x="83" y="180" width="74" height="17"/>
+                                <rect key="frame" x="83" y="176" width="74" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Importing..." id="Nl1-yD-WTj">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -804,38 +819,6 @@ CA
                                     </binding>
                                 </connections>
                             </textField>
-                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="1000" horizontalClippingResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nBl-Us-JQ5">
-                                <rect key="frame" x="4" y="4" width="232" height="34"/>
-                                <subviews>
-                                    <progressIndicator wantsLayer="YES" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" maxValue="1" displayedWhenStopped="NO" controlSize="small" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Xrr-Dl-MiP">
-                                        <rect key="frame" x="0.0" y="22" width="232" height="12"/>
-                                        <connections>
-                                            <binding destination="bjg-bB-7oz" name="hidden" keyPath="activeProgress" id="6rm-fE-kFB">
-                                                <dictionary key="options">
-                                                    <string key="NSValueTransformerName">NSIsNil</string>
-                                                </dictionary>
-                                            </binding>
-                                            <binding destination="bjg-bB-7oz" name="value" keyPath="activeProgress.fractionCompleted" id="l7S-Zh-N0T"/>
-                                        </connections>
-                                    </progressIndicator>
-                                    <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lal-GC-j1s">
-                                        <rect key="frame" x="0.0" y="0.0" width="232" height="22"/>
-                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" maximumRecents="5" recentsAutosaveName="search" id="iEY-mb-XPh">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </searchFieldCell>
-                                    </searchField>
-                                </subviews>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
-                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="e0N-fX-K41" firstAttribute="leading" secondItem="HZ2-3N-oVS" secondAttribute="leading" id="9bb-V9-b6f"/>
@@ -843,13 +826,9 @@ CA
                             <constraint firstItem="e0N-fX-K41" firstAttribute="top" secondItem="HZ2-3N-oVS" secondAttribute="top" id="FCe-T7-9lZ"/>
                             <constraint firstItem="i2f-qg-Ara" firstAttribute="centerY" secondItem="e0N-fX-K41" secondAttribute="centerY" id="IBD-9l-2DQ"/>
                             <constraint firstItem="I49-qo-7zp" firstAttribute="leading" secondItem="HZ2-3N-oVS" secondAttribute="leading" id="ICQ-Ad-3aN"/>
-                            <constraint firstItem="nBl-Us-JQ5" firstAttribute="bottom" secondItem="I49-qo-7zp" secondAttribute="bottom" constant="-4" id="LAl-9W-mhz"/>
                             <constraint firstAttribute="trailing" secondItem="e0N-fX-K41" secondAttribute="trailing" id="M0v-KL-mMp"/>
-                            <constraint firstItem="nBl-Us-JQ5" firstAttribute="top" secondItem="I49-qo-7zp" secondAttribute="top" constant="4" id="TvF-oM-NP7"/>
-                            <constraint firstItem="nBl-Us-JQ5" firstAttribute="trailing" secondItem="I49-qo-7zp" secondAttribute="trailing" constant="-4" id="W3B-Kx-Seu"/>
                             <constraint firstAttribute="trailing" secondItem="I49-qo-7zp" secondAttribute="trailing" id="hnR-6Q-Jzd"/>
                             <constraint firstAttribute="bottom" secondItem="I49-qo-7zp" secondAttribute="bottom" id="mjb-BE-1Zc"/>
-                            <constraint firstItem="nBl-Us-JQ5" firstAttribute="leading" secondItem="I49-qo-7zp" secondAttribute="leading" constant="4" id="mzT-qn-Ux8"/>
                             <constraint firstItem="I49-qo-7zp" firstAttribute="top" secondItem="e0N-fX-K41" secondAttribute="bottom" id="r17-bH-K7U"/>
                         </constraints>
                     </view>
@@ -916,18 +895,18 @@ CA
         <!--Preview View Controller-->
         <scene sceneID="v3s-Ld-VZg">
             <objects>
-                <viewController id="Pe2-W8-qxS" customClass="PreviewViewController" customModule="Copyright" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pe2-W8-qxS" customClass="PreviewViewController" customModule="Copy_Right" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="XBW-8Z-SKy">
                         <rect key="frame" x="0.0" y="0.0" width="515" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGA-aR-S5c" userLabel="Synchronized Scroll View" customClass="SynchronizedScrollView" customModule="Copyright" customModuleProvider="target">
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGA-aR-S5c" userLabel="Synchronized Scroll View" customClass="SynchronizedScrollView" customModule="Copy_Right" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="33" width="233" height="267"/>
                                 <clipView key="contentView" id="VSQ-ex-pwm">
                                     <rect key="frame" x="0.0" y="0.0" width="233" height="267"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="533-ov-4lx" customClass="SourceEditorView" customModule="Copyright" customModuleProvider="target">
+                                        <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="533-ov-4lx" customClass="SourceEditorView" customModule="Copy_Right" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="233" height="267"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -959,13 +938,13 @@ CA
                                     <outlet property="synchronizedScrollView" destination="fpy-cU-8RC" id="uQX-DV-TRv"/>
                                 </connections>
                             </scrollView>
-                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpy-cU-8RC" customClass="SynchronizedScrollView" customModule="Copyright" customModuleProvider="target">
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpy-cU-8RC" customClass="SynchronizedScrollView" customModule="Copy_Right" customModuleProvider="target">
                                 <rect key="frame" x="283" y="33" width="232" height="267"/>
                                 <clipView key="contentView" id="fOR-yr-ShF">
                                     <rect key="frame" x="0.0" y="0.0" width="232" height="267"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="1gx-Kx-sy7" customClass="SourceEditorView" customModule="Copyright" customModuleProvider="target">
+                                        <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="1gx-Kx-sy7" customClass="SourceEditorView" customModule="Copy_Right" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="232" height="267"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -996,7 +975,7 @@ CA
                                     <outlet property="synchronizedScrollView" destination="aGA-aR-S5c" id="FmL-yb-swb"/>
                                 </connections>
                             </scrollView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="buY-7y-dVj" customClass="SeparatorView" customModule="Copyright" customModuleProvider="target">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="buY-7y-dVj" customClass="SeparatorView" customModule="Copy_Right" customModuleProvider="target">
                                 <rect key="frame" x="-1" y="0.0" width="517" height="33"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wiT-uX-mdc">
@@ -1030,15 +1009,15 @@ CA
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Pqd-Mi-6YL" customClass="SeparatorView" customModule="Copyright" customModuleProvider="target">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Pqd-Mi-6YL" customClass="SeparatorView" customModule="Copy_Right" customModuleProvider="target">
                                 <rect key="frame" x="233" y="0.0" width="50" height="301"/>
                                 <subviews>
-                                    <button toolTip="Resolve File" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kpw-kG-zAc" customClass="Button" customModule="Copyright" customModuleProvider="target">
+                                    <button toolTip="Resolve File" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kpw-kG-zAc" customClass="Button" customModule="Copy_Right" customModuleProvider="target">
                                         <rect key="frame" x="6" y="152" width="38" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="wEc-qN-R8K"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="disclosure" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kKo-Qr-8Ip" customClass="ButtonCell" customModule="Copyright" customModuleProvider="target">
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="disclosure" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kKo-Qr-8Ip" customClass="ButtonCell" customModule="Copy_Right" customModuleProvider="target">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system" size="14"/>
                                             <string key="keyEquivalent">c</string>

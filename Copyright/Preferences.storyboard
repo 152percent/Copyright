@@ -282,7 +282,7 @@ CA
                     </connections>
                 </viewController>
                 <customObject id="zwM-y8-4r0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController objectClassName="CopyLib.License" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="I5f-nt-KY5" userLabel="Licenses Controller" customClass="LicensesArrayController" customModule="Copy_Right" customModuleProvider="target">
+                <arrayController objectClassName="CopyLib.License" selectsInsertedObjects="NO" automaticallyRearrangesObjects="YES" id="I5f-nt-KY5" userLabel="Licenses Controller" customClass="LicensesArrayController" customModule="Copy_Right" customModuleProvider="target">
                     <declaredKeys>
                         <string>name</string>
                         <string>content</string>
@@ -316,7 +316,6 @@ CA
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </tokenFieldCell>
                                 <connections>
-                                    <action selector="tokenFieldDidChange:" target="tHl-bL-2sU" id="aoq-ar-AHu"/>
                                     <binding destination="lVa-1I-SwL" name="value" keyPath="values.WhitelistExtensions" id="igY-Xo-guq"/>
                                     <outlet property="delegate" destination="tHl-bL-2sU" id="pcx-yd-Bu8"/>
                                 </connections>
@@ -341,7 +340,6 @@ CA
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </tokenFieldCell>
                                 <connections>
-                                    <action selector="tokenFieldDidChange:" target="tHl-bL-2sU" id="m1L-0z-qjx"/>
                                     <binding destination="lVa-1I-SwL" name="value" keyPath="values.BlacklistPaths" id="VKc-oe-PLN"/>
                                     <outlet property="delegate" destination="tHl-bL-2sU" id="Hil-DT-LhT"/>
                                 </connections>

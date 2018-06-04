@@ -14,6 +14,8 @@
      
 import Foundation
 
+#if swift(>=4.2)
+#else
 extension Bool {
 
     /// Equivalent to `someBool = !someBool`
@@ -26,3 +28,4 @@ extension Bool {
     }
 
 }
+#endif

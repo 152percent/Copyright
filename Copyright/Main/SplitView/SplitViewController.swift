@@ -17,7 +17,7 @@ import CopyLib
 
 final class SplitViewController: NSSplitViewController {
 
-    private weak var activeProgress: Progress? {
+    private var activeProgress: Progress? {
         didSet { directoryViewController.activeProgress = activeProgress }
     }
 

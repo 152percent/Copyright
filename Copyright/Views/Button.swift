@@ -27,7 +27,7 @@ public final class Button: NSButton {
         didSet { buttonCell.highlightColor = highlightColor }
     }
 
-    open override class var cellClass: Swift.AnyClass? {
+    public override class var cellClass: Swift.AnyClass? {
         get { return ButtonCell.self }
         set { /* do nothing */ }
     }

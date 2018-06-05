@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5403D9A420C5D64600813925 /* Bool+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5403D9A320C5D64600813925 /* Bool+Toggle.swift */; };
 		5404EBFF20BCBF1200BE8F26 /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5404EBFE20BCBF1200BE8F26 /* AdvancedViewController.swift */; };
 		5404EC0120BCC00A00BE8F26 /* URL+SourceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5404EC0020BCC00A00BE8F26 /* URL+SourceFile.swift */; };
 		541BB59820BAC9D2009AF63A /* TokenAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BB59720BAC9D2009AF63A /* TokenAttachment.swift */; };
@@ -83,7 +82,6 @@
 		18D8185125BBEFC9FD3236CF /* libPods-Copyright.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Copyright.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20DA6ACDD2FAAB7517BAC653 /* Pods-Copyright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Copyright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Copyright/Pods-Copyright.debug.xcconfig"; sourceTree = "<group>"; };
 		2269EB8062821A0C6C954081 /* Pods-Copyright.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Copyright.release.xcconfig"; path = "Pods/Target Support Files/Pods-Copyright/Pods-Copyright.release.xcconfig"; sourceTree = "<group>"; };
-		5403D9A320C5D64600813925 /* Bool+Toggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bool+Toggle.swift"; sourceTree = "<group>"; };
 		5404EBFE20BCBF1200BE8F26 /* AdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedViewController.swift; sourceTree = "<group>"; };
 		5404EC0020BCC00A00BE8F26 /* URL+SourceFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL+SourceFile.swift"; path = "CopyLib/URL+SourceFile.swift"; sourceTree = SOURCE_ROOT; };
 		541BB59720BAC9D2009AF63A /* TokenAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAttachment.swift; sourceTree = "<group>"; };
@@ -288,7 +286,6 @@
 				5436764E20B86ADC006C3F67 /* DirectoryResult.swift */,
 				5436765020B95647006C3F67 /* CommentsParser.swift */,
 				5404EC0020BCC00A00BE8F26 /* URL+SourceFile.swift */,
-				5403D9A320C5D64600813925 /* Bool+Toggle.swift */,
 			);
 			path = CopyLib;
 			sourceTree = "<group>";
@@ -512,7 +509,6 @@
 				5436764F20B86ADC006C3F67 /* DirectoryResult.swift in Sources */,
 				54349BD420BD3CCC00F44B0D /* SourceFile+Source.swift in Sources */,
 				548FBC8520B6C5B200672206 /* UserDefaults+App.swift in Sources */,
-				5403D9A420C5D64600813925 /* Bool+Toggle.swift in Sources */,
 				548FBC7D20B6361100672206 /* License.swift in Sources */,
 				548FBC8120B63B9500672206 /* LicenseManager.swift in Sources */,
 			);

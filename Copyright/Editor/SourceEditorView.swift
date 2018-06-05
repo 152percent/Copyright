@@ -39,7 +39,7 @@ public final class SourceEditorView: NSTextView {
         addObserver(self, forKeyPath: "textStorage", options: [.initial, .new], context: nil)
     }
 
-    //swiftlint:disable block_based_kvo
+    // swiftlint:disable block_based_kvo
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "textStorage" {
             guard let textStorage = textStorage else { return }
@@ -49,6 +49,10 @@ public final class SourceEditorView: NSTextView {
             textStorage.addLayoutManager(layout)
             layout.addTextContainer(textContainer!)
 
+            return
+        }
+
+        if keyPath == "contentInsets" {
             return
         }
 

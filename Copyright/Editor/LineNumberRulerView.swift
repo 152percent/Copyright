@@ -57,7 +57,7 @@ extension NSTextView {
         addObserver(self, forKeyPath: "string", options: [.initial, .new], context: nil)
     }
 
-    //swiftlint:disable block_based_kvo
+    // swiftlint:disable block_based_kvo
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if let object = object as? NSTextView, object == self && (keyPath == "font" || keyPath == "string") {
             lnv_invalidate()

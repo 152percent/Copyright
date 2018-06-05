@@ -39,7 +39,7 @@ public final class PreviewViewController: NSViewController {
         UserDefaults.standard.addObserver(self, forKeyPath: keyPath, options: [.new], context: nil)
     }
 
-    //swiftlint:disable block_based_kvo
+    // swiftlint:disable block_based_kvo
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         let keyPath = UserDefaults.Key.currentLicense.rawValue
 

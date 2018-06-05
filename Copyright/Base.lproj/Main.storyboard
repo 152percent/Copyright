@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14269.12"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -473,7 +472,7 @@ CA
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController storyboardIdentifier="WindowController" id="B8D-0N-5wS" customClass="WindowController" customModule="Copy_Right" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="No Folder" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="window" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
+                    <window key="window" title="No Folder" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="window" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="900" height="700"/>
@@ -559,7 +558,7 @@ CA
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="U0i-Bk-79l" kind="relationship" relationship="window.shadowedContentViewController" id="VqJ-Ym-wLo"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -576,40 +575,13 @@ CA
             </objects>
             <point key="canvasLocation" x="75" y="26"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
-            <objects>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="XfG-lQ-9wD" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="WJ8-Vt-OKb">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                                <connections>
-                                    <segue destination="U0i-Bk-79l" kind="embed" id="N1w-qf-Bse"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="WJ8-Vt-OKb" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="SU0-cp-SLL"/>
-                            <constraint firstAttribute="bottom" secondItem="WJ8-Vt-OKb" secondAttribute="bottom" id="Ty4-8c-2o9"/>
-                            <constraint firstItem="WJ8-Vt-OKb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="apI-AF-SDE"/>
-                            <constraint firstAttribute="trailing" secondItem="WJ8-Vt-OKb" secondAttribute="trailing" id="szB-kQ-CAF"/>
-                        </constraints>
-                    </view>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="75" y="655"/>
-        </scene>
         <!--Split View Controller-->
         <scene sceneID="4MZ-Ve-Vqn">
             <objects>
                 <splitViewController id="U0i-Bk-79l" customClass="SplitViewController" customModule="Copy_Right" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="Amf-lk-WoE"/>
-                        <splitViewItem id="cd3-lP-1oc"/>
+                        <splitViewItem id="cRi-Vj-izF"/>
                     </splitViewItems>
                     <splitView key="splitView" autosaveName="splitView" dividerStyle="thin" vertical="YES" id="XQO-Ol-JIG">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -621,7 +593,7 @@ CA
                     <connections>
                         <outlet property="splitView" destination="XQO-Ol-JIG" id="hG6-Yh-4Qb"/>
                         <segue destination="bjg-bB-7oz" kind="relationship" relationship="splitItems" id="rl4-Mu-5Ap"/>
-                        <segue destination="Pe2-W8-qxS" kind="relationship" relationship="splitItems" id="cBz-ZE-0Bw"/>
+                        <segue destination="Pe2-W8-qxS" kind="relationship" relationship="splitItems" id="vpL-LK-2St"/>
                     </connections>
                 </splitViewController>
                 <customObject id="yIp-SP-qa1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -698,7 +670,7 @@ CA
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" editable="NO" width="237" minWidth="40" maxWidth="1000" id="hA5-CG-JVj">
+                                                <tableColumn editable="NO" width="237" minWidth="40" maxWidth="1000" id="hA5-CG-JVj">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Source Files">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -795,11 +767,11 @@ CA
                                     </subviews>
                                     <nil key="backgroundColor"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="azo-4r-PlX">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="azo-4r-PlX">
                                     <rect key="frame" x="0.0" y="282" width="200" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="UGs-WX-Vaz">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="UGs-WX-Vaz">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -902,17 +874,18 @@ CA
                         <subviews>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGA-aR-S5c" userLabel="Synchronized Scroll View" customClass="SynchronizedScrollView" customModule="Copy_Right" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="33" width="233" height="267"/>
-                                <clipView key="contentView" id="VSQ-ex-pwm">
+                                <clipView key="contentView" drawsBackground="NO" id="VSQ-ex-pwm">
                                     <rect key="frame" x="0.0" y="0.0" width="233" height="267"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="533-ov-4lx" customClass="SourceEditorView" customModule="Copy_Right" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="233" height="267"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="233" height="267"/>
                                             <size key="maxSize" width="100000" height="10000000"/>
-                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <binding destination="rLh-v8-d13" name="attributedString" keyPath="selection.attributedSource" id="UD4-JL-tk8">
                                                     <dictionary key="options">
@@ -924,13 +897,12 @@ CA
                                             </connections>
                                         </textView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="KWU-pM-brv">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="KWU-pM-brv">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="wBd-Xh-Tfy">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="wBd-Xh-Tfy">
                                     <rect key="frame" x="-100" y="-100" width="16" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -940,17 +912,18 @@ CA
                             </scrollView>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpy-cU-8RC" customClass="SynchronizedScrollView" customModule="Copy_Right" customModuleProvider="target">
                                 <rect key="frame" x="283" y="33" width="232" height="267"/>
-                                <clipView key="contentView" id="fOR-yr-ShF">
+                                <clipView key="contentView" drawsBackground="NO" id="fOR-yr-ShF">
                                     <rect key="frame" x="0.0" y="0.0" width="232" height="267"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="1gx-Kx-sy7" customClass="SourceEditorView" customModule="Copy_Right" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="232" height="267"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="232" height="267"/>
                                             <size key="maxSize" width="100000" height="10000000"/>
-                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <binding destination="rLh-v8-d13" name="attributedString" keyPath="selection.resolvedSource" id="uA2-Jj-xWr">
                                                     <dictionary key="options">
@@ -961,13 +934,12 @@ CA
                                             </connections>
                                         </textView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="N68-KB-8ge">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="N68-KB-8ge">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="U4a-S5-2Qq">
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="U4a-S5-2Qq">
                                     <rect key="frame" x="216" y="0.0" width="16" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -979,7 +951,7 @@ CA
                                 <rect key="frame" x="-1" y="0.0" width="517" height="33"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wiT-uX-mdc">
-                                        <rect key="frame" x="97" y="9" width="42" height="16"/>
+                                        <rect key="frame" x="96" y="9" width="42" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Before" id="cHB-GJ-Cql">
                                             <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -1064,7 +1036,7 @@ CA
                                 </connections>
                             </customView>
                             <textField horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-I4-tlb">
-                                <rect key="frame" x="83" y="158" width="68" height="17"/>
+                                <rect key="frame" x="82" y="158" width="68" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No Source" id="c7Z-hT-82q">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>

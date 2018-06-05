@@ -24,6 +24,7 @@
 		543C1C2A20B70E9800F17EA9 /* SynchronizedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */; };
 		543C1C3020B7151A00F17EA9 /* SourceEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */; };
 		543C1C3420B72BAB00F17EA9 /* LineNumberRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */; };
+		5467F1D420C7252E00418B6D /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5467F1D320C7252E00418B6D /* App.storyboard */; };
 		548EB00A20BC4DEB000B5F30 /* SplitViewController+FontSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EB00920BC4DEB000B5F30 /* SplitViewController+FontSizing.swift */; };
 		548EB00C20BC4DFE000B5F30 /* SplitViewController+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EB00B20BC4DFE000B5F30 /* SplitViewController+Menu.swift */; };
 		548EB01620BC69F0000B5F30 /* indent.regex in Resources */ = {isa = PBXBuildFile; fileRef = 548EB01520BC69F0000B5F30 /* indent.regex */; };
@@ -99,6 +100,7 @@
 		543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedScrollView.swift; sourceTree = "<group>"; };
 		543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorView.swift; sourceTree = "<group>"; };
 		543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNumberRulerView.swift; sourceTree = "<group>"; };
+		5467F1D320C7252E00418B6D /* App.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
 		5483B35920C33F970095E633 /* Copy Right.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Copy Right.entitlements"; sourceTree = "<group>"; };
 		548EB00920BC4DEB000B5F30 /* SplitViewController+FontSizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitViewController+FontSizing.swift"; sourceTree = "<group>"; };
 		548EB00B20BC4DFE000B5F30 /* SplitViewController+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitViewController+Menu.swift"; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				54E9768A20B60AEA00E94AC5 /* Main.storyboard */,
+				5467F1D320C7252E00418B6D /* App.storyboard */,
 				548FBC7820B633B300672206 /* Preferences.storyboard */,
 				548FBC7720B6334300672206 /* Main */,
 				548EB00D20BC4F23000B5F30 /* App Controllers */,
@@ -415,6 +418,7 @@
 				54F11B8C20B96C140099AADE /* inline.regex in Resources */,
 				54E9768920B60AEA00E94AC5 /* Assets.xcassets in Resources */,
 				54F11B8920B96A4A0099AADE /* block.regex in Resources */,
+				5467F1D420C7252E00418B6D /* App.storyboard in Resources */,
 				548FBC7F20B63B4800672206 /* Licenses in Resources */,
 				54E9768C20B60AEA00E94AC5 /* Main.storyboard in Resources */,
 			);

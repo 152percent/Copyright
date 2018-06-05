@@ -19,14 +19,6 @@ final class WindowController: NSWindowController, NSWindowDelegate {
 
     @objc dynamic public let licenseManager = LicenseManager.shared
 
-    override func windowDidLoad() {
-        super.windowDidLoad()
-
-        window?.titleVisibility = .hidden
-        window?.contentView?.wantsLayer = true
-        window?.delegate = self
-    }
-
     func windowWillReturnUndoManager(_ window: NSWindow) -> UndoManager? {
         return UndoManager()
     }

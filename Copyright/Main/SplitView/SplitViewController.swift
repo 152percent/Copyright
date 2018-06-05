@@ -42,10 +42,14 @@ final class SplitViewController: NSSplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         minimumThicknessForInlineSidebars = 800
+    }
+
+    override func viewDidAppear() {
+        super.viewDidAppear()
 
         guard representedObject == nil else { return }
 
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
             self?.importDirectory(nil)
         }
     }

@@ -15,4 +15,4 @@
 import AppKit
 import CopyLib
 
-final class AdvancedViewController: PreferencePaneViewController, NSTokenFieldDelegate { }
+final class AdvancedViewController: PreferencePaneViewController { }

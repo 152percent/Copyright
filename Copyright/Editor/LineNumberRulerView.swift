@@ -84,7 +84,6 @@ class LineNumberRulerView: NSRulerView {
         super.init(scrollView: textView.enclosingScrollView!, orientation: NSRulerView.Orientation.verticalRuler)
         self.font = textView.font ?? NSFont.userFixedPitchFont(ofSize: NSFont.smallSystemFontSize)
         self.clientView = textView
-        
         self.ruleThickness = 40
     }
     
@@ -94,7 +93,7 @@ class LineNumberRulerView: NSRulerView {
 
     override func drawHashMarksAndLabels(in rect: NSRect) {
         // draw background
-        NSColor.white.setFill()
+        NSColor.controlBackgroundColor.setFill()
         rect.fill()
 
         if let textView = self.clientView as? NSTextView {

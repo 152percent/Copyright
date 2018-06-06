@@ -49,9 +49,9 @@ final class SplitViewController: NSSplitViewController {
 
         guard representedObject == nil else { return }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            self?.importDirectory(nil)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+//            self?.importDirectory(nil)
+//        }
     }
 
     @IBAction public func importDirectory(_ sender: Any?) {

@@ -92,13 +92,13 @@
                                 </scroller>
                             </scrollView>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="29" horizontalPageScroll="10" verticalLineScroll="29" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWv-Ex-ner">
-                                <rect key="frame" x="0.0" y="35" width="200" height="515"/>
+                                <rect key="frame" x="0.0" y="34" width="200" height="516"/>
                                 <clipView key="contentView" id="GCi-Hh-70T">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="515"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="516"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" emptySelection="NO" autosaveColumns="NO" rowHeight="27" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="EJC-D7-ndi">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="515"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="516"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -207,14 +207,6 @@
 CA
 </string>
                                         </buttonCell>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightColor">
-                                                <color key="value" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="remove:" target="h9d-jp-puw" id="lmy-Qo-I4q"/>
                                         </connections>
@@ -225,14 +217,6 @@ CA
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightColor">
-                                                <color key="value" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="seedLicenses:" target="zwM-y8-4r0" id="q4W-Nk-FAo"/>
                                         </connections>
@@ -253,10 +237,10 @@ CA
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="value" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                        <color key="value" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </customView>
@@ -270,7 +254,7 @@ CA
                             <constraint firstItem="WLc-z0-LrV" firstAttribute="leading" secondItem="tBR-1w-run" secondAttribute="trailing" id="ggU-Ds-KfP"/>
                             <constraint firstAttribute="bottom" secondItem="WLc-z0-LrV" secondAttribute="bottom" id="jiN-EC-EVj"/>
                             <constraint firstAttribute="bottom" secondItem="tBR-1w-run" secondAttribute="bottom" id="pQ0-Nl-nb5"/>
-                            <constraint firstItem="tBR-1w-run" firstAttribute="top" secondItem="aWv-Ex-ner" secondAttribute="bottom" constant="1" id="tgg-1v-uWc"/>
+                            <constraint firstItem="tBR-1w-run" firstAttribute="top" secondItem="aWv-Ex-ner" secondAttribute="bottom" id="tgg-1v-uWc"/>
                             <constraint firstItem="WLc-z0-LrV" firstAttribute="leading" secondItem="aWv-Ex-ner" secondAttribute="trailing" constant="1" id="ulc-gA-NXw"/>
                         </constraints>
                     </view>

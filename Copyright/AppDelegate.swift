@@ -20,8 +20,6 @@ import os
 final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        os_log("what is this?", type: .error)
-
         let defaultSize: CGFloat = 11
         let defaultFont: NSFont = NSFont.userFixedPitchFont(ofSize: defaultSize)
             ?? .systemFont(ofSize: defaultSize)

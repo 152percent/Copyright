@@ -14,67 +14,32 @@
    
 import AppKit
 
-//@IBDesignable
-//public final class PreferenceButton: NSButton {
-//
-//    @IBInspectable
-//    public var tintColor: NSColor? {
-//        didSet { buttonCell.tintColor = tintColor }
-//    }
-//
-//    @IBInspectable
-//    public var highlightColor: NSColor? {
-//        didSet { buttonCell.highlightColor = highlightColor }
-//    }
-//
-//    public override class var cellClass: Swift.AnyClass? {
-//        get { return PreferenceButtonCell.self }
-//        set { /* do nothing */ }
-//    }
-//
-//    private var buttonCell: PreferenceButtonCell {
-//        return cell as! PreferenceButtonCell
-//    }
-//
-//}
-//
-//public final class PreferenceButtonCell: NSButtonCell {
-//
-//    fileprivate var tintColor: NSColor?
-//    fileprivate var highlightColor: NSColor?
-//
-//    public override func highlightColor(withFrame cellFrame: NSRect, in controlView: NSView) -> NSColor? {
-//        return NSColor.highlightColor
-//    }
-//
-//    public override func drawBezel(withFrame frame: NSRect, in controlView: NSView) {
-//        let frame = frame
-//        let path = NSBezierPath(rect: frame)
-//
-//        NSColor.windowFrameColor.setStroke()
-//        path.stroke()
-//    }
-//
-//    public override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView) {
-//        let bounds = cellFrame
-//        let imageRect = self.imageRect(forBounds: bounds)
-//
-//        if isHighlighted {
-//            NSColor.selectedControlColor.setFill()
-//            image?.with(tintColor: .white).draw(in: imageRect)
-//        } else {
-//            NSColor.controlBackgroundColor.setFill()
-//            image?.draw(in: imageRect)
-//        }
-//
-//        cellFrame.fill()
-//
-//        let titleRect = self.titleRect(forBounds: cellFrame)
-//        let title = attributedTitle.mutableCopy() as! NSMutableAttributedString
-//        let range = NSRange(location: 0, length: title.length)
-//
-//        title.addAttribute(.foregroundColor, value: NSColor.labelColor, range: range)
-//        title.draw(in: titleRect.offsetBy(dx: -1, dy: -1))
-//    }
-//
-//}
+@IBDesignable
+public final class PreferenceButton: NSButton {
+
+    public override class var cellClass: Swift.AnyClass? {
+        get { return PreferenceButtonCell.self }
+        set { /* do nothing */ }
+    }
+
+    private var buttonCell: PreferenceButtonCell {
+        return cell as! PreferenceButtonCell
+    }
+
+}
+
+public final class PreferenceButtonCell: NSButtonCell {
+
+    public override func drawBezel(withFrame frame: NSRect, in controlView: NSView) {
+        if isHighlighted {
+            NSColor.highlightColor.setFill()
+        } else {
+            NSColor.clear.setFill()
+        }
+
+        frame.fill()
+        NSColor.gridColor.set()
+        frame.insetBy(dx: 0, dy: 1).frame()
+    }
+
+}

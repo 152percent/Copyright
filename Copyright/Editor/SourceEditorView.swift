@@ -68,6 +68,9 @@ public final class SourceEditorView: NSTextView {
         usesRuler = true
         usesFindBar = true
 
+        enclosingScrollView?.automaticallyAdjustsContentInsets = false
+//        enclosingScrollView?.contentInsets.bottom = 50
+//        enclosingScrollView?.contentInsets.right = enclosingScrollView?.verticalRulerView?.ruleThickness ?? 0
         lnv_setUpLineNumberView()
         invalidateText()
 

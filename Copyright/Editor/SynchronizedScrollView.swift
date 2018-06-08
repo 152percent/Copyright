@@ -62,6 +62,7 @@ public final class SynchronizedScrollView: ScrollView {
         let currentOffset = contentView.bounds.origin
         var newOffset = currentOffset
 
+        newOffset.x = changedBoundsOrigin.x
         newOffset.y = changedBoundsOrigin.y
 
         if currentOffset != changedBoundsOrigin {
@@ -77,7 +78,9 @@ public final class SynchronizedScrollView: ScrollView {
         }
 
         if contentView.documentRect.height
-            > synchronizedScrollView.contentView.documentRect.height {
+            > synchronizedScrollView.contentView.documentRect.height
+            || contentView.documentRect.width
+            > synchronizedScrollView.contentView.documentRect.width {
             super.scrollWheel(with: event)
         } else {
             synchronizedScrollView.scrollWheel(with: event)

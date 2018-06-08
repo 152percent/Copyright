@@ -45,6 +45,8 @@ extension NSTextView {
             scrollView.verticalRulerView = lineNumberView
             scrollView.hasVerticalRuler = true
             scrollView.rulersVisible = true
+
+            scrollView.contentInsets.left = lineNumberView.ruleThickness
         }
         
         postsFrameChangedNotifications = true

@@ -24,7 +24,9 @@
 		543C1C2A20B70E9800F17EA9 /* SynchronizedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */; };
 		543C1C3020B7151A00F17EA9 /* SourceEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */; };
 		543C1C3420B72BAB00F17EA9 /* LineNumberRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */; };
+		5444581820CE765300D7599A /* Notification+Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444581720CE765300D7599A /* Notification+Observer.swift */; };
 		5467F1D420C7252E00418B6D /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5467F1D320C7252E00418B6D /* App.storyboard */; };
+		54804E1720CE8E7F00F31FDA /* String+LineCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54804E1620CE8E7F00F31FDA /* String+LineCount.swift */; };
 		548EB00A20BC4DEB000B5F30 /* SplitViewController+FontSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EB00920BC4DEB000B5F30 /* SplitViewController+FontSizing.swift */; };
 		548EB00C20BC4DFE000B5F30 /* SplitViewController+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EB00B20BC4DFE000B5F30 /* SplitViewController+Menu.swift */; };
 		548EB01620BC69F0000B5F30 /* indent.regex in Resources */ = {isa = PBXBuildFile; fileRef = 548EB01520BC69F0000B5F30 /* indent.regex */; };
@@ -100,7 +102,9 @@
 		543C1C2920B70E9800F17EA9 /* SynchronizedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedScrollView.swift; sourceTree = "<group>"; };
 		543C1C2F20B7151A00F17EA9 /* SourceEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorView.swift; sourceTree = "<group>"; };
 		543C1C3320B72BAB00F17EA9 /* LineNumberRulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNumberRulerView.swift; sourceTree = "<group>"; };
+		5444581720CE765300D7599A /* Notification+Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Observer.swift"; sourceTree = "<group>"; };
 		5467F1D320C7252E00418B6D /* App.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
+		54804E1620CE8E7F00F31FDA /* String+LineCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LineCount.swift"; sourceTree = "<group>"; };
 		5483B35920C33F970095E633 /* Copy Right.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Copy Right.entitlements"; sourceTree = "<group>"; };
 		548EB00920BC4DEB000B5F30 /* SplitViewController+FontSizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitViewController+FontSizing.swift"; sourceTree = "<group>"; };
 		548EB00B20BC4DFE000B5F30 /* SplitViewController+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitViewController+Menu.swift"; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 			children = (
 				541BB5A420BB731E009AF63A /* NSImage+Drawing.swift */,
 				543C1C2520B708B500F17EA9 /* NSImage+Tint.swift */,
+				5444581720CE765300D7599A /* Notification+Observer.swift */,
+				54804E1620CE8E7F00F31FDA /* String+LineCount.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -489,6 +495,7 @@
 				548FBC8720B6C8AF00672206 /* LicenseManager+Restore.swift in Sources */,
 				543C1C3420B72BAB00F17EA9 /* LineNumberRulerView.swift in Sources */,
 				54E9768720B60AE900E94AC5 /* DirectoryViewController.swift in Sources */,
+				5444581820CE765300D7599A /* Notification+Observer.swift in Sources */,
 				543C1C2420B6FB1A00F17EA9 /* Button.swift in Sources */,
 				548EB00C20BC4DFE000B5F30 /* SplitViewController+Menu.swift in Sources */,
 				5425C1D120B7709C00617B58 /* PreferenceButton.swift in Sources */,
@@ -496,6 +503,7 @@
 				54E9768520B60AE900E94AC5 /* AppDelegate.swift in Sources */,
 				548FBC7220B6276100672206 /* SplitViewController.swift in Sources */,
 				5404EBFF20BCBF1200BE8F26 /* AdvancedViewController.swift in Sources */,
+				54804E1720CE8E7F00F31FDA /* String+LineCount.swift in Sources */,
 				541BB5A520BB731E009AF63A /* NSImage+Drawing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

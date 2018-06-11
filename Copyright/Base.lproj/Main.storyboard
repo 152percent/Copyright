@@ -335,7 +335,7 @@
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="AUW-wj-yMp"/>
                                                     <menuItem title="Reset" tag="4" keyEquivalent="0" id="rXh-Q3-jyu">
-                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                                         <connections>
                                                             <action selector="resetFontSize:" target="Ady-hI-5gd" id="Cb2-dN-8Vd"/>
                                                         </connections>
@@ -883,6 +883,7 @@ CA
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="233" height="267"/>
                                             <size key="maxSize" width="100000" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <connections>

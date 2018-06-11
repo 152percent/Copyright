@@ -43,14 +43,12 @@ public final class SynchronizedScrollView: ScrollView {
 
     private func start() {
         synchronizedScrollView.contentView.postsBoundsChangedNotifications = true
-        NotificationCenter.default.addObserver(self, selector: #selector(synchronizedScrollViewDidScroll(_:)),
-                                               name: NSView.boundsDidChangeNotification,
-                                               object: synchronizedScrollView.contentView)
+        NSView.boundsDidChangeNotification.addObserver(self, selector: #selector(synchronizedScrollViewDidScroll(_:)),
+                                                       for: synchronizedScrollView.contentView)
     }
 
     private func stop() {
-        NotificationCenter.default.removeObserver(self, name: NSView.boundsDidChangeNotification,
-                                                  object: synchronizedScrollView.contentView)
+        NSView.boundsDidChangeNotification.removeObserver(self, for: synchronizedScrollView.contentView)
     }
 
     @objc private func synchronizedScrollViewDidScroll(_ note: Notification) {

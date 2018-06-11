@@ -25,66 +25,46 @@
 
 import AppKit
 import Foundation
-import ObjectiveC
-
-var LineNumberViewAssocObjKey: UInt8 = 0
 
 extension NSTextView {
 
-    private var lineNumberView: LineNumberRulerView {
-        get { return objc_getAssociatedObject(self, &LineNumberViewAssocObjKey) as! LineNumberRulerView }
-        set { objc_setAssociatedObject(self, &LineNumberViewAssocObjKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    private var lineNumberView: LineNumberRulerView? {
+        return enclosingScrollView?.verticalRulerView as? LineNumberRulerView
     }
     
     func lnv_setUpLineNumberView() {
         font = NSFont.userFixedPitchFont(ofSize: NSFont.smallSystemFontSize)
 
         if let scrollView = enclosingScrollView {
-            lineNumberView = LineNumberRulerView(textView: self)
-            
-            scrollView.verticalRulerView = lineNumberView
-            scrollView.hasVerticalRuler = true
             scrollView.rulersVisible = true
-
-            scrollView.contentInsets.left = lineNumberView.ruleThickness
+            scrollView.hasVerticalRuler = true
+            scrollView.verticalRulerView = LineNumberRulerView(textView: self)
         }
         
         postsFrameChangedNotifications = true
 
-        NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSTextStorage.didProcessEditingNotification, object: self)
-        NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSView.frameDidChangeNotification, object: self)
-        NotificationCenter.default.addObserver(self, selector: #selector(lnv_invalidate), name: NSText.didChangeNotification, object: self)
-        
-        addObserver(self, forKeyPath: "font", options: [.initial, .new], context: nil)
-        addObserver(self, forKeyPath: "string", options: [.initial, .new], context: nil)
-    }
-
-    // swiftlint:disable block_based_kvo
-    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        if let object = object as? NSTextView, object == self && (keyPath == "font" || keyPath == "string") {
-            lnv_invalidate()
-            return
-        }
-
-        super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        NSTextStorage.didProcessEditingNotification.addObserver(self, selector: #selector(lnv_invalidate), for: self)
+        NSView.frameDidChangeNotification.addObserver(self, selector: #selector(lnv_invalidate), for: self)
+        NSText.didChangeNotification.addObserver(self, selector: #selector(lnv_invalidate), for: self)
     }
 
     @objc func lnv_invalidate() {
-        lineNumberView.needsDisplay = true
+        lineNumberView?.font = font
+        lineNumberView?.needsDisplay = true
     }
 }
 
-class LineNumberRulerView: NSRulerView {
-    
-    var font: NSFont! {
-        didSet {
-            self.needsDisplay = true
-        }
+private final class LineNumberRulerView: NSRulerView {
+
+    private let padding: CGFloat = 8
+
+    fileprivate var font: NSFont? {
+        didSet { self.needsDisplay = true }
     }
     
-    init(textView: NSTextView) {
-        super.init(scrollView: textView.enclosingScrollView!, orientation: NSRulerView.Orientation.verticalRuler)
-        self.font = textView.font ?? NSFont.userFixedPitchFont(ofSize: NSFont.smallSystemFontSize)
+    fileprivate init(textView: NSTextView) {
+        super.init(scrollView: textView.enclosingScrollView!, orientation: .verticalRuler)
+        self.font = textView.font ?? .userFixedPitchFont(ofSize: NSFont.smallSystemFontSize)
         self.clientView = textView
         self.ruleThickness = 40
     }
@@ -94,86 +74,99 @@ class LineNumberRulerView: NSRulerView {
     }
 
     override func drawHashMarksAndLabels(in rect: NSRect) {
-        // draw background
-        NSColor.controlBackgroundColor.setFill()
-        rect.fill()
-
-        if let textView = self.clientView as? NSTextView {
-            // don't draw anything if we don't have any text
-            guard (textView.textStorage?.length ?? 0) > 0 else {
-                return
-            }
-
-            if let layoutManager = textView.layoutManager {
-                
-                let relativePoint = self.convert(CGPoint.zero, from: textView)
-                let lineNumberAttributes: [NSAttributedStringKey: Any] = [.font: textView.font!, .foregroundColor: NSColor.tertiaryLabelColor] as [NSAttributedStringKey: Any]
-                
-                let drawLineNumber = { (lineNumberString: String, y: CGFloat) in
-                    let attString = NSAttributedString(string: lineNumberString, attributes: lineNumberAttributes)
-                    let x = 35 - attString.size().width
-                    attString.draw(at: NSPoint(x: x, y: relativePoint.y + y))
-                }
-                
-                let visibleGlyphRange = layoutManager.glyphRange(forBoundingRect: textView.visibleRect, in: textView.textContainer!)
-                let firstVisibleGlyphCharacterIndex = layoutManager.characterIndexForGlyph(at: visibleGlyphRange.location)
-
-                // swiftlint:disable force_try
-                let newLineRegex = try! NSRegularExpression(pattern: "\n", options: [])
-                // The line number for the first visible line
-                var lineNumber = newLineRegex.numberOfMatches(in: textView.string, options: [], range: NSRange(location: 0, length: firstVisibleGlyphCharacterIndex)) + 1
-                
-                var glyphIndexForStringLine = visibleGlyphRange.location
-                
-                // Go through each line in the string.
-                while glyphIndexForStringLine < NSMaxRange(visibleGlyphRange) {
-                    
-                    // Range of current line in the string.
-                    let characterRangeForStringLine = (textView.string as NSString).lineRange(
-                        for: NSRange(location: layoutManager.characterIndexForGlyph(at: glyphIndexForStringLine), length: 0)
-                    )
-
-                    let glyphRangeForStringLine = layoutManager.glyphRange(forCharacterRange: characterRangeForStringLine, actualCharacterRange: nil)
-                    
-                    var glyphIndexForGlyphLine = glyphIndexForStringLine
-                    var glyphsForLineCount = 0
-                    
-                    while glyphIndexForGlyphLine < NSMaxRange(glyphRangeForStringLine) {
-                        
-                        // See if the current line in the string spread across
-                        // several lines of glyphs
-                        var effectiveRange = NSRange(location: 0, length: 0)
-                        
-                        // Range of current "line of glyphs". If a line is wrapped,
-                        // then it will have more than one "line of glyphs"
-                        let lineFragmentRect = layoutManager.lineFragmentRect(forGlyphAt: glyphIndexForGlyphLine, effectiveRange: &effectiveRange, withoutAdditionalLayout: true)
-                        let yOrigin = lineFragmentRect.origin.y + 1.5
-
-                        if glyphsForLineCount > 0 {
-                            drawLineNumber(" ", yOrigin)
-                        } else {
-                            drawLineNumber("\(lineNumber)", yOrigin)
-                        }
-                        
-                        // Move to next glyph
-                        glyphsForLineCount += 1
-                        glyphIndexForGlyphLine = NSMaxRange(effectiveRange)
-                    }
-                    
-                    glyphIndexForStringLine = NSMaxRange(glyphRangeForStringLine)
-                    lineNumber += 1
-                }
-                
-                // Draw line number for the extra line at the end of the text
-                if layoutManager.extraLineFragmentTextContainer != nil {
-                    drawLineNumber("\(lineNumber)", layoutManager.extraLineFragmentRect.minY)
-                }
-            }
-        }
+        // we manually draw the background to avoid the automatic separator AppKit inserts otherwise
+        drawBackground(in: rect)
+        drawLineNumbers(in: rect)
     }
 
     override func hitTest(_ point: NSPoint) -> NSView? {
         return clientView
+    }
+
+}
+
+private extension LineNumberRulerView {
+
+    private func drawLineNumber(_ lineNumber: Int, in rect: CGRect) {
+        guard let textView = clientView as? NSTextView else { return }
+
+        var attributes = textView.typingAttributes
+        attributes[.foregroundColor] = NSColor.tertiaryLabelColor
+
+        let string = NSAttributedString(string: "\(lineNumber)", attributes: attributes)
+
+        let x = ruleThickness - padding - string.size().width
+
+        var rect = rect
+        rect.origin.x = x
+
+        string.draw(with: rect, options: .usesLineFragmentOrigin)
+    }
+
+    func drawBackground(in rect: CGRect) {
+        NSColor.textBackgroundColor.setFill()
+        rect.fill()
+    }
+
+    func drawLineNumbers(in rect: CGRect) {
+        guard let textView = clientView as? NSTextView,
+            let layoutManager = textView.layoutManager,
+            let textContainer = textView.textContainer,
+            let textStorage = textView.textStorage,
+            textStorage.length > 0 else { return }
+
+        let string = textView.string as NSString
+        let insetHeight = textView.textContainerInset.height
+        let relativePoint: CGPoint = convert(.zero, from: textView)
+
+        let visibleRange = layoutManager.glyphRange(forBoundingRect: textView.visibleRect, in: textContainer)
+        let firstVisibleIndex = layoutManager.characterIndexForGlyph(at: visibleRange.location)
+
+        let test = "some\nthing\n"
+        _ = test.lineCount
+        // the line number for the first visible line
+        var lineNumber = textView.string.lineCount(in: NSRange(location: 0, length: firstVisibleIndex)) + 1
+        // the line index in the visible range
+        var lineIndex = visibleRange.location
+
+        // while lineNumber is a visible line
+        while lineIndex < NSMaxRange(visibleRange) {
+            let charIndex = layoutManager.characterIndexForGlyph(at: lineIndex)
+            let charRange = string.lineRange(for: NSRange(location: charIndex, length: 0))
+            let glyphRange = layoutManager.glyphRange(forCharacterRange: charRange, actualCharacterRange: nil)
+
+            var glyphIndexForCurrentLine = lineIndex
+
+            // this will be 0 unless we're dealing with a wrapped line
+            var lineIndexForCurrentLine = 0
+
+            while glyphIndexForCurrentLine < NSMaxRange(charRange) {
+                var effectiveRange = NSRange()
+                var lineRect = layoutManager.lineFragmentRect(forGlyphAt: glyphIndexForCurrentLine, effectiveRange: &effectiveRange, withoutAdditionalLayout: true)
+
+                let y = ceil(lineRect.minY + relativePoint.y + insetHeight)
+                lineRect.origin.y = y
+
+                // if this is the first line of a glyph range (i.e. not any wrapped glyphs) then draw the line number
+                if lineIndexForCurrentLine == 0 {
+                    drawLineNumber(lineNumber, in: lineRect)
+                } // else draw some other indicator, i.e. ◦
+
+                // if the line wraps, increment
+                lineIndexForCurrentLine += 1
+                glyphIndexForCurrentLine = NSMaxRange(effectiveRange)
+            }
+
+            lineNumber += 1
+            lineIndex = NSMaxRange(glyphRange)
+        }
+
+        guard layoutManager.extraLineFragmentTextContainer != nil else { return }
+
+        var lineRect = layoutManager.extraLineFragmentRect
+        let y = ceil(lineRect.minY + relativePoint.y + insetHeight)
+        lineRect.origin.y = y
+        drawLineNumber(lineNumber, in: lineRect)
     }
 
 }

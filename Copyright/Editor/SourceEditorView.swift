@@ -52,10 +52,6 @@ public final class SourceEditorView: NSTextView {
             return
         }
 
-        if keyPath == "contentInsets" {
-            return
-        }
-
         super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
     }
 
@@ -68,13 +64,12 @@ public final class SourceEditorView: NSTextView {
         usesRuler = true
         usesFindBar = true
 
-        enclosingScrollView?.automaticallyAdjustsContentInsets = false
-//        enclosingScrollView?.contentInsets.bottom = 50
-//        enclosingScrollView?.contentInsets.right = enclosingScrollView?.verticalRulerView?.ruleThickness ?? 0
-        lnv_setUpLineNumberView()
+        enclosingScrollView?.contentInsets.bottom = 50
         invalidateText()
 
         layoutManager?.defaultAttachmentScaling = .scaleProportionallyDown
+
+        lnv_setUpLineNumberView()
         enclosingScrollView?.hasVerticalRuler = UserDefaults.standard[.showLineNumbers]
     }
 
@@ -111,10 +106,9 @@ public final class SourceEditorView: NSTextView {
             scrollView.hasVerticalRuler = true
             scrollView.rulersVisible = true
 
-            NotificationCenter.default.addObserver(self, selector: #selector(didChange(_:)),
-                                                   name: NSView.frameDidChangeNotification, object: self)
-            NotificationCenter.default.addObserver(self, selector: #selector(didChange(_:)),
-                                                   name: NSText.didChangeNotification, object: self)
+            NSView.frameDidChangeNotification.addObserver(self, selector: #selector(didChange(_:)), for: self)
+            NSText.didChangeNotification.addObserver(self, selector: #selector(didChange(_:)), for: self)
+
         }
     }
 

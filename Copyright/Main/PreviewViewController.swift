@@ -38,8 +38,8 @@ public final class PreviewViewController: NSViewController {
         let keyPath = UserDefaults.Key.currentLicense.rawValue
         UserDefaults.standard.addObserver(self, forKeyPath: keyPath, options: [.new], context: nil)
 
-        sourceTextView.lnv_setUpLineNumberView()
-        destinationTextView.lnv_setUpLineNumberView()
+        sourceTextView.prepareLineNumbers()
+        destinationTextView.prepareLineNumbers()
     }
 
     // swiftlint:disable block_based_kvo

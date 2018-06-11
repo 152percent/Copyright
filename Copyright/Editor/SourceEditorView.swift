@@ -69,7 +69,7 @@ public final class SourceEditorView: NSTextView {
 
         layoutManager?.defaultAttachmentScaling = .scaleProportionallyDown
 
-        lnv_setUpLineNumberView()
+        prepareLineNumbers()
         enclosingScrollView?.hasVerticalRuler = UserDefaults.standard[.showLineNumbers]
     }
 

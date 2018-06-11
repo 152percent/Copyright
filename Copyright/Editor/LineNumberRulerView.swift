@@ -32,7 +32,7 @@ extension NSTextView {
         return enclosingScrollView?.verticalRulerView as? LineNumberRulerView
     }
     
-    func lnv_setUpLineNumberView() {
+    func prepareLineNumbers() {
         font = NSFont.userFixedPitchFont(ofSize: NSFont.smallSystemFontSize)
 
         if let scrollView = enclosingScrollView {
@@ -46,6 +46,22 @@ extension NSTextView {
         NSTextStorage.didProcessEditingNotification.addObserver(self, selector: #selector(lnv_invalidate), for: self)
         NSView.frameDidChangeNotification.addObserver(self, selector: #selector(lnv_invalidate), for: self)
         NSText.didChangeNotification.addObserver(self, selector: #selector(lnv_invalidate), for: self)
+
+        addObserver(self, forKeyPath: "font", options: [.initial, .new], context: nil)
+        addObserver(self, forKeyPath: "string", options: [.initial, .new], context: nil)
+    }
+
+    // swiftlint:disable block_based_kvo
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        if let object = object as? NSTextView, object == self && (keyPath == "font" || keyPath == "string") {
+            lnv_invalidate()
+            return
+        }
+
+        // seems to be a Mojave bug?
+        if keyPath == "contentInsets" { return }
+
+        super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
     }
 
     @objc func lnv_invalidate() {
@@ -94,13 +110,12 @@ private extension LineNumberRulerView {
         attributes[.foregroundColor] = NSColor.tertiaryLabelColor
 
         let string = NSAttributedString(string: "\(lineNumber)", attributes: attributes)
-
         let x = ruleThickness - padding - string.size().width
 
         var rect = rect
         rect.origin.x = x
 
-        string.draw(with: rect, options: .usesLineFragmentOrigin)
+        string.draw(with: rect, options: [.usesLineFragmentOrigin, .usesFontLeading])
     }
 
     func drawBackground(in rect: CGRect) {

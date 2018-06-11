@@ -479,7 +479,7 @@ CA
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="750" height="500"/>
                         <value key="minFullScreenContentSize" type="size" width="750" height="500"/>
-                        <toolbar key="toolbar" implicitIdentifier="A1B6A0A0-EFD1-4015-B8DC-977AEBDE950D" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="ajy-lW-jw2">
+                        <toolbar key="toolbar" implicitIdentifier="A1B6A0A0-EFD1-4015-B8DC-977AEBDE950D" displayMode="iconAndLabel" sizeMode="regular" id="ajy-lW-jw2">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Rmq-WS-f55"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="2QR-u3-thO"/>
@@ -547,10 +547,10 @@ CA
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="bQl-7w-o6s"/>
-                                <toolbarItem reference="2QR-u3-thO"/>
                                 <toolbarItem reference="Wyz-RX-B2e"/>
                                 <toolbarItem reference="NFb-4T-2tH"/>
+                                <toolbarItem reference="2QR-u3-thO"/>
+                                <toolbarItem reference="bQl-7w-o6s"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>

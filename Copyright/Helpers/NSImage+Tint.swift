@@ -17,8 +17,6 @@ import AppKit
 extension NSImage {
 
     public func with(tintColor: NSColor? = NSColor.selectedControlTextColor) -> NSImage {
-        guard self.isTemplate else { return self }
-
         let image = self.copy() as! NSImage
         image.lockFocus()
 

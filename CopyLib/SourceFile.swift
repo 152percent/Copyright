@@ -176,14 +176,14 @@ extension SourceFile {
 
     public static var sourceAttributes: [NSAttributedStringKey: Any] {
         return [
-            .foregroundColor: NSColor.secondaryLabelColor,
+            .foregroundColor: NSColor(red: 146/255, green: 161/255, blue: 177/255, alpha: 1),
             .font: sourceFont
         ]
     }
 
     public static var commentAttributes: [NSAttributedStringKey: Any] {
         return [
-            .foregroundColor: NSColor(red: 29/255, green: 133/255, blue: 25/255, alpha: 1),
+            .foregroundColor: NSColor(red: 80/255, green: 211/255, blue: 0/255, alpha: 1),
             .font: sourceFont
         ]
     }

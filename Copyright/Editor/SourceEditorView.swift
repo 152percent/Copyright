@@ -61,20 +61,20 @@ public final class SourceEditorView: NSTextView {
         textStorage?.delegate = self
         layoutManager?.delegate = self
 
-        usesRuler = true
-        usesFindBar = true
-
         enclosingScrollView?.contentInsets.bottom = 50
         invalidateText()
 
         layoutManager?.defaultAttachmentScaling = .scaleProportionallyDown
 
         prepareLineNumbers()
-        enclosingScrollView?.hasVerticalRuler = UserDefaults.standard[.showLineNumbers]
+        invalidateLineNumbers()
+
+        usesRuler = true
+        usesFindBar = true
     }
 
-    public func toggleLineNumbers() {
-        enclosingScrollView?.hasVerticalRuler = UserDefaults.standard[.showLineNumbers]
+    public func invalidateLineNumbers() {
+        enclosingScrollView?.rulersVisible = UserDefaults.standard[.showLineNumbers]
     }
 
     public func invalidateText() {
@@ -103,7 +103,6 @@ public final class SourceEditorView: NSTextView {
             ruler?.clientView = self
 
             scrollView.verticalRulerView = ruler
-            scrollView.hasVerticalRuler = true
             scrollView.rulersVisible = true
 
             NSView.frameDidChangeNotification.addObserver(self, selector: #selector(didChange(_:)), for: self)

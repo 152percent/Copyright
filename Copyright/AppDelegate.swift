@@ -21,11 +21,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         let defaultSize: CGFloat = 11
-        let defaultFont: NSFont = NSFont.userFixedPitchFont(ofSize: defaultSize)
+        let defaultFont = NSFont
+            .userFixedPitchFont(ofSize: defaultSize)
             ?? .systemFont(ofSize: defaultSize)
 
         UserDefaults.standard.register(defaults: [
-            .showLineNumbers: true,
+            .showLineNumbers: false,
             .fontFamily: defaultFont.familyName!,
             .fontSize: defaultSize,
             .defaultFontSize: defaultSize,

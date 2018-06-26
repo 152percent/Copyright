@@ -27,8 +27,8 @@ extension SplitViewController {
     @IBAction private func toggleLineNumbers(_ sender: Any?) {
         // todo update to use toggle() when I can ship under Swift 4.2
         UserDefaults.standard[.showLineNumbers] = !UserDefaults.standard[.showLineNumbers]
-        previewViewController.sourceTextView.toggleLineNumbers()
-        previewViewController.destinationTextView.toggleLineNumbers()
+        previewViewController.sourceTextView.invalidateLineNumbers()
+        previewViewController.destinationTextView.invalidateLineNumbers()
     }
 
     @IBAction private func showInFinder(_ sender: Any?) {

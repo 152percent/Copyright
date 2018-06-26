@@ -36,9 +36,9 @@ extension NSTextView {
         font = NSFont.userFixedPitchFont(ofSize: NSFont.smallSystemFontSize)
 
         if let scrollView = enclosingScrollView {
-            scrollView.rulersVisible = true
-            scrollView.hasVerticalRuler = true
             scrollView.verticalRulerView = LineNumberRulerView(textView: self)
+            scrollView.hasVerticalRuler = true
+            scrollView.rulersVisible = UserDefaults.standard[.showLineNumbers]
         }
         
         postsFrameChangedNotifications = true
@@ -72,6 +72,7 @@ extension NSTextView {
 
 private final class LineNumberRulerView: NSRulerView {
 
+    private weak var textView: NSTextView?
     private let padding: CGFloat = 8
 
     fileprivate var font: NSFont? {
@@ -79,7 +80,10 @@ private final class LineNumberRulerView: NSRulerView {
     }
     
     fileprivate init(textView: NSTextView) {
+        self.textView = textView
+
         super.init(scrollView: textView.enclosingScrollView!, orientation: .verticalRuler)
+
         self.font = textView.font ?? .userFixedPitchFont(ofSize: NSFont.smallSystemFontSize)
         self.clientView = textView
         self.ruleThickness = 40
@@ -119,7 +123,7 @@ private extension LineNumberRulerView {
     }
 
     func drawBackground(in rect: CGRect) {
-        NSColor.textBackgroundColor.setFill()
+        textView?.enclosingScrollView?.backgroundColor.setFill()
         rect.fill()
     }
 

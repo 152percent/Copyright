@@ -25,7 +25,7 @@ public final class SeparatorView: NSView {
     }
 
     @IBInspectable
-    public var strokeColor: NSColor? {
+    public var strokeColor: NSColor? = .clear {
         didSet { setNeedsDisplay(bounds) }
     }
 

@@ -49,15 +49,8 @@ final class SplitViewController: NSSplitViewController {
 
         guard representedObject == nil else { return }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-//            self?.importDirectory(nil)
-
-            let downloads = NSSearchPathForDirectoriesInDomains(.downloadsDirectory, .userDomainMask, true).first!
-            let url = URL(fileURLWithPath: downloads)
-                .appendingPathComponent("Safari")
-                .appendingPathComponent("GatheredKit")
-
-            self?.importDirectory(at: url)
+        DispatchQueue.main.async {
+            self.importDirectory(nil)
         }
     }
 

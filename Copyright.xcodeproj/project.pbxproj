@@ -381,6 +381,7 @@
 				TargetAttributes = {
 					54E9768020B60AE900E94AC5 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 0;
@@ -392,7 +393,7 @@
 					};
 					54E9769A20B60C4400E94AC5 = {
 						CreatedOnToolsVersion = 9.3.1;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};

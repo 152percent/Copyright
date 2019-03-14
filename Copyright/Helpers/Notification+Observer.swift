@@ -20,7 +20,7 @@ public extension Notification.Name {
 
     func observeOnce(object: Any? = nil, queue: OperationQueue = .main, using handler: @escaping (Notification) -> Void) {
         var token: Any? = nil
-        token = observe(object: object, queue: queue) { note in
+        token = observe(object: object, queue: queue) { _ in
             NotificationCenter.default.removeObserver(token!)
         }
     }

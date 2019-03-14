@@ -19,6 +19,7 @@ public final class Button: NSButton {
 
     public override class var cellClass: Swift.AnyClass? {
         get { return ButtonCell.self }
+        //swiftlint:disable unused_setter_value
         set { /* do nothing */ }
     }
 

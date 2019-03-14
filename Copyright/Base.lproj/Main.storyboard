@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14269.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -451,6 +451,14 @@ CA
                                         <menuItem title="Copyright Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="LEW-dn-2PJ"/>
+                                        <menuItem title="What's New in Copyright?" id="OQ4-hu-BYL">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showHelp:" target="Ady-hI-5gd" id="iq3-hj-2k4"/>
+                                                <segue destination="emx-iJ-9y0" kind="modal" id="Kd2-4w-moI"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -1158,8 +1166,47 @@ CA
             </objects>
             <point key="canvasLocation" x="75" y="-446"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="lVV-Ze-iwP">
+            <objects>
+                <viewController id="emx-iJ-9y0" sceneMemberID="viewController">
+                    <view key="view" id="MFA-FG-x5n">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5fI-ZC-Jjp">
+                                <rect key="frame" x="20" y="216" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="0y9-5y-1eg"/>
+                                    <constraint firstAttribute="height" constant="64" id="4Ek-Bi-a1b"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Logo" id="jdK-Su-QyR"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GGb-7q-gre">
+                                <rect key="frame" x="102" y="235" width="114" height="27"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="CopyRight" id="One-a3-qoh">
+                                    <font key="font" metaFont="systemBold" size="22"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GGb-7q-gre" firstAttribute="centerY" secondItem="5fI-ZC-Jjp" secondAttribute="centerY" id="75X-4U-uoL"/>
+                            <constraint firstItem="5fI-ZC-Jjp" firstAttribute="leading" secondItem="MFA-FG-x5n" secondAttribute="leading" constant="20" id="92s-XF-DjM"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GGb-7q-gre" secondAttribute="trailing" constant="20" id="TXC-gU-3aw"/>
+                            <constraint firstItem="GGb-7q-gre" firstAttribute="leading" secondItem="5fI-ZC-Jjp" secondAttribute="trailing" constant="20" id="hKh-Bt-FTJ"/>
+                            <constraint firstItem="5fI-ZC-Jjp" firstAttribute="top" secondItem="MFA-FG-x5n" secondAttribute="top" constant="20" id="u3U-Ri-sSz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="PIc-Cj-Ihb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="870" y="-318"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="512" height="512"/>
         <image name="disclosure" width="14" height="8"/>
         <image name="folder" width="100" height="100"/>
         <image name="sidebar" width="19" height="19"/>

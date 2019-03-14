@@ -487,7 +487,7 @@ CA
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="750" height="500"/>
                         <value key="minFullScreenContentSize" type="size" width="750" height="500"/>
-                        <toolbar key="toolbar" implicitIdentifier="A1B6A0A0-EFD1-4015-B8DC-977AEBDE950D" displayMode="iconAndLabel" sizeMode="regular" id="ajy-lW-jw2">
+                        <toolbar key="toolbar" implicitIdentifier="A1B6A0A0-EFD1-4015-B8DC-977AEBDE950D" explicitIdentifier="toolbar" displayMode="iconAndLabel" sizeMode="regular" id="ajy-lW-jw2">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Rmq-WS-f55"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="2QR-u3-thO"/>
@@ -518,7 +518,7 @@ CA
                                         </connections>
                                     </popUpButton>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="0E51E718-880E-4FD5-B45F-7CF2D9EB682A" label="Update Licenses" paletteLabel="Update Licenses" toolTip="Update Licenses" image="update" id="Wyz-RX-B2e">
+                                <toolbarItem implicitItemIdentifier="0E51E718-880E-4FD5-B45F-7CF2D9EB682A" explicitItemIdentifier="update_license" label="Update Licenses" paletteLabel="Update Licenses" toolTip="Update Licenses" image="update" id="Wyz-RX-B2e">
                                     <size key="minSize" width="35" height="28"/>
                                     <size key="maxSize" width="35" height="32"/>
                                     <button key="view" verticalHuggingPriority="750" id="LBh-ns-eLt">
@@ -535,7 +535,7 @@ CA
                                         </connections>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="6EBF49CC-3E21-4037-B278-7624992109C0" label="Show Sidebar" paletteLabel="Show Sidebar" image="sidebar" id="bQl-7w-o6s">
+                                <toolbarItem implicitItemIdentifier="6EBF49CC-3E21-4037-B278-7624992109C0" explicitItemIdentifier="show_sidebar" label="Show Sidebar" paletteLabel="Show Sidebar" image="sidebar" id="bQl-7w-o6s">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="35" height="25"/>
                                     <size key="maxSize" width="35" height="25"/>
@@ -1197,11 +1197,11 @@ CA
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" findStyle="bar" allowsCharacterPickerTouchBarItem="NO" allowsDocumentBackgroundColorChange="YES" textCompletion="NO" id="cVE-k8-8Ju">
-                                            <rect key="frame" x="0.0" y="0.0" width="286" height="71"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="91"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.9941860465116279" green="0.98837209302325579" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <size key="minSize" width="286" height="57"/>
+                                            <size key="minSize" width="286" height="91"/>
                                             <size key="maxSize" width="326" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment>
@@ -1219,46 +1219,7 @@ CA
                                                     <attributes>
                                                         <color key="NSColor" red="0.9941860465116279" green="0.98837209302325579" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="28">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="56">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="84">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="112">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="140">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="168">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="196">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="224">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="252">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="280">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="308">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="336">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>

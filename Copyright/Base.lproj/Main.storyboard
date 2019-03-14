@@ -1171,11 +1171,11 @@ CA
             <objects>
                 <viewController id="emx-iJ-9y0" sceneMemberID="viewController">
                     <view key="view" id="MFA-FG-x5n">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="255"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="277"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5fI-ZC-Jjp">
-                                <rect key="frame" x="20" y="171" width="64" height="64"/>
+                                <rect key="frame" x="20" y="193" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="0y9-5y-1eg"/>
                                     <constraint firstAttribute="height" constant="64" id="4Ek-Bi-a1b"/>
@@ -1183,7 +1183,7 @@ CA
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Logo" id="jdK-Su-QyR"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="GGb-7q-gre">
-                                <rect key="frame" x="102" y="190" width="118" height="27"/>
+                                <rect key="frame" x="102" y="212" width="118" height="27"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="CopyRight" id="One-a3-qoh">
                                     <font key="font" metaFont="systemHeavy" size="22"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1191,17 +1191,17 @@ CA
                                 </textFieldCell>
                             </textField>
                             <scrollView appearanceType="aqua" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiF-EJ-uml">
-                                <rect key="frame" x="104" y="60" width="286" height="91"/>
+                                <rect key="frame" x="104" y="40" width="286" height="133"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="J5a-yd-SaO">
-                                    <rect key="frame" x="0.0" y="0.0" width="286" height="91"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="133"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" findStyle="bar" allowsCharacterPickerTouchBarItem="NO" allowsDocumentBackgroundColorChange="YES" textCompletion="NO" id="cVE-k8-8Ju">
-                                            <rect key="frame" x="0.0" y="0.0" width="286" height="91"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="133"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.9941860465116279" green="0.98837209302325579" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <size key="minSize" width="286" height="91"/>
+                                            <size key="minSize" width="286" height="133"/>
                                             <size key="maxSize" width="326" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment>
@@ -1215,11 +1215,58 @@ CA
                                                 </fragment>
                                                 <fragment>
                                                     <string key="content">• User defined licenses
-• Now supports Dark Mode</string>
+• Now supports Dark Mode
+</string>
                                                     <attributes>
                                                         <color key="NSColor" red="0.9941860465116279" green="0.98837209302325579" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="• Toolbar now saves your settings">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.99419000000000002" green="0.98836999999999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                            <tabStops>
+                                                                <textTab alignment="left" location="28">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="56">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="84">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="112">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="140">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="168">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="196">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="224">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="252">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="280">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="308">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="336">
+                                                                    <options/>
+                                                                </textTab>
+                                                            </tabStops>
+                                                        </paragraphStyle>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -1229,7 +1276,7 @@ CA
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </clipView>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="wgT-5R-QS5">
-                                    <rect key="frame" x="270" y="0.0" width="16" height="91"/>
+                                    <rect key="frame" x="270" y="0.0" width="16" height="133"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1237,7 +1284,7 @@ CA
                         <constraints>
                             <constraint firstItem="GGb-7q-gre" firstAttribute="centerY" secondItem="5fI-ZC-Jjp" secondAttribute="centerY" id="75X-4U-uoL"/>
                             <constraint firstItem="5fI-ZC-Jjp" firstAttribute="leading" secondItem="MFA-FG-x5n" secondAttribute="leading" constant="20" id="92s-XF-DjM"/>
-                            <constraint firstAttribute="bottom" secondItem="XiF-EJ-uml" secondAttribute="bottom" constant="60" id="O9L-oC-jbl"/>
+                            <constraint firstAttribute="bottom" secondItem="XiF-EJ-uml" secondAttribute="bottom" constant="40" id="O9L-oC-jbl"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GGb-7q-gre" secondAttribute="trailing" constant="20" id="TXC-gU-3aw"/>
                             <constraint firstItem="XiF-EJ-uml" firstAttribute="top" secondItem="5fI-ZC-Jjp" secondAttribute="bottom" constant="20" id="a93-mv-wiT"/>
                             <constraint firstItem="GGb-7q-gre" firstAttribute="leading" secondItem="5fI-ZC-Jjp" secondAttribute="trailing" constant="20" id="hKh-Bt-FTJ"/>
@@ -1249,7 +1296,7 @@ CA
                 </viewController>
                 <customObject id="PIc-Cj-Ihb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870" y="-293.5"/>
+            <point key="canvasLocation" x="870" y="-282.5"/>
         </scene>
     </scenes>
     <resources>

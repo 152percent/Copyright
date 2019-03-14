@@ -905,7 +905,6 @@ CA
                                             </connections>
                                         </textView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.12156862745098039" green="0.12156862745098039" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="KWU-pM-brv">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
@@ -943,7 +942,6 @@ CA
                                             </connections>
                                         </textView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.12156862745098039" green="0.12156862745098039" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="N68-KB-8ge">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
@@ -984,7 +982,7 @@ CA
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" red="0.16078431369999999" green="0.16078431369999999" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </customView>
@@ -1024,7 +1022,7 @@ CA
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" red="0.16078431372549018" green="0.16078431372549018" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
